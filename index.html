@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>פתק · מדריך הבוחר לבחירות 2026</title>
+<meta name="description" content="מדריך פתוח למפת הפוליטית בישראל לקראת הבחירות לכנסת ה-26 ב-27 באוקטובר 2026: מפלגות, מצעים, אנשים, פריימריז וסקרים — עם תאריכים ומקורות.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;800&family=Frank+Ruhl+Libre:wght@500;700;900&family=Suez+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#15171B;
+  --ink-soft:#4A4F58;
+  --ink-faint:#878D97;
+  --paper:#E7E9E3;
+  --paper-deep:#DADCD4;
+  --slip:#FDFDFB;
+  --seal:#1F4E9C;
+  --stamp:#A6362C;
+  --rule:#C6C9C0;
+
+  --bloc-a:#8A6234;   /* גוש נתניהו */
+  --bloc-b:#1F4E9C;   /* הגוש המתנגד */
+  --bloc-c:#2C7A68;   /* מפלגות ערביות */
+  --bloc-d:#6B7280;   /* מחוץ / על הגבול */
+
+  --max:1120px;
+  --r:3px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:'Assistant',system-ui,sans-serif;font-size:17px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(rgba(0,0,0,.022) 1px,transparent 1px);
+  background-size:3px 3px;
+}
+h1,h2,h3,h4{font-family:'Frank Ruhl Libre',Georgia,serif;font-weight:700;line-height:1.15;margin:0}
+a{color:var(--seal)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+
+/* ---------- nav ---------- */
+nav{position:sticky;top:0;z-index:60;background:rgba(231,233,227,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+nav .wrap{display:flex;align-items:center;gap:8px;height:54px;overflow-x:auto;scrollbar-width:none}
+nav .wrap::-webkit-scrollbar{display:none}
+nav .brand{font-family:'Suez One',serif;font-size:20px;letter-spacing:.02em;margin-left:14px;white-space:nowrap}
+nav a{color:var(--ink-soft);text-decoration:none;font-size:14.5px;font-weight:600;white-space:nowrap;padding:5px 9px;border-radius:var(--r)}
+nav a:hover,nav a:focus-visible{background:var(--paper-deep);color:var(--ink)}
+
+/* ---------- hero ---------- */
+header{padding:58px 0 44px;border-bottom:1px solid var(--rule)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:.14em;color:var(--stamp);text-transform:none;margin-bottom:14px}
+h1{font-size:clamp(38px,6.4vw,68px);font-weight:900;letter-spacing:-.01em}
+h1 em{font-style:normal;display:block;font-family:'Suez One',serif;font-size:.78em;color:var(--seal);letter-spacing:-.02em}
+.lede{font-size:19px;color:var(--ink-soft);max-width:46ch;margin-top:18px}
+.count{display:flex;gap:26px;margin-top:26px;padding-top:22px;border-top:2px solid var(--ink)}
+.count b{display:block;font-family:'Suez One',serif;font-size:40px;line-height:1;color:var(--ink)}
+.count span{font-size:13px;font-weight:600;color:var(--ink-faint)}
+
+/* ballot slip fan */
+.fan{position:relative;height:280px}
+.fan .s{position:absolute;width:190px;background:var(--slip);border:1px solid #CFD2CA;
+  box-shadow:0 10px 26px rgba(20,22,26,.13);padding:16px 14px 14px;border-radius:2px}
+.fan .s .ltr{font-family:'Suez One',serif;font-size:44px;line-height:1;letter-spacing:.06em}
+.fan .s .nm{font-size:13.5px;font-weight:600;color:var(--ink-soft);margin-top:8px;border-top:1px solid var(--rule);padding-top:7px}
+.fan .s1{top:6px;right:6px;transform:rotate(-6deg)}
+.fan .s2{top:52px;right:76px;transform:rotate(3deg)}
+.fan .s3{top:112px;right:20px;transform:rotate(-2deg)}
+.fan .s4{top:168px;right:96px;transform:rotate(6deg)}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:24px}.fan{height:240px;order:-1}}
+
+/* ---------- sections ---------- */
+section{padding:56px 0;border-bottom:1px solid var(--rule)}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:8px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(26px,3.6vw,36px)}
+.sec-head .tag{font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--ink-faint);border:1px solid var(--rule);padding:3px 8px;border-radius:99px}
+.sec-sub{color:var(--ink-soft);max-width:70ch;margin:6px 0 30px}
+
+/* ---------- context cards ---------- */
+.ctx{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2px;background:var(--rule);border:1px solid var(--rule)}
+.ctx div{background:var(--paper);padding:20px}
+.ctx h4{font-size:18px;margin-bottom:6px}
+.ctx p{margin:0;font-size:15.5px;color:var(--ink-soft)}
+.ctx .when{font-size:12px;font-weight:700;color:var(--stamp);letter-spacing:.05em;display:block;margin-bottom:8px}
+
+/* ---------- poll bars ---------- */
+.polltop{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.blocbar{display:flex;height:34px;border:1px solid var(--ink);margin:6px 0 8px;overflow:hidden}
+.blocbar i{display:block;height:100%;font-style:normal}
+.bloclegend{display:flex;gap:18px;flex-wrap:wrap;font-size:13.5px;color:var(--ink-soft);margin-bottom:34px}
+.bloclegend span::before{content:"";display:inline-block;width:11px;height:11px;margin-left:6px;border-radius:2px;vertical-align:baseline}
+.lg-a::before{background:var(--bloc-a)}.lg-b::before{background:var(--bloc-b)}.lg-c::before{background:var(--bloc-c)}.lg-d::before{background:var(--bloc-d)}
+.rows{display:grid;gap:9px}
+.row{display:grid;grid-template-columns:150px 1fr 74px;align-items:center;gap:12px;font-size:15px}
+.row .nm{font-weight:600;text-align:left;direction:rtl}
+.row .tr{background:var(--paper-deep);height:20px;position:relative;border-radius:2px}
+.row .tr i{display:block;height:100%;font-style:normal;border-radius:2px}
+.row .tr b{position:absolute;inset-inline-start:0;top:0;height:100%;border-inline-start:2px dotted rgba(0,0,0,.35)}
+.row .vv{font-family:'Suez One',serif;font-size:17px;text-align:center}
+.row .vv small{font-family:'Assistant';font-size:12px;color:var(--ink-faint);display:block;font-weight:600}
+@media(max-width:620px){.row{grid-template-columns:112px 1fr 62px;font-size:14px}}
+
+/* ---------- filter ---------- */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.filters button{font-family:inherit;font-size:14px;font-weight:700;padding:7px 14px;border:1px solid var(--ink);
+  background:transparent;color:var(--ink);cursor:pointer;border-radius:99px}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.filters button:focus-visible{outline:3px solid var(--seal);outline-offset:2px}
+
+/* ---------- party slips ---------- */
+.parties{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;align-items:start}
+.party{background:var(--slip);border:1px solid #CFD2CA;box-shadow:0 4px 14px rgba(20,22,26,.07);border-radius:2px;overflow:hidden}
+.party > .top{padding:18px 18px 14px;border-bottom:2px solid var(--ink);position:relative}
+.party .bloctab{position:absolute;top:0;inset-inline-start:0;width:6px;height:100%}
+.party .ltr{font-family:'Suez One',serif;font-size:38px;line-height:1;letter-spacing:.05em}
+.party .ltr small{font-family:'Assistant';font-size:11px;font-weight:700;color:var(--ink-faint);letter-spacing:.06em;display:block;margin-bottom:2px}
+.party h3{font-size:23px;margin-top:10px}
+.party .leader{font-size:14.5px;color:var(--ink-soft);font-weight:600;margin-top:2px}
+.party .nums{display:flex;gap:22px;margin-top:14px;font-size:11.5px;color:var(--ink-faint);font-weight:700;letter-spacing:.04em}
+.party .nums b{font-family:'Suez One',serif;font-size:16px;color:var(--ink);display:block;font-weight:400;letter-spacing:0;line-height:1.25}
+.party .blocname{margin-top:12px;font-size:11.5px;font-weight:800;letter-spacing:.08em;color:var(--ink-faint)}
+.party .blocname::before{content:"◆ ";color:var(--rule)}
+.party .body{padding:16px 18px 20px}
+.party h5{font-size:12px;letter-spacing:.1em;font-weight:800;color:var(--stamp);margin:16px 0 7px;font-family:'Assistant'}
+.party h5:first-child{margin-top:0}
+.party ul{margin:0;padding-inline-start:18px;font-size:15px;color:var(--ink-soft)}
+.party ul li{margin-bottom:5px}
+.party .who{border-top:1px solid var(--rule);padding-top:10px;margin-top:10px;font-size:14.5px}
+.party .who p{margin:0 0 11px}
+.party .who strong{color:var(--ink);font-weight:800}
+.party .who em{font-style:normal;color:var(--ink-faint);font-size:13px;display:block}
+.party .src{margin-top:14px;padding-top:10px;border-top:1px dashed var(--rule);font-size:12.5px;color:var(--ink-faint)}
+details.more{margin-top:12px}
+details.more summary{cursor:pointer;font-weight:800;font-size:14px;color:var(--seal);list-style:none}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::before{content:"↓ ";font-weight:400}
+details.more[open] summary::before{content:"↑ "}
+details.more summary:focus-visible{outline:2px solid var(--seal);outline-offset:3px}
+
+/* ---------- timeline ---------- */
+.tl{border-inline-start:2px solid var(--ink);padding-inline-start:0;margin:0;list-style:none}
+.tl li{position:relative;padding:0 26px 26px 0;margin-inline-start:-1px;border-inline-start:2px solid transparent}
+.tl li::before{content:"";position:absolute;inset-inline-start:-7px;top:7px;width:12px;height:12px;background:var(--paper);border:2px solid var(--ink);border-radius:99px}
+.tl li.done::before{background:var(--ink)}
+.tl .d{font-family:'Suez One',serif;font-size:15px;color:var(--stamp);display:block}
+.tl .t{font-weight:700;font-size:17px}
+.tl .x{color:var(--ink-soft);font-size:15px}
+
+/* ---------- matcher ---------- */
+.matcher{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:start}
+@media(max-width:900px){.matcher{grid-template-columns:1fr}}
+.q{border-bottom:1px solid var(--rule);padding:14px 0}
+.q p{margin:0 0 9px;font-weight:700;font-size:16px}
+.q .opts{display:flex;gap:8px;flex-wrap:wrap}
+.q .opts button{font-family:inherit;font-size:14px;padding:7px 12px;border:1px solid var(--rule);background:var(--slip);
+  color:var(--ink-soft);cursor:pointer;border-radius:var(--r);flex:1;min-width:120px}
+.q .opts button[aria-pressed="true"]{background:var(--seal);border-color:var(--seal);color:#fff;font-weight:700}
+.q .opts button:focus-visible{outline:3px solid var(--stamp);outline-offset:2px}
+.result{position:sticky;top:74px;background:var(--slip);border:1px solid #CFD2CA;box-shadow:0 10px 26px rgba(20,22,26,.1);padding:22px}
+.result h3{font-size:20px;margin-bottom:4px}
+.result .hint{font-size:13.5px;color:var(--ink-faint);margin:0 0 16px}
+.mrow{display:grid;grid-template-columns:1fr 54px;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid var(--rule);font-size:15px}
+.mrow:last-child{border-bottom:0}
+.mrow .bar{height:6px;background:var(--paper-deep);border-radius:99px;margin-top:5px}
+.mrow .bar i{display:block;height:100%;background:var(--seal);border-radius:99px;font-style:normal}
+.mrow .pc{font-family:'Suez One',serif;text-align:center;font-size:16px}
+.warn{background:#F5EFE6;border-inline-start:4px solid var(--stamp);padding:14px 16px;font-size:14.5px;color:var(--ink-soft);margin-top:18px}
+
+/* ---------- misc ---------- */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+@media(max-width:800px){.two{grid-template-columns:1fr}}
+.kv{border-top:2px solid var(--ink)}
+.kv div{display:grid;grid-template-columns:132px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid var(--rule);font-size:15.5px}
+.kv dt{font-weight:800;color:var(--ink)}
+.kv dd{margin:0;color:var(--ink-soft)}
+footer{padding:44px 0 60px;font-size:14px;color:var(--ink-faint)}
+footer a{color:var(--ink-soft)}
+.srclist{columns:2;column-gap:34px;font-size:14px;color:var(--ink-soft)}
+@media(max-width:700px){.srclist{columns:1}}
+.srclist li{margin-bottom:7px;break-inside:avoid}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="brand">פתק</span>
+    <a href="#mazav">המצב</a>
+    <a href="#skarim">סקרים</a>
+    <a href="#miflagot">מפלגות</a>
+    <a href="#luz">לוח זמנים</a>
+    <a href="#matcher">מי מייצג אותי</a>
+    <a href="#eich">איך זה עובד</a>
+    <a href="#mekorot">מקורות</a>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">הבחירות לכנסת ה-26 · ט"ז בחשוון התשפ"ז</div>
+      <h1>27 באוקטובר<em>2026</em></h1>
+      <p class="lede">מדריך אחד לכל מי שרוצה להיכנס לקלפי ולדעת בדיוק מה הוא שם במעטפה. מי רץ, מה הם מבטיחים, מי האנשים מאחורי השם — ומאיפה הגיע כל נתון.</p>
+      <div class="count">
+        <div><b id="cdays">—</b><span>ימים לבחירות</span></div>
+        <div><b>120</b><span>מושבים בכנסת</span></div>
+        <div><b>3.25%</b><span>אחוז החסימה</span></div>
+      </div>
+    </div>
+    <div class="fan" aria-hidden="true">
+      <div class="s s1"><div class="ltr">מחל</div><div class="nm">הליכוד</div></div>
+      <div class="s s2"><div class="ltr">אמת</div><div class="nm">הדמוקרטים</div></div>
+      <div class="s s3"><div class="ltr">שס</div><div class="nm">ש"ס</div></div>
+      <div class="s s4"><div class="ltr">?</div><div class="nm">טרם נקבע</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="mazav">
+  <div class="wrap">
+    <div class="sec-head"><h2>המצב בקצרה</h2><span class="tag">עודכן 26.7.2026</span></div>
+    <p class="sec-sub">חמישה דברים שכדאי להחזיק בראש כשקוראים כל סקר וכל הצהרה בקמפיין הזה. כולם התרחשו בתוך הקדנציה הנוכחית, וכולם מגדירים את הוויכוח.</p>
+    <div class="ctx">
+      <div>
+        <span class="when">12 ביולי 2026</span>
+        <h4>בחירות במועד — לראשונה מאז 1988</h4>
+        <p>הקואליציה הודיעה בוועדת הכנסת שהבחירות יתקיימו במועד הקבוע בחוק, 27 באוקטובר. יו"ר ועדת הבחירות, השופט נעם סולברג, קבע את המועד לאחר מחלוקת פרשנית: הליכוד טען שכהונת הכנסת נמשכת עד חשוון 2027, והייעוץ המשפטי גרס ארבע שנים. הכנסת יצאה לפגרת בחירות ב-17 ביולי.</p>
+      </div>
+      <div>
+        <span class="when">28 בפברואר 2026</span>
+        <h4>מבצע "שאגת הארי" מול איראן</h4>
+        <p>ישראל וארצות הברית פתחו בתקיפה אווירית נגד איראן, ובמסגרתה חוסל המנהיג העליון עלי ח'אמנאי. ב-8 במרץ בחרה מועצת המומחים בבנו מוג'תבא ח'אמנאי כמחליף. המבצע הזניק בתחילה את הליכוד בסקרים — ומאז הוא איבד גובה.</p>
+      </div>
+      <div>
+        <span class="when">לאורך 2026</span>
+        <h4>חוק הגיוס — הסלע הגדול</h4>
+        <p>באפריל 2026 הורה בג"ץ לבטל שורת הטבות כלכליות לחייבי גיוס שאינם מתייצבים ולאכוף מעצרי עריקים. בכנסת קודמו במקביל חוק פטור וחוק שמקפיא מעצר עריקי ישיבות. זה הנושא שמפצל את הימין ומאחד חלק גדול מהאופוזיציה.</p>
+      </div>
+      <div>
+        <span class="when">מאז נובמבר 2025</span>
+        <h4>בקשת החנינה של נתניהו</h4>
+        <p>ראש הממשלה ביקש מהנשיא הרצוג חנינה שתסיים את משפטו בלי הודאה באשמה. מחלקת החנינות במשרד המשפטים הודיעה באפריל 2026 שהיא עומדת על התנגדותה. המשפט עצמו נמשך — נתניהו העיד גם במאי 2026.</p>
+      </div>
+      <div>
+        <span class="when">מ-7 באוקטובר 2023</span>
+        <h4>ועדת חקירה ממלכתית</h4>
+        <p>הדרישה להקים ועדת חקירה ממלכתית לכשל 7 באוקטובר, לעשור שקדם לו ולניהול המלחמה הפכה לקו השבר המרכזי בין הגושים. כמעט כל מפלגות האופוזיציה הפכו אותה להתחייבות מס' 1 ליום הראשון.</p>
+      </div>
+      <div>
+        <span class="when">2024–2026</span>
+        <h4>המפה נשברה ונבנתה מחדש</h4>
+        <p>המחנה הממלכתי התפרק, מפלגת העבודה ומרצ התאחדו ל"הדמוקרטים", איזנקוט פרש והקים מפלגה, בנט חזר, ולפיד ויתר על ראשות הרשימה לטובתו. שלוש מהמפלגות הגדולות בסקרים היום פשוט לא היו קיימות בבחירות הקודמות.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skarim">
+  <div class="wrap">
+    <div class="sec-head"><h2>איפה עומדים הסקרים</h2><span class="tag">21–23 ביולי 2026</span></div>
+    <p class="sec-sub">הסקר המפורט למטה הוא של חדשות 13 (מכון "המדד" — שמואל רוזנר ונח סלפקוב, בשיתוף סטט-נט, פרויקט המדגם ואסקריא), שפורסם ב-21 ביולי 2026 עם 988 משיבים וטעות דגימה של 3.5%. הקו המקווקו מסמן את התוצאה בפועל בבחירות 2022, והמספר האפור הוא הטווח שקיבלה המפלגה בכלל הסקרים בין 8 ל-23 ביולי. סקר הוא צילום רגע, לא תחזית.</p>
+
+    <div class="polltop">
+      <div>
+        <strong style="font-size:15px">מפת הגושים באותו סקר</strong>
+        <div class="blocbar" role="img" aria-label="גוש נתניהו 49 מנדטים, הגוש המתנגד 65, מפלגות ערביות 6">
+          <i style="background:var(--bloc-a);width:40.8%"></i>
+          <i style="background:var(--bloc-b);width:54.2%"></i>
+          <i style="background:var(--bloc-c);width:5%"></i>
+        </div>
+        <div class="bloclegend">
+          <span class="lg-a">גוש נתניהו — 49</span>
+          <span class="lg-b">הגוש המתנגד (כולל רע"ם) — 71</span>
+          <span class="lg-d">דרוש 61 לממשלה</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="rows" id="pollrows"></div>
+    <p style="font-size:14px;color:var(--ink-faint);margin-top:20px">שימו לב: הצבעים כאן הם קיבוץ טכני לפי הצהרות המפלגות על ישיבה עם נתניהו — לא סימון אידיאולוגי. גם ההגדרה "גוש" משתנה: יו"ר ש"ס אריה דרעי טען ביוני 2026 שיהדות התורה עשויה לחבור לגוש מתנגדי נתניהו אחרי הבחירות, ובסביבת ח"כ גפני הכחישו.</p>
+  </div>
+</section>
+
+<section id="miflagot">
+  <div class="wrap">
+    <div class="sec-head"><h2>המפלגות</h2><span class="tag">31 מקומות ברשימות נסגרים עד ספטמבר</span></div>
+    <p class="sec-sub">לכל מפלגה: אותיות הפתק (אם כבר נקבעו), מי עומד בראש, מה היא אומרת שהיא תעשה, ומי האנשים המרכזיים — כולל מאיפה הם באו. פתחו את "עוד על האנשים" לביוגרפיות. רשימות המועמדים הסופיות מוגשות לוועדת הבחירות רק בספטמבר, אז חלק מהפרטים עוד ישתנו.</p>
+    <div class="filters" id="filters"></div>
+    <div class="parties" id="parties"></div>
+  </div>
+</section>
+
+<section id="luz">
+  <div class="wrap">
+    <div class="sec-head"><h2>לוח הזמנים והפריימריז</h2><span class="tag">רצף</span></div>
+    <p class="sec-sub">כאן הסדר באמת חשוב: כל בחירה פנימית משנה את מי שאפשר להצביע לו אחר כך. נקודה מלאה = כבר קרה.</p>
+    <ul class="tl" id="timeline"></ul>
+  </div>
+</section>
+
+<section id="matcher">
+  <div class="wrap">
+    <div class="sec-head"><h2>מי מייצג אותי</h2><span class="tag">כלי עזר</span></div>
+    <p class="sec-sub">ענו על שמונה שאלות ותראו לאילו מפלגות העמדות שלכם קרובות. הדירוג מחושב מול עמדות שהמפלגות עצמן פרסמו או שקידמו בכנסת — הוא לא המלצה, והוא לא יודע כמה כל נושא חשוב לכם.</p>
+    <div class="matcher">
+      <div id="questions"></div>
+      <div class="result" id="result" aria-live="polite">
+        <h3>הפתק שלך</h3>
+        <p class="hint">ענו על לפחות שלוש שאלות כדי לראות התאמה.</p>
+        <div id="matchrows"></div>
+        <div class="warn">הכלי מתבסס על עמדות מוצהרות בנושאים בודדים. מפלגה שקרובה אליכם ב-90% מהשאלות עדיין יכולה להיות רחוקה מכם בנושא שהכי יקר לכם. תתייחסו לזה כנקודת פתיחה לבדיקה, לא כתשובה.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="eich">
+  <div class="wrap">
+    <div class="sec-head"><h2>איך זה עובד בעצם</h2></div>
+    <div class="two">
+      <div>
+        <dl class="kv">
+          <div><dt>מי בוחרים</dt><dd>רשימה אחת, לא מועמד. הכנסת נבחרת בשיטה יחסית ארצית: אחוז הקולות ≈ אחוז המושבים.</dd></div>
+          <div><dt>אחוז החסימה</dt><dd>3.25% מהקולות הכשרים — כארבעה מנדטים. רשימה שלא עוברת, כל קולותיה נמחקים.</dd></div>
+          <div><dt>עודפי קולות</dt><dd>שתי רשימות יכולות לחתום על הסכם עודפים (בדר-עופר) כדי לא לאבד שברי מנדט. זה לא איחוד, וזה לא משפיע על מי יושב עם מי.</dd></div>
+          <div><dt>מי מרכיב ממשלה</dt><dd>לא בהכרח המפלגה הגדולה. הנשיא מטיל את התפקיד על מי שלדעתו יש לו הסיכוי הטוב ביותר להרכיב קואליציה של 61.</dd></div>
+          <div><dt>מתי יודעים</dt><dd>הקלפיות נסגרות ב-22:00, מדגמים משודרים מיד — אבל הם מדגמים. התוצאה הרשמית מתפרסמת בימים שאחרי.</dd></div>
+        </dl>
+      </div>
+      <div>
+        <h3 style="font-size:21px;margin-bottom:10px">שלוש מלכודות קריאה</h3>
+        <p style="color:var(--ink-soft);font-size:15.5px"><strong>"תרחיש איחודים".</strong> חלק מהסקרים בודקים מצב היפותטי שבו מפלגות מתאחדות. המספרים שם לא ניתנים להשוואה למספרים של אותו סקר עצמו בתרחיש הרגיל — בדקו איזה מהם מצוטט.</p>
+        <p style="color:var(--ink-soft);font-size:15.5px"><strong>מפלגות על הגבול.</strong> מפלגה שמקבלת 2.9% מוצגת לפעמים כ"אפס מנדטים" ולפעמים לא מוצגת בכלל. ההבדל בין 3.1% ל-3.4% הוא ההבדל בין אפס לארבעה, ולעיתים בין גוש לגוש.</p>
+        <p style="color:var(--ink-soft);font-size:15.5px"><strong>טעות דגימה.</strong> ±3.5% על 120 מנדטים זה בערך ±4 מנדטים למפלגה גדולה. "פער של מנדט" בין שתי מפלגות הוא בפועל תיקו.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mekorot">
+  <div class="wrap">
+    <div class="sec-head"><h2>מקורות</h2><span class="tag">כל נתון בדף נבדק ב-26.7.2026</span></div>
+    <p class="sec-sub">רשימת המקורות המרכזיים. עובדות היסטוריות (שירות צבאי, תפקידי עבר, הרשעות) מבוססות על תיעוד ציבורי מוכר; אירועים מ-2024 ואילך מתוארכים בגוף הדף.</p>
+    <ul class="srclist">
+      <li>ועדת הבחירות המרכזית לכנסת ה-26 — החלטת יו"ר הוועדה בעניין מועד הבחירות</li>
+      <li>ויקיפדיה העברית / המכלול — "הבחירות לכנסת העשרים ושש" (עודכן 26.7.2026)</li>
+      <li>הארץ, מרכז הסקרים 2026 ודיווחי סקרים, 8–21 ביולי 2026</li>
+      <li>חדשות 13, סקר "המדד", 21 ביולי 2026</li>
+      <li>חדשות 12 / N12, סקרים 13 ו-20 ביולי 2026</li>
+      <li>זמן ישראל, סקר טאטיקה, 23 ביולי 2026</li>
+      <li>ynet — פריימריז הדמוקרטים, 20–21 ביולי 2026</li>
+      <li>ערוץ 7 — עשרת המועמדים בפריימריז הציונות הדתית, 22 ביולי 2026</li>
+      <li>ערוץ 14 / עכשיו 14 — לוח הזמנים לפריימריז בליכוד, 21 ביולי 2026</li>
+      <li>אתר הליכוד — תקנון פריימריז 2026 והכרזת יו"ר, נובמבר 2025</li>
+      <li>אתר "ישר! עם איזנקוט" — מטרות המפלגה והנבחרת</li>
+      <li>אתר "הדמוקרטים" — שאלות ותשובות על הפריימריז</li>
+      <li>כלכליסט ובחדרי חרדים — הכרזת האיחוד בנט–לפיד, 26 באפריל 2026</li>
+      <li>המכון הישראלי לדמוקרטיה — דפי מפלגות, מסבירון חוק הגיוס (מרץ 2026)</li>
+      <li>זו הדרך / ערב 48 — הרשימה המשותפת ובחירות בל"ד, יוני 2026</li>
+      <li>הארץ ו-ynet — בקשת החנינה של נתניהו, מרץ–אפריל 2026</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><strong>על הדף הזה.</strong> נבנה כדי לתת תמונה מסודרת, לא כדי לשכנע. ניסיתי להציג כל מפלגה כפי שהיא מציגה את עצמה, ולציין תאריך לכל נתון שיכול להשתנות. יש טעות או משהו שהתיישן? זה קורה מהר בתקופה הזאת — תצליבו מול ועדת הבחירות המרכזית ומול אתרי המפלגות לפני שאתם מסתמכים.</p>
+    <p>אין קשר לאף מפלגה, לאף מטה ולאף גוף ממשלתי.</p>
+  </div>
+</footer>
+
+<script>
+/* ============ countdown ============ */
+(function(){
+  var t=new Date(2026,9,27), n=new Date();
+  var d=Math.max(0,Math.ceil((t-n)/864e5));
+  document.getElementById('cdays').textContent=d;
+})();
+
+/* ============ poll data (Ch13 "HaMadad", 21.7.2026) ============ */
+var POLL=[
+ {n:"הליכוד",      v:21, r:"21–25", p2022:32, b:"a"},
+ {n:"ישר!",        v:21, r:"20–25", p2022:null,b:"b"},
+ {n:"ביחד",        v:14, r:"13–17", p2022:null,b:"b"},
+ {n:"הדמוקרטים",   v:11, r:"10–11", p2022:4,  b:"b"},
+ {n:"ישראל ביתנו", v:10, r:"9–10",  p2022:6,  b:"b"},
+ {n:"ש\"ס",        v:8,  r:"7–9",   p2022:11, b:"a"},
+ {n:"יהדות התורה", v:8,  r:"7–8",   p2022:7,  b:"a"},
+ {n:"עוצמה יהודית",v:7,  r:"7–10",  p2022:null,b:"a"},
+ {n:"חד\"ש–תע\"ל", v:6,  r:"5–6",   p2022:5,  b:"c"},
+ {n:"הציונות הדתית",v:5, r:"5–6",   p2022:null,b:"a"},
+ {n:"רע\"ם",       v:5,  r:"4–5",   p2022:5,  b:"c"},
+ {n:"הנדל–טרופר",  v:4,  r:"0–4",   p2022:null,b:"b"},
+ {n:"כחול לבן",    v:0,  r:"מתחת לחסימה", p2022:12, b:"d"},
+ {n:"בל\"ד",       v:0,  r:"~2%",   p2022:0,  b:"d"}
+];
+(function(){
+  var C={a:'var(--bloc-a)',b:'var(--bloc-b)',c:'var(--bloc-c)',d:'var(--bloc-d)'};
+  var max=25, h='';
+  POLL.forEach(function(p){
+    var w=(p.v/max*100).toFixed(1);
+    var mark = p.p2022!==null ? '<b style="inset-inline-start:'+(p.p2022/max*100).toFixed(1)+'%"></b>' : '';
+    h+='<div class="row"><div class="nm">'+p.n+'</div>'+
+       '<div class="tr"><i style="width:'+w+'%;background:'+C[p.b]+'"></i>'+mark+'</div>'+
+       '<div class="vv">'+(p.v||'–')+'<small>'+p.r+'</small></div></div>';
+  });
+  document.getElementById('pollrows').innerHTML=h;
+})();
+
+/* ============ parties ============ */
+var P=[
+{
+ id:'likud', ltr:'מחל', ltrNote:'אותיות הפתק', bloc:'a', blocName:'גוש נתניהו',
+ name:'הליכוד', leader:'בנימין נתניהו', seats:'32 בכנסת היוצאת', poll:'21–25',
+ tags:['ימין','קואליציה'],
+ plat:[
+  'ימין ביטחוני־לאומי, ובשנים האחרונות גם מוביל שינוי מבני במערכת המשפט (בחירת שופטים, מעמד היועמ"ש, עילת הסבירות).',
+  'ניהול הזירה מול איראן והמערכה בעזה כהישג מרכזי; התנגדות עקבית להקמת מדינה פלסטינית.',
+  'מדיניות כלכלית שוק־מוכוונת, לצד תלות קואליציונית שהובילה להגדלת תקציבי הישיבות ולחקיקת פטור מגיוס.',
+  'שמירה על שותפות עם המפלגות החרדיות והימין הדתי כתנאי להרכבת ממשלה.'
+ ],
+ prim:'ב-6 בנובמבר 2025 הוכרז נתניהו כיו"ר התנועה ומועמדה לראשות הממשלה — הוא היה המועמד היחיד. הפריימריז לרשימה נקבעו ל-4 באוגוסט, נדחו ל-17 באוגוסט 2026 אחרי שבית המשפט המחוזי מרכז הוציא ב-16 ביולי צו מניעה נגד ההצבעה על תקנון השריונים. לפי התקנון שהוצע, המקומות 3, 5, 9, 11, 15, 18, 26, 29 ו-118–120 שמורים ליו"ר. בית הדין של הליכוד דחה (26 ביולי) בקשה לאפשר ביטול הפריימריז במקרה של הסלמה ביטחונית. תוצאות סופיות צפויות ב-20 באוגוסט.',
+ who:[
+  ['בנימין נתניהו','יו"ר, ראש הממשלה','נולד ב-1949 בתל אביב, גדל בחלקו בארה"ב. שירת בסיירת מטכ"ל, נפצע בחילוץ מטוס סבנה (1972). בוגר MIT. שגריר באו"ם 1984–88, שר החוץ, שר האוצר. ראש ממשלה 1996–99, 2009–2021 ומאז דצמבר 2022 — הכהונה הארוכה בתולדות המדינה. עומד לדין מאז 2020 בתיקים 1000, 2000 ו-4000 (שוחד, מרמה והפרת אמונים); כפר באשמה. בנובמבר 2025 ביקש חנינה מהנשיא הרצוג ללא הודאה — מחלקת החנינות הודיעה באפריל 2026 שהיא מתנגדת.'],
+  ['גדעון סער','שר החוץ','לשעבר שר החינוך והפנים בליכוד, פרש ב-2020 והקים את "תקווה חדשה". רץ ב-2022 ברשימת המחנה הממלכתי, פירק אותה במרץ 2024, מיתג את סיעתו כ"הימין הממלכתי" וחזר לקואליציה בספטמבר 2024. במרץ 2025 חתם על מיזוג מלא עם הליכוד — ובבחירות האלה אנשיו רצים ברשימת הליכוד.'],
+  ['אמיר אוחנה','יו"ר הכנסת','ח"כ הגלוי הראשון בליכוד. שירת בשב"כ, עורך דין. שר המשפטים ואחר כך השר לביטחון פנים, ומ-2022 יו"ר הכנסת. שומר על מיקום גבוה במדגמי הפריימריז של התנועה.'],
+  ['יולי אדלשטיין','ח"כ','אסיר ציון בברית המועצות, עלה ב-1987. יו"ר הכנסת 2013–2020, שר הבריאות בקורונה. כיו"ר ועדת חוץ וביטחון הוביל בקדנציה הזו קו נוקשה בחוק הגיוס — ובכך התעמת חזיתית עם המפלגות החרדיות ועם ראש הממשלה.'],
+  ['בצלאל סמוטריץ\' ואיתמר בן גביר','שותפים, לא חברים','שני שרים בכירים בממשלה שרצים ברשימות נפרדות (ראו למטה). נתניהו פעל ביוני 2026 לאחד ביניהם בתמורה לשריונים בליכוד, מחשש שקולות ימין "יישרפו" מתחת לאחוז החסימה.']
+ ],
+ src:'אתר הליכוד (הכרזת יו"ר, 6.11.2025; תקנון פריימריז 26) · ynet 28.6.2026 ו-16.7.2026 · ערוץ 7, 26.7.2026 · עכשיו 14, 21.7.2026'
+},
+{
+ id:'yashar', ltr:'—', ltrNote:'אותיות טרם נקבעו', bloc:'b', blocName:'מתנגדי נתניהו',
+ name:'ישר! עם איזנקוט', leader:'גדי איזנקוט', seats:'חדשה — 0', poll:'20–25',
+ tags:['מרכז','חדשה'],
+ plat:[
+  'הקמת ועדת חקירה ממלכתית לטבח 7 באוקטובר, לעשור שקדם לו ולניהול המלחמה — התחייבות מס\' 1.',
+  'מיצוב עצמי כאלטרנטיבה "ממלכתית ומקצועית": יושרה בשירות הציבורי, החזרת גבולות בין הדרג המדיני לצבאי.',
+  'מתווה לגיוס שוויוני ולחיזוק "צבא העם", לצד חינוך ממלכתי.',
+  'ביטחון תקיף אך מקצועי; מאבק ביוקר המחיה ושיקום הפריפריה.',
+  'עמדה עקרונית: שינוי מתוך כללי המשחק הקיימים — לא מהפכה חוקתית נגדית.'
+ ],
+ prim:'אין פריימריז. הרשימה נבנית על ידי היו"ר ומייסדי המפלגה — נקודת ביקורת שהועלתה כלפיה כבר עם הקמתה בספטמבר 2025. הקמפיין הרשמי הושק ביולי 2026.',
+ who:[
+  ['גדי איזנקוט','יו"ר','נולד 1960 בטבריה. התגייס ב-1978 לגולני והגיע למפקד החטיבה. שירת 41 שנה: מזכיר צבאי לשני ראשי ממשלה, מפקד אוגדת יהודה ושומרון באינתיפאדה השנייה, ראש אגף המבצעים, אלוף פיקוד הצפון, סגן הרמטכ"ל, ומ-2015 הרמטכ"ל ה-21. מזוהה עם "דוקטרינת הדאחייה". נכנס לכנסת ב-2022 עם גנץ, כיהן כשר בקבינט המלחמה ופרש ממנו ביוני 2024 על רקע מחלוקת על ניהול המלחמה. בנו גל נהרג בעזה בדצמבר 2023; גם אחיינו מאור כהן איזנקוט נפל בקרבות. הקים את המפלגה בספטמבר 2025 והכריז על מועמדות לראשות הממשלה במאי 2026.'],
+  ['מתן כהנא','ממייסדי המפלגה','לשעבר קצין בסיירת מטכ"ל ומפקד גדוד. שר הדתות בממשלת בנט–לפיד, שם ניסה להעביר רפורמת כשרות וגיור שנתקלה בהתנגדות חרדית. איש הציונות הדתית שנמצא היום בגוש המרכז.'],
+  ['אורית פרקש הכהן','ח"כ מכהנת','עורכת דין, לשעבר יו"ר רשות החשמל ושרת המדע והתרבות. עזבה את כחול לבן ביולי 2025 והקימה סיעת יחיד כדי לא להוסיף מנדט לקואליציה. הצטרפה לישר!'],
+  ['יואב הורוביץ','ממייסדי המפלגה','לשעבר מנכ"ל משרד ראש הממשלה וראש הסגל של נתניהו — ואחת ההצטרפויות שסימנו את הכיוון של המפלגה כפנייה גם למצביעי ימין מתונים.'],
+  ['שיר סיגל','ממייסדות המפלגה','פעילה בולטת במאבק לשחרור החטופים, בתם של אביבה וקית\' סיגל שנחטפו ושרדו את השבי.'],
+  ['מנואל טרכטנברג','כלכלן','פרופסור לכלכלה, יו"ר "ועדת טרכטנברג" שהוקמה אחרי המחאה החברתית של 2011, לשעבר ח"כ במחנה הציוני וראש המכון למחקרי ביטחון לאומי.'],
+  ['יורם כהן','ביטחון','ראש שירות הביטחון הכללי לשעבר. הצטרפותו פורסמה במאי 2026.'],
+  ['טל רוסו','ביטחון','אלוף במילואים, לשעבר אלוף פיקוד הדרום וח"כ.']
+ ],
+ src:'אתר "ישר! עם איזנקוט" · הארץ 16.9.2025 · כאן חדשות 16.9.2025 · מעריב 30.6.2026 · הארץ 9.7.2026'
+},
+{
+ id:'beyachad', ltr:'—', ltrNote:'אותיות טרם נקבעו', bloc:'b', blocName:'מתנגדי נתניהו',
+ name:'ביחד', leader:'נפתלי בנט (יאיר לפיד מס\' 2 או 3)', seats:'24 בכנסת היוצאת (יש עתיד)', poll:'13–17',
+ tags:['מרכז','חדשה'],
+ plat:[
+  'ועדת חקירה ממלכתית ל-7 באוקטובר "ביום הראשון" — כפי שהוצהר בהכרזת האיחוד.',
+  'מיזוג של ימין ליברלי (בנט) עם מרכז חילוני־ליברלי (לפיד): ניסיון להרכיב רוב מהמרכז ומהימין הרך במקום להישען על הקצוות.',
+  'שיקום הממשל והמינהל אחרי המלחמה, החזרת סדרי עבודה תקינים בממשלה ("ממשלה של אנחנו ולא של אני").',
+  'התנגדות לחקיקת פטור גורף מגיוס, לצד ניסיון להימנע מקרע חזיתי עם הציבור החרדי.',
+  'שמירה על עצמאות מערכת המשפט מול מהלכי החקיקה של הקדנציה הנוכחית.'
+ ],
+ prim:'אין פריימריז ציבוריים — הרשימה נקבעת בהסכם בין השניים. לפי דיווחי כאן ומעריב מ-28 באפריל 2026, לפיד אמור לקבל יותר מ-10 מתוך 24 המקומות הראשונים, והודיע שהוא מוכן לרדת גם למקום השלישי אם יתאפשר איחוד רחב יותר עם איזנקוט.',
+ who:[
+  ['נפתלי בנט','יו"ר','נולד 1972 בחיפה. לוחם ומפקד בסיירת מטכ"ל ובמגלן. יזם הייטק — מכר את חברת Cyota ב-2005. ראש מטה נתניהו, מנכ"ל מועצת יש"ע, ומ-2013 יו"ר "הבית היהודי". שר הכלכלה, החינוך והביטחון. ראש הממשלה ביוני 2021 – יוני 2022 בממשלת השינוי, עם 6 מנדטים בלבד. פרש מהפוליטיקה, וב-1 באפריל 2025 הקים את "בנט 2026".'],
+  ['יאיר לפיד','מס\' 2','נולד 1963, בנו של הפוליטיקאי והעיתונאי טומי לפיד. עיתונאי, מגיש ומחבר ספרים; הקים את "יש עתיד" ב-2012 והפך אותה למפלגה השנייה בגודלה כבר בבחירות הראשונות שלה. שר האוצר, שר החוץ, ראש הממשלה ביולי–דצמבר 2022 ואחר כך ראש האופוזיציה. נבחר מחדש לראשות יש עתיד ב-28 במרץ 2024 בהפרש של 29 קולות בלבד מול רם בן ברק. ויתר על ראשות הרשימה המשותפת: "שם את האגו בצד".'],
+  ['קרן טרנר אייל','מצטרפת','לשעבר מנכ"לית משרד התחבורה — פרופיל של ביצועיסטית מהשירות הציבורי, ואחת מההצטרפויות הראשונות שבנט חשף (12 באפריל 2026).'],
+  ['לירן אבישר בן-חורין','מצטרפת','לשעבר מנכ"לית משרד התקשורת ובכירה במשרד הביטחון.'],
+  ['רם בן ברק','יש עתיד','לשעבר סגן ראש המוסד ומנכ"ל המשרד לענייני מודיעין; יו"ר ועדת חוץ וביטחון. התמודד מול לפיד על ראשות המפלגה ב-2024 והפסיד בקושי.'],
+  ['קרין אלהרר, מיקי לוי ואחרים','יש עתיד','הליבה הפרלמנטרית של יש עתיד — אלהרר כיהנה כשרת האנרגיה, לוי כשר האוצר וכסגן יו"ר הכנסת. שיבוצם ברשימה המאוחדת ייקבע בהסכם בין בנט ללפיד.']
+ ],
+ src:'כלכליסט, בחדרי חרדים וכל רגע — 26.4.2026 · מעריב וכאן — 28.4.2026 · ynet 1.4.2025 ו-12.4.2026'
+},
+{
+ id:'democrats', ltr:'אמת', ltrNote:'אותיות הפתק', bloc:'b', blocName:'מתנגדי נתניהו',
+ name:'הדמוקרטים', leader:'יאיר גולן', seats:'4 בכנסת היוצאת', poll:'10–11',
+ tags:['שמאל'],
+ plat:[
+  'הבית של השמאל הציוני: איחוד מפלגת העבודה ומרצ (30 ביוני 2024) למפלגה אחת שמשתמשת במילה "שמאל" בגאווה.',
+  'הגנה על הדמוקרטיה ועל עצמאות בתי המשפט; ביטול חקיקת ההפיכה המשטרית.',
+  'ועדת חקירה ממלכתית ל-7 באוקטובר והחלפת ההנהגה שאחראית לו.',
+  'קידום הסדר מדיני מול הפלסטינים ועצירת ההתנחלות; חלק ממועמדי המפלגה מדברים במפורש על פינוי יישובים בהסדר עתידי.',
+  'אג\'נדה חברתית־כלכלית: חיזוק שירותים ציבוריים, זכויות עובדים, שוויון מגדרי, סביבה.',
+  'גיוס שוויוני והתנגדות חזיתית לחוקי הפטור.'
+ ],
+ prim:'הפריימריז הדיגיטליים נערכו ב-20 ביולי 2026: 112,376 בעלי זכות הצבעה, 97 אלף הצביעו — 86.2%, שיא בקנה מידה ישראלי. הרשימה נקבעה בשיטת "ריצ\'רץ\'" בין גברים לנשים, והיו"ר קיבל שני שריונים. שלושת הח"כים המכהנים שמרו על מקומם; המועמד נאור נרקיס, שנחשב לקיצוני, לא הגיע למקום ריאלי.',
+ who:[
+  ['יאיר גולן','יו"ר','נולד 1962. שירת בסיירת מטכ"ל ובצנחנים, מפקד אוגדת יהודה ושומרון, אלוף פיקוד העורף, וסגן הרמטכ"ל 2014–2017. ב-7 באוקטובר 2023 נסע בעצמו לעוטף עזה וחילץ אנשים מאזור מסיבת נובה. ח"כ מטעם מרצ 2019–2022 וסגן שר הכלכלה. נבחר לראשות מפלגת העבודה ב-28 במאי 2024 עם 95.15% מהקולות, ואיחד אותה עם מרצ.'],
+  ['נעמה לזימי','מס\' 2','ח"כ מהעבודה, מזוהה עם אג\'נדה חברתית וזכויות אדם; מהקולות הבולטים בכנסת בנושאי עוני ומדיניות רווחה.'],
+  ['גלעד קריב','מס\' 3','רב רפורמי, לשעבר מנכ"ל התנועה ליהדות מתקדמת בישראל, עורך דין. יו"ר ועדת חוקה בכנסת ה-24. מהמובילים בשיח על דת ומדינה ועל שוויון בגיוס.'],
+  ['אפרת רייטן','מס\' 4','ח"כ מהעבודה, מזוהה עם מאבקי נשים ועם המאבק על עצמאות מערכת המשפט.'],
+  ['יאיר (יאיא) פינק','מס\' 5','פעיל פוליטי ותיק במפלגת העבודה — ההפתעה של הפריימריז. הציונות הדתית תקפה אותו על מעורבות בסיוע לתושבים בחווארה ובהתנגדות להתיישבות חדשה.'],
+  ['גבי לסקי ומיכל רוזין','מקומות 6 ו-8','שתי ח"כיות לשעבר ממרצ. לסקי היא עורכת דין לזכויות אדם; רוזין הייתה מנכ"לית איגוד מרכזי הסיוע לנפגעות תקיפה מינית.'],
+  ['משה רדמן אבוטבול','מס\' 9','ממובילי המחאה נגד ההפיכה המשפטית — נציג של גל המתפקדים החדש שהגיע למפלגה מהמחאה.'],
+  ['נמרוד שפר','מס\' 11','אלוף במילואים, לשעבר ראש אגף התכנון בצה"ל. הצטרף במאי 2025; המיקום נחשב מאכזב מבחינתו.']
+ ],
+ src:'ynet 20–21.7.2026 · כאן חדשות 20.7.2026 · חרדים10 20.7.2026 · N12 28.6.2026 · מעריב 14.7.2026 · davar 28.5.2024'
+},
+{
+ id:'yb', ltr:'ל', ltrNote:'אותיות הפתק', bloc:'b', blocName:'מתנגדי נתניהו',
+ name:'ישראל ביתנו', leader:'אביגדור ליברמן', seats:'6 בכנסת היוצאת', poll:'9–10',
+ tags:['ימין','חילוני'],
+ plat:[
+  'ימין ביטחוני נצי לצד קו חילוני חד: התנגדות עקרונית לישיבה עם המפלגות החרדיות.',
+  'גיוס חובה שוויוני — הנושא שבגללו ליברמן הפיל את הקואליציה ב-2018–2019 ושהוא ממשיך לרכוב עליו.',
+  'רפורמות במעמד אישי: נישואים אזרחיים, תחבורה ציבורית בשבת, ביטול פיקוח דתי על שירותים.',
+  'מיקוד היסטורי בציבור דובר הרוסית ובעולים, ובשנים האחרונות הרחבה למצביעים חילונים מהמרכז.',
+  'קו כלכלי ליברלי; ליברמן כיהן כשר האוצר בממשלת בנט–לפיד.'
+ ],
+ prim:'המפלגה אינה מקיימת פריימריז — הרשימה נקבעת על ידי היו"ר.',
+ who:[
+  ['אביגדור ליברמן','יו"ר','נולד 1958 בקישינב שבמולדובה, עלה ב-1978. מנכ"ל הליכוד ומנכ"ל משרד ראש הממשלה תחת נתניהו, פרש והקים את ישראל ביתנו ב-1999. שר החוץ, שר הביטחון (התפטר בנובמבר 2018 במחאה על הפסקת אש בעזה) ושר האוצר 2021–2022.'],
+  ['שרון שרעבי','מצטרף','ממטה המאבק לשחרור החטופים ומהקולות הבולטים בדרישה לוועדת חקירה ממלכתית. אב שכול.'],
+  ['גיל סגל','מצטרף','לשעבר מנכ"ל יש עתיד ומנכ"ל הכנסת — מעבר מהמרכז לישראל ביתנו.'],
+  ['ראשי רשויות','מצטרפים','דוד אזולאי (מטולה), יוסי ברודני (גבעת שמואל, שעמד בראש "הבית היהודי" ב-2022), דני עטר (מועצה אזורית גלבוע, איש העבודה) ורפי בן שטרית (בית שאן), ששכל את בנו בקרב על נחל עוז. הרכב שמסמן ניסיון להתרחב מעבר לבסיס המסורתי.']
+ ],
+ src:'ישראל היום 30.3.2026 · המכלול, "הבחירות לכנסת העשרים ושש"'
+},
+{
+ id:'shas', ltr:'שס', ltrNote:'אותיות הפתק', bloc:'a', blocName:'גוש נתניהו',
+ name:'ש"ס', leader:'אריה דרעי', seats:'11 בכנסת היוצאת', poll:'7–9',
+ tags:['חרדי'],
+ plat:[
+  'ייצוג הציבור החרדי־ספרדי והמסורתי: תקציבי חינוך תורני, רשת "מעיין החינוך התורני", ותמיכה בעולם הישיבות.',
+  'הסדרת מעמד לומדי התורה בחוק — תמיכה בחוק יסוד: לימוד תורה ובחוק הפטור מגיוס.',
+  'אג\'נדה חברתית לשכבות מוחלשות ולפריפריה — מסורת שהמפלגה בנתה עליה מאז שנות ה-80.',
+  'שמירה על אופייה היהודי של המדינה בשאלות דת ומדינה, כשרות, שבת וגיור.',
+  'פרגמטיות קואליציונית: ש"ס ישבה בעבר גם בממשלות מרכז־שמאל.'
+ ],
+ prim:'אין פריימריז. הרשימה נקבעת על ידי מועצת חכמי התורה. ביוני 2026 טען דרעי בראיון שיהדות התורה עשויה לחבור אחרי הבחירות לגוש מתנגדי נתניהו — ובסביבת ח"כ גפני השיבו ש"יהדות התורה מעולם לא ישבה בממשלת שמאל".',
+ who:[
+  ['אריה דרעי','יו"ר','נולד 1959 במקנס שבמרוקו. שר הפנים בגיל 29 — הצעיר בתולדות המדינה. הורשע ב-1999 בלקיחת שוחד וריצה עונש מאסר; שב לפוליטיקה ב-2013. ב-2022 הודה בעבירות מס בהסדר טיעון והתפטר מהכנסת, וב-2023 פסל בג"ץ את מינויו לשר. ממשיך להוביל את המפלגה מחוץ לכנסת ומשמש דמות מפתח בכל מהלך קואליציוני.'],
+  ['יעקב מרגי','ח"כ בכיר','שר הרווחה בממשלה ה-37, לשעבר שר הדתות ויו"ר ועדת החינוך.'],
+  ['משה ארבל','ח"כ ושר','שר הפנים והבריאות בקדנציה הנוכחית; משפטן, מהקולות הצעירים והבולטים של המפלגה בכנסת.'],
+  ['מיכאל מלכיאלי, יואב בן צור, אוריאל בוסו','סיעה','ליבת הסיעה הפרלמנטרית — בן צור כיהן כשר העבודה ובוסו כשר הבריאות.']
+ ],
+ src:'הארץ 9.7.2026 · חדשות 13, 3.6.2026 · ויקיפדיה העברית, "מפלגת ש"ס" · המכון הישראלי לדמוקרטיה'
+},
+{
+ id:'utj', ltr:'ג', ltrNote:'אותיות הפתק', bloc:'a', blocName:'גוש נתניהו',
+ name:'יהדות התורה', leader:'יצחק גולדקנופף (אגודת ישראל) ומשה גפני (דגל התורה)', seats:'7 בכנסת היוצאת', poll:'7–8',
+ tags:['חרדי'],
+ plat:[
+  'ברית טכנית קבועה בין "אגודת ישראל" (חסידית) ל"דגל התורה" (ליטאית), עם מפתח מוסכם לחלוקת מקומות ורוטציות.',
+  'הסדרה חוקית של דחיית שירות ללומדי תורה — הנושא היחיד שהמפלגה הגדירה כתנאי להמשך ישיבה בקואליציה.',
+  'חוק יסוד: לימוד תורה. ביולי 2026 הסכימו ש"ס ויהדות התורה לצמצם אותו לסעיף הצהרתי אחד בלבד, אחרי דרישות מקוריות רחבות יותר.',
+  'תקציבי חינוך עצמאי, ישיבות וכוללים; התנגדות ללימודי ליבה כפויים.',
+  'שמירה על סטטוס קוו בענייני שבת, כשרות וגיור.'
+ ],
+ prim:'אין פריימריז. הרכב הרשימה נקבע על ידי מועצות גדולי התורה של שני האגפים.',
+ who:[
+  ['יצחק גולדקנופף','יו"ר הסיעה','נולד 1951. איש "אגודת ישראל", לשעבר יו"ר ועד הישיבות. שר הבינוי והשיכון בממשלה ה-37 — יחד עם מאיר פרוש, שני השרים הראשונים מטעם יהדות התורה בממשלה.'],
+  ['משה גפני','ראש דגל התורה','נולד 1952. ח"כ מאז 1988, מהוותיקים בבית. יו"ר ועדת הכספים לאורך קדנציות רבות — עמדת הכוח התקציבית המרכזית של הציבור החרדי.'],
+  ['מאיר פרוש','ח"כ ושר','בן למשפחה ירושלמית ותיקה, לשעבר סגן שר החינוך ושר בממשלה ה-37.'],
+  ['אורי מקלב, יעקב אשר, ישראל אייכלר','סיעה','מקלב ואשר מדגל התורה ואגודת ישראל בהתאמה, אייכלר איש חסידות בעלז ומהקולות המוכרים של המפלגה בתקשורת.']
+ ],
+ src:'הארץ 9.7.2026 · ynet 10.5.2026 · המכון הישראלי לדמוקרטיה, "יהדות התורה"'
+},
+{
+ id:'otzma', ltr:'ט', ltrNote:'אותיות הפתק', bloc:'a', blocName:'גוש נתניהו',
+ name:'עוצמה יהודית', leader:'איתמר בן גביר', seats:'6 בכנסת היוצאת', poll:'7–10',
+ tags:['ימין'],
+ plat:[
+  'ימין קיצוני: ארץ ישראל השלמה והחלת ריבונות ישראלית ביהודה ושומרון.',
+  'מדיניות "יד קשה" בביטחון פנים — חיזוק סמכויות המשטרה, הקמת המשמר הלאומי, כללי פתיחה באש מרחיבים.',
+  'עונש מוות למחבלים — החוק עבר בכנסת ב-30 במרץ 2026 ברוב של 62 מול 48.',
+  'החמרת תנאי המאסר של אסירים ביטחוניים; התנגדות עקרונית לעסקאות חטופים שכוללות שחרור מחבלים.',
+  'עידוד הגירה מרצון של פלסטינים — נושא שהמפלגה מקדמת בפומבי.'
+ ],
+ prim:'אין פריימריז. בן גביר סירב לאורך 2026 להסכמי איחוד עם הציונות הדתית, בטענה שהוא מסוגל להגיע לדו-ספרתי לבד; נתניהו לחץ לאיחוד כדי לא לאבד קולות מתחת לאחוז החסימה. נכון לסוף יולי 2026 המפלגה מתכננת ריצה עצמאית.',
+ who:[
+  ['איתמר בן גביר','יו"ר','נולד 1976 במבשרת ציון. פעיל בנוער "כך" בצעירותו; לא גויס לצה"ל. עורך דין שייצג במשך שנים פעילי ימין קיצוני. הורשע ב-2007 בהסתה לגזענות ובתמיכה בארגון טרור. נכנס לכנסת ב-2021 במקום השלישי ברשימת הציונות הדתית, ומדצמבר 2022 השר לביטחון לאומי. פרש מהקואליציה בינואר 2025 במחאה על עסקת החטופים וחזר במרץ 2025.'],
+  ['יצחק וסרלאוף','שר','שר הנגב, הגליל והחוסן הלאומי; מהמקורבים הוותיקים של בן גביר.'],
+  ['עמיחי אליהו','שר','שר המורשת, בנו של הרב שמואל אליהו. מזוהה עם אמירות קיצוניות שעוררו סערות בינלאומיות.'],
+  ['צביקה פוגל ולימור סון הר-מלך','ח"כים','פוגל — תת-אלוף במילואים, לשעבר מפקד אוגדת עזה, יו"ר הוועדה לביטחון לאומי. סון הר-מלך — אלמנת פיגוע, פעילת התיישבות.'],
+  ['יצחק קרויזר','יו"ר הסיעה','מנהל את העבודה הפרלמנטרית של המפלגה.']
+ ],
+ src:'ויקיפדיה העברית, "עוצמה יהודית" (עודכן 24.5.2026) · המכון הישראלי לדמוקרטיה · N12 9.6.2026 · זמן ישראל 11.3.2026 · Knesset, חוק עונש מוות למחבלים 30.3.2026'
+},
+{
+ id:'rz', ltr:'ב', ltrNote:'אותיות הפתק', bloc:'a', blocName:'גוש נתניהו',
+ name:'הציונות הדתית', leader:'בצלאל סמוטריץ\'', seats:'7 בכנסת היוצאת', poll:'5–6 · על הגבול',
+ tags:['ימין','דתי'],
+ plat:[
+  'ימין דתי-לאומי: התיישבות, ריבונות ביהודה ושומרון, התנגדות למדינה פלסטינית.',
+  'חיזוק אופייה היהודי של המדינה בחקיקה ובחינוך.',
+  'שינוי מבני במערכת המשפט — סמוטריץ\' וח"כ שמחה רוטמן היו מהאדריכלים המרכזיים של תוכנית 2023.',
+  'ניהול תקציבי שמרני לצד העברת משאבים משמעותיים להתיישבות — סמוטריץ\' כיהן כשר האוצר וכשר במשרד הביטחון.',
+  'ב-2023 התאחדה עם "הבית היהודי", אך ביוני 2026 פורסם שחברי מרכז הבית היהודי טרם צורפו בפועל למרכז המפלגה.'
+ ],
+ prim:'בספטמבר 2025 ביטל מרכז המפלגה בהוראת שעה את הפריימריז והעביר את בחירת הרשימה למרכז, על רקע סקרים חלשים; במקביל נקבע שסמוטריץ\' יהיה ראש הרשימה. בסוף יולי 2026 נקבעו בכל זאת בחירות מקדימות ל-26 ביולי, עם עשרה מתמודדים: הח"כים אוהד טל, צבי סוכות, מיכל וולדיגר, אורית סטרוק ושמחה רוטמן, לצד איתן תם, הרב שמואל ששון, צביקה וישנגרד, עומר רחמים ונתן זאובמן. צביקה מור שוריין ברשימה.',
+ who:[
+  ['בצלאל סמוטריץ\'','יו"ר','נולד 1980 בבית אל. עורך דין. נעצר ב-2005 על ידי השב"כ בחשד לתכנון הפרות סדר נגד ההתנתקות ושוחרר ללא כתב אישום. ח"כ מ-2015, שר התחבורה 2019–2020, ומ-2022 שר האוצר ושר במשרד הביטחון האחראי על המנהל האזרחי — שילוב סמכויות חסר תקדים.'],
+  ['אורית סטרוק','שרה','מוותיקות ההתיישבות בחברון, מייסדת "ארגון זכויות האדם ביהודה ושומרון". שרת המשימות הלאומיות האחראית על ההתיישבות.'],
+  ['שמחה רוטמן','ח"כ','עורך דין, יו"ר ועדת החוקה בכנסת ה-25 והדמות הפרלמנטרית שהובילה את חקיקת הרפורמה המשפטית ב-2023.'],
+  ['אופיר סופר','שר','שר העלייה והקליטה; הגיע במקור מהליכוד ועבר לרשימה ב-2021.'],
+  ['צבי סוכות','ח"כ','לשעבר מנכ"ל עוצמה יהודית של בן גביר, עבר לציונות הדתית ב-2022. מוקד ביקורת בשל אמירות בנושא סמכויות אכיפה ביו"ש.'],
+  ['צביקה מור','משורין','ממובילי "פורום גבורה" של משפחות חטופים שהתנגדו לעסקאות שחרור. בנו איתן הוחזק בשבי בעזה.']
+ ],
+ src:'ערוץ 7, 22.7.2026 · סרוגים 18.9.2025 ו-14.6.2026 · TheMarker 17.9.2025 · ויקיפדיה העברית, "הציונות הדתית (סיעה)"'
+},
+{
+ id:'joint', ltr:'ום', ltrNote:'אותיות הפתק (חד"ש–תע"ל)', bloc:'c', blocName:'המפלגות הערביות',
+ name:'הרשימה המשותפת (חד"ש–תע"ל–בל"ד)', leader:'יוסף ג\'בארין (חד"ש), אחמד טיבי (תע"ל), סאמי אבו שחאדה (בל"ד)', seats:'5 בכנסת היוצאת', poll:'5–6',
+ tags:['ערביות','שמאל'],
+ plat:[
+  'שוויון אזרחי מלא לערבים אזרחי ישראל: תקצוב, תכנון ובנייה, קרקעות, חינוך.',
+  'מאבק בפשיעה ובאלימות בחברה הערבית — הנושא שהוליד את הלחץ הציבורי לאיחוד מחדש, אחרי ההפגנה בסח\'נין בינואר 2026.',
+  'סיום הכיבוש והקמת מדינה פלסטינית לצד ישראל בגבולות 1967; חד"ש היא מפלגה יהודית-ערבית שדוגלת בשיתוף פעולה.',
+  'תע"ל — קו לאומי ערבי מתון; בל"ד — קו לאומי פלסטיני מובהק, שמסרב עקרונית לתמוך בהמלצה על מועמד ציוני לראשות הממשלה.',
+  'אג\'נדה סוציאל-דמוקרטית: זכויות עובדים, דיור ציבורי, ביטול פערים.'
+ ],
+ prim:'ב-16 במאי 2026 נבחר ד"ר יוסף ג\'בארין לראשות חד"ש והחליף את איימן עודה; אחריו ג\'עפר פרח, עופר כסיף, יוסף עטאונה, נהאיה ושאחי ואיאס נאטור. ב-27 ביוני בחר מרכז בל"ד את חמשת הראשונים שלה: סאמי אבו שחאדה, בכר עוואודה, מהא כרכבי-סבאח, חסן נסאסרה ואורלי נוי. ב-10 ביוני הודיעו חד"ש, תע"ל ובל"ד על ריצה משותפת — כשהן מוכנות לצרף גם את רע"ם, שנשארה בחוץ.',
+ who:[
+  ['יוסף ג\'בארין','יו"ר חד"ש','ד"ר למשפטים, לשעבר ח"כ ומרצה למשפט חוקתי. נבחר לראשות חד"ש במאי 2026 בהתמודדות מול שוכרי עואודה.'],
+  ['אחמד טיבי','יו"ר תע"ל','רופא נשים בהכשרתו. שימש יועץ ליאסר ערפאת בשנות ה-90, ח"כ מאז 1999 וסגן יו"ר הכנסת — מהפרלמנטרים המנוסים והמוכרים ביותר בבית.'],
+  ['סאמי אבו שחאדה','יו"ר בל"ד','היסטוריון מיפו, לשעבר חבר מועצת עיריית תל אביב-יפו וח"כ בכנסת ה-24. בל"ד רצה לבד ב-2022 ולא עברה את אחוז החסימה.'],
+  ['עופר כסיף','חד"ש','ד"ר למדע המדינה, הח"כ היהודי היחיד בסיעה. הכנסת הצביעה על הדחתו ב-2024 והוא לא הודח ברוב הדרוש; מוקד קבוע למחלוקת.'],
+  ['ג\'עפר פרח','חד"ש','מייסד ומנכ"ל מרכז "מוסאוא" לזכויות האזרחים הערבים בישראל.'],
+  ['אורלי נוי','בל"ד','עיתונאית ומתרגמת ילידת איראן, יו"ר עמותת "בצלם" — צירוף שמסמן את הכיוון היהודי-ערבי שבל"ד מנסה להציג.']
+ ],
+ src:'ynet 16.5.2026 · זו הדרך 17.5.2026 ו-10.6.2026 · ערב 48, 27.6.2026 · הארץ 25.5.2026 · שיחה מקומית, יוני 2026'
+},
+{
+ id:'raam', ltr:'עם', ltrNote:'אותיות הפתק', bloc:'c', blocName:'המפלגות הערביות',
+ name:'רע"ם', leader:'מנסור עבאס', seats:'5 בכנסת היוצאת', poll:'4–5',
+ tags:['ערביות','שמרני'],
+ plat:[
+  'פרגמטיזם: השגת תקציבים ושירותים לחברה הערבית דרך שותפות בקואליציה, ולא דרך אופוזיציה עקרונית.',
+  'רע"ם היא הזרוע הפוליטית של התנועה האסלאמית הדרומית — שמרנית בערכיה החברתיים.',
+  'הסדרת יישובים לא-מוכרים בנגב, חיבור לתשתיות והכרה בכפרים.',
+  'מאבק בפשיעה בחברה הערבית והגדלת התקציבים לרשויות המקומיות.',
+  'ב-2021 הפכה רע"ם למפלגה הערבית הראשונה שהצטרפה לקואליציה ישראלית — תקדים שממשיך להגדיר אותה.'
+ ],
+ prim:'לא הצטרפה לרשימה המשותפת. המשא ומתן על "רשימה טכנית פלורליסטית" קרס בקיץ 2026, כשראשי שאר המפלגות האשימו את רע"ם בהקשחת עמדות והצבת תנאים חדשים. נכון לסוף יולי 2026 היא צפויה לרוץ לבדה.',
+ who:[
+  ['מנסור עבאס','יו"ר','נולד 1974 במג\'ד אל-כרום. רופא שיניים בהכשרתו. יו"ר רע"ם מאז 2019, ומי שהוביל ב-2021 את ההצטרפות ההיסטורית לממשלת בנט–לפיד וכיהן כסגן יו"ר הכנסת.'],
+  ['ואליד טאהא','ח"כ','לשעבר ראש עיריית כפר קאסם; יו"ר ועדת הפנים בכנסת ה-24 בתקופת השותפות הקואליציונית.'],
+  ['איימן עודה — לתשומת לב','הערה','לא ברע"ם. עודה, שהוביל את חד"ש שנים, פרש מראשות המפלגה ב-2026 והוחלף בג\'בארין — בלבול נפוץ בין שתי הרשימות הערביות.']
+ ],
+ src:'הארץ 25.5.2026 · בחדרי חרדים 10.6.2026 · חדשות 13, 21.7.2026'
+},
+{
+ id:'hendel', ltr:'—', ltrNote:'אותיות טרם נקבעו', bloc:'b', blocName:'מתנגדי נתניהו',
+ name:'המילואימניקים + יסודות ישראל', leader:'יועז הנדל וחילי טרופר', seats:'חדשות — 0', poll:'0–4 · על הגבול',
+ tags:['מרכז','חדשה'],
+ plat:[
+  'פנייה ישירה לציבור המילואים ולמשפחות השכולות — "ברית משרתים" כציר מארגן במקום חלוקה לגושים.',
+  'ממשלת אחדות ציונית רחבה אחרי הבחירות; שתי המפלגות הכריזו ב-7 ביולי 2026 על ריצה משותפת בדיוק לשם כך.',
+  'ועדת חקירה ממלכתית ושיקום אמון הציבור במוסדות.',
+  'קו ביטחוני ימני-מרכזי, לצד עמדות ליברליות בדת ומדינה.'
+ ],
+ prim:'"המילואימניקים": הנדל נבחר ליו"ר ב-8 ביוני 2026 מול דביר לוין; הרשימה נבחרה ב-16 ביוני על ידי כלל המתפקדים, עם 27 מתמודדים. רועי פרנק במקום 2, שלומי דמרי במקום 5. "יסודות ישראל" של טרופר נרשמה ב-7 ביולי 2026.',
+ who:[
+  ['יועז הנדל','יו"ר המילואימניקים','נולד 1975. לוחם בשייטת 13, ד"ר להיסטוריה, פרשן ועיתונאי. שימש ראש מערך ההסברה של נתניהו ב-2011–2012, הקים את "תקווה חדשה" עם סער וכיהן כשר התקשורת בממשלת בנט–לפיד.'],
+  ['חילי טרופר','יו"ר יסודות ישראל','מחנך, מייסד בית ספר בשכונת קטמונים בירושלים. ח"כ מטעם כחול לבן ושר התרבות והספורט. עזב את גנץ במאי 2026 והקים מפלגה עצמאית.'],
+  ['רועי פרנק','מס\' 2','מ"מ בחטיבה 12 — נציג של דור המפקדים הזוטרים מהמלחמה.'],
+  ['שלומי דמרי','מס\' 5','אחיו של דן דמרי שנרצח בפסטיבל נובה.'],
+  ['אסף זמיר','ממייסדי יסודות ישראל','לשעבר סגן ראש עיריית תל אביב, שר התיירות וקונסול ישראל בניו יורק — התפטר מהקונסוליה בשנת 2023 במחאה על הרפורמה המשפטית.'],
+  ['דנה סילברמן, שירה שפירא, אליסף פרץ','מצטרפים','סילברמן — אחותה של שירי ביבס. שפירא — אמו של ענר שפירא. פרץ — בנה של מרים פרץ. רשימה שנבנתה סביב סיפורי אובדן מ-7 באוקטובר.']
+ ],
+ src:'ynet 7.7.2026 · סרוגים 10.2.2026 ו-7.7.2026 · אתר מפלגת המילואימניקים, תוצאות פריימריז 16.6.2026'
+},
+{
+ id:'kachol', ltr:'כן', ltrNote:'אותיות הפתק', bloc:'d', blocName:'מתחת לאחוז החסימה בסקרים',
+ name:'כחול לבן', leader:'בני גנץ', seats:'8 בכנסת היוצאת', poll:'מתחת לחסימה',
+ tags:['מרכז'],
+ plat:[
+  'מרכז ממלכתי-ביטחוני: אחדות לאומית, ועדת חקירה ממלכתית, ריסון הקצוות משני הצדדים.',
+  'ניסיון להוביל חיבור עם יועז הנדל ועם תא"ל (מיל.) דדי שמחי — מהלך שדווח כ"מרחק ימים" ביולי 2026 אך טרם הושלם.',
+  'המפלגה איבדה גובה דרמטי: מ-12 מנדטים ב-2022 (במסגרת המחנה הממלכתי) לפחות מאחוז אחד בסקרי יולי 2026.'
+ ],
+ prim:'האסיפה הכללית קבעה בספטמבר 2025 שגנץ יעמוד בראש הרשימה. מאז עזבו את המפלגה אורית פרקש הכהן (יולי 2025), איתן גינזבורג וחילי טרופר (מאי 2026), וגדי איזנקוט פרש מהכנסת ביוני 2025.',
+ who:[
+  ['בני גנץ','יו"ר','נולד 1959 בכפר אחים לניצולת שואה. צנחן, מפקד סיירת שקד, אלוף פיקוד הצפון, נספח צבאי בוושינגטון, ומ-2011 עד 2015 הרמטכ"ל ה-20. הקים את "חוסן לישראל" ב-2018, כיהן כשר הביטחון 2020–2022 וכיו"ר הכנסת לתקופה קצרה. נכנס לממשלת החירום באוקטובר 2023 ופרש ממנה ביוני 2024 בדרישה לתוכנית מוסכמת ליום שאחרי.'],
+  ['גדי איזנקוט — הערה','לשעבר','היה מס\' 2 של גנץ ב-2022. פרש מהכנסת ומכחול לבן ביוני 2025 והקים מפלגה משלו. הפרישה הזו היא הסיבה המרכזית לקריסת המחנה הממלכתי.']
+ ],
+ src:'ynet 30.6.2025, 24.7.2025 ו-4.5.2026 · ישראל היום 1.7.2026 · חדשות 13, 15.7.2026'
+},
+{
+ id:'small', ltr:'?', ltrNote:'רשימות נוספות', bloc:'d', blocName:'רשימות נוספות',
+ name:'הרשימות הקטנות והחדשות', leader:'מגוון', seats:'0', poll:'רובן מתחת לחסימה',
+ tags:['חדשה'],
+ plat:[
+  'רוב הרשימות האלה לא צפויות לעבור את אחוז החסימה, אבל הן משפיעות: קול שהולך לרשימה שלא עוברת פשוט נמחק מהספירה, וזה יכול להכריע גוש.',
+  'חלקן הכריזו מראש שיפרשו מהמרוץ אם הסקרים יראו שלא יעברו.'
+ ],
+ prim:'רשימות המועמדים מוגשות לוועדת הבחירות המרכזית בספטמבר 2026 — עד אז חלקן עוד יתאחדו או ייעלמו.',
+ who:[
+  ['ישראל תחילה','שרן השכל','הוקמה ב-15 ביולי 2026, יום אחרי שהשכל התפטרה מתפקידה כסגנית שר החוץ. מגדירה עצמה ימין ליברלי, וקוראת לממשלת אחדות שמבוססת על מפלגות ציוניות בלבד — בלי החרדים ובלי הערבים.'],
+  ['עוז','ד"ר עינת וילף','ח"כ לשעבר מהעבודה והעצמאות. שני עקרונות מוצהרים: הטבות מדינה שקשורות לשירות צבאי, ו"הכנעה תודעתית" של מה שהיא מכנה "פלסטיניזם" כתנאי סף להסדר.'],
+  ['מקום לכולנו','אלון-לי גרין ורולא דאוד','הוקמה ב-16 ביוני 2026 על ידי ראשי תנועת "עומדים ביחד". שותפות יהודית-ערבית, ביטחון דרך הסכמים, העלאת שכר מינימום, חינוך חינם מגיל אפס. גרין התחייב שהמפלגה תפרוש אם לא תעבור את החסימה.'],
+  ['הרבעון הרביעי','יואב הלר','תנועה אזרחית שהחליטה ב-14 ביוני 2026, אחרי סקר פנימי שבו 69% תמכו, להקים מפלגה. הלר סיים את תפקידו כיו"ר התנועה לשם כך.'],
+  ['אל הדגל','מתן יפה','נוסדה אחרי 7 באוקטובר. מקדמת "ברית משרתים" וקוראת להוריד מהשולחן את חלוקת הגושים לטובת ביטחון, חינוך ושירות ציבורי.'],
+  ['זהות','משה פייגלין','חתם ב-6 במאי 2026 על הסכם ריצה משותפת עם ד"ר מיכאל בן ארי. אליהם הצטרף ישי פליישר, דובר היישוב היהודי בחברון.'],
+  ['ברית אחים','וג\'די סרחאן','מפלגה דרוזית שהוכרזה במאי 2026 באירוע במע\'אר.'],
+  ['אורות השחר ואחדות לישראל','בניהו הר שמש ודוד סדון','שתי מפלגות ימין שהודיעו ב-13 בדצמבר 2025 על ריצה משותפת. במאי 2026 הצטרף אליהן יונתן פולארד, לצד ניסים לוק — אביה של שני לוק שנרצחה בפסטיבל נובה.'],
+  ['המפלגה הכלכלית','פרופ\' ירון זליכה','התמודדה ולא עברה את החסימה ב-2021 וב-2022, ומתמודדת שוב.'],
+  ['ביחד נצליח','אבי שקד ודראר אמריח','מפלגה יהודית-ערבית שהוקמה על בסיס מפלגת מדף. שקד התמודד פעמיים על ראשות מפלגת העבודה.'],
+  ['צומת','משה גרין','מפלגת ימין ותיקה שיוצגה לאחרונה בכנסת ה-14 (1996–1999) ומתמודדת שוב.']
+ ],
+ src:'המכלול, "הבחירות לכנסת העשרים ושש" (עודכן 26.7.2026) · ישראל היום 15.7.2026 · ynet 6.5.2026 ו-16.6.2026 · הארץ 16.6.2026 ו-21.6.2026 · davar 15.6.2026'
+}
+];
+
+(function(){
+  var C={a:'var(--bloc-a)',b:'var(--bloc-b)',c:'var(--bloc-c)',d:'var(--bloc-d)'};
+  var host=document.getElementById('parties');
+  function esc(s){return s;}
+  function render(filter){
+    host.innerHTML=P.filter(function(p){return !filter||p.tags.indexOf(filter)>-1;}).map(function(p){
+      var who=p.who.map(function(w){
+        return '<p><strong>'+w[0]+'</strong> <em>'+w[1]+'</em>'+w[2]+'</p>';
+      }).join('');
+      return '<article class="party">'+
+        '<div class="top"><span class="bloctab" style="background:'+C[p.bloc]+'"></span>'+
+          '<div class="ltr"><small>'+p.ltrNote+'</small>'+p.ltr+'</div>'+
+          '<h3>'+p.name+'</h3>'+
+          '<div class="leader">'+p.leader+'</div>'+
+          '<div class="nums"><div><b>'+p.seats+'</b>בכנסת ה-25</div>'+
+          '<div><b>'+p.poll+'</b>בסקרי יולי 2026</div></div>'+
+          '<div class="blocname">'+p.blocName+'</div>'+
+        '</div>'+
+        '<div class="body">'+
+          '<h5>מה הם אומרים</h5><ul>'+p.plat.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>'+
+          '<h5>פריימריז ובניית הרשימה</h5><p style="margin:0;font-size:15px;color:var(--ink-soft)">'+p.prim+'</p>'+
+          '<details class="more"><summary>עוד על האנשים</summary><div class="who">'+who+'</div></details>'+
+          '<div class="src">מקורות: '+p.src+'</div>'+
+        '</div>'+
+      '</article>';
+    }).join('');
+  }
+  var tags=['ימין','מרכז','שמאל','חרדי','ערביות','חדשה'];
+  var fh='<button aria-pressed="true" data-t="">הכל</button>'+tags.map(function(t){
+    return '<button aria-pressed="false" data-t="'+t+'">'+t+'</button>';}).join('');
+  var fbox=document.getElementById('filters');
+  fbox.innerHTML=fh;
+  fbox.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b)return;
+    [].forEach.call(fbox.querySelectorAll('button'),function(x){x.setAttribute('aria-pressed', x===b?'true':'false');});
+    render(b.dataset.t);
+  });
+  render('');
+})();
+
+/* ============ timeline ============ */
+var TL=[
+ ['7 בדצמבר 2023','מרב מיכאלי פורשת','הודיעה על הקדמת הפריימריז בעבודה ועל פרישה מהפוליטיקה.',1],
+ ['28 במרץ 2024','לפיד מנצח בקושי ביש עתיד','52.5% מול רם בן ברק — הפרש של 29 קולות מתוך 587.',1],
+ ['28 במאי 2024','יאיר גולן נבחר לראשות העבודה','95.15% מהקולות; חודש לאחר מכן איחד את העבודה ומרצ ל"הדמוקרטים".',1],
+ ['1 באפריל 2025','בנט חוזר','מקים את מפלגת "בנט 2026".',1],
+ ['30 ביוני 2025','איזנקוט פורש מהכנסת','המהלך שמפרק סופית את המחנה הממלכתי.',1],
+ ['16 בספטמבר 2025','"ישר!" קמה','איזנקוט מכריז על מפלגה חדשה עם יואב הורוביץ ומתן כהנא.',1],
+ ['ספטמבר 2025','הציונות הדתית מבטלת פריימריז','מרכז המפלגה מעביר לעצמו את בחירת הרשימה על רקע סקרים חלשים.',1],
+ ['6 בנובמבר 2025','נתניהו — מועמד יחיד','מוכרז כיו"ר הליכוד ומועמדה לראשות הממשלה.',1],
+ ['28 בפברואר 2026','מבצע שאגת הארי','ישראל וארה"ב תוקפות באיראן; ח\'אמנאי מחוסל. הליכוד מזנק בסקרים ל-31.',1],
+ ['26 באפריל 2026','בנט ולפיד מכריזים על "ביחד"','לפיד מוותר על ראשות הרשימה.',1],
+ ['16 במאי 2026','ג\'בארין מחליף את עודה','נבחר לראשות חד"ש.',1],
+ ['10 ביוני 2026','הרשימה המשותפת מוקמת מחדש','חד"ש, תע"ל ובל"ד — בלי רע"ם.',1],
+ ['16 ביוני 2026','פריימריז המילואימניקים','27 מתמודדים; רועי פרנק במקום 2.',1],
+ ['12 ביולי 2026','נקבע התאריך — 27 באוקטובר','הבחירות הראשונות במועדן מאז 1988.',1],
+ ['17 ביולי 2026','הכנסת יוצאת לפגרת בחירות','מכאן ואילך המליאה לא מתכנסת, והוועדות דורשות הסכמה בין קואליציה לאופוזיציה.',1],
+ ['20 ביולי 2026','פריימריז הדמוקרטים','97 אלף מצביעים — 86.2% מהמתפקדים.',1],
+ ['26 ביולי 2026','פריימריז הציונות הדתית','עשרה מתמודדים על המקומות ברשימה.',1],
+ ['27 ביולי 2026','ועידת הליכוד מצביעה','אישור הצעת התקנון של יו"ר התנועה.',0],
+ ['17 באוגוסט 2026','פריימריז הליכוד','נדחו מ-4 באוגוסט בעקבות צו מניעה. זכות הצבעה למי שהתפקד עד 17.4.2025.',0],
+ ['20 באוגוסט 2026','תוצאות סופיות בליכוד','',0],
+ ['ספטמבר 2026','הגשת רשימות המועמדים','המועד שבו נסגרות סופית הרשימות ומוקצות אותיות הפתק.',0],
+ ['27 באוקטובר 2026','יום הבחירות','הקלפיות נסגרות ב-22:00.',0]
+];
+document.getElementById('timeline').innerHTML=TL.map(function(t){
+  return '<li class="'+(t[3]?'done':'')+'"><span class="d">'+t[0]+'</span>'+
+    '<span class="t">'+t[1]+'</span><div class="x">'+t[2]+'</div></li>';
+}).join('');
+
+/* ============ matcher ============ */
+/* axis values: 1 = מסכים עם הניסוח, -1 = מתנגד, 0 = עמדת ביניים / לא מובהק, null = לא רלוונטי */
+var AX=[
+ {q:'צריך להקים ועדת חקירה ממלכתית ל-7 באוקטובר ולניהול המלחמה.'},
+ {q:'צריך לחייב את הציבור החרדי בשירות צבאי או אזרחי, בלי פטור גורף.'},
+ {q:'צריך לקדם הסדר מדיני עם הפלסטינים — ולא החלת ריבונות ישראלית ביהודה ושומרון.'},
+ {q:'צריך לשמר את כוחם של בג"ץ והיועצת המשפטית לממשלה מול הרוב הפוליטי.'},
+ {q:'צריך להרחיב חופש דת ובחירה: נישואים אזרחיים, תחבורה בשבת, פחות פיקוח דתי.'},
+ {q:'מפלגות ערביות יכולות ורצוי שיהיו חלק מקואליציה.'},
+ {q:'בנימין נתניהו לא צריך להמשיך לכהן כראש ממשלה.'},
+ {q:'המדינה צריכה להשקיע יותר בשירותים ציבוריים ורווחה, גם במחיר מיסוי גבוה יותר.'}
+];
+var MV={
+ 'הליכוד':            [-1,-1,-1,-1,-1,-1,-1, 0],
+ 'ישר!':              [ 1, 1, 0, 1, 0, 0, 1, 0],
+ 'ביחד':              [ 1, 1, 0, 1, 1, 0, 1, 0],
+ 'הדמוקרטים':         [ 1, 1, 1, 1, 1, 1, 1, 1],
+ 'ישראל ביתנו':       [ 1, 1,-1, 0, 1,-1, 1,-1],
+ 'ש"ס':               [-1,-1,-1,-1,-1, 0,-1, 1],
+ 'יהדות התורה':       [-1,-1, 0,-1,-1, 0,-1, 1],
+ 'עוצמה יהודית':      [-1, 0,-1,-1,-1,-1,-1, 0],
+ 'הציונות הדתית':     [-1,-1,-1,-1,-1,-1,-1, 0],
+ 'הרשימה המשותפת':    [ 1, 0, 1, 1, 1, 1, 1, 1],
+ 'רע"ם':              [ 1, 0, 1, 1,-1, 1, 1, 1],
+ 'המילואימניקים+טרופר':[ 1, 1, 0, 1, 1, 0, 1, 0],
+ 'כחול לבן':          [ 1, 1, 0, 1, 0, 0, 1, 0]
+};
+(function(){
+  var ans=AX.map(function(){return null;});
+  var qbox=document.getElementById('questions');
+  qbox.innerHTML=AX.map(function(a,i){
+    return '<div class="q"><p>'+(i+1)+'. '+a.q+'</p><div class="opts" data-i="'+i+'">'+
+      '<button data-v="1" aria-pressed="false">מסכים</button>'+
+      '<button data-v="0" aria-pressed="false">באמצע / תלוי</button>'+
+      '<button data-v="-1" aria-pressed="false">לא מסכים</button>'+
+      '</div></div>';
+  }).join('');
+  qbox.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b)return;
+    var g=b.parentNode, i=+g.dataset.i;
+    [].forEach.call(g.querySelectorAll('button'),function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
+    ans[i]=+b.dataset.v;
+    calc();
+  });
+  function calc(){
+    var answered=ans.filter(function(x){return x!==null;}).length;
+    var out=document.getElementById('matchrows');
+    var hint=document.querySelector('#result .hint');
+    if(answered<3){out.innerHTML='';hint.textContent='ענו על לפחות שלוש שאלות כדי לראות התאמה. ('+answered+'/8)';return;}
+    hint.textContent='מבוסס על '+answered+' מתוך 8 שאלות. הדירוג משתנה עם כל תשובה.';
+    var res=Object.keys(MV).map(function(k){
+      var s=0,n=0;
+      MV[k].forEach(function(v,i){
+        if(ans[i]===null)return;
+        n++; s+=1-Math.abs(v-ans[i])/2;
+      });
+      return {k:k,p:Math.round(s/n*100)};
+    }).sort(function(a,b){return b.p-a.p;}).slice(0,6);
+    out.innerHTML=res.map(function(r){
+      return '<div class="mrow"><div>'+r.k+'<div class="bar"><i style="width:'+r.p+'%"></i></div></div>'+
+        '<div class="pc">'+r.p+'%</div></div>';
+    }).join('');
+  }
+  calc();
+})();
+</script>
+</body>
+</html>
