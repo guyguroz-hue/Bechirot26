@@ -25,7 +25,9 @@
   --rule:rgba(232,228,219,.11); --rule2:rgba(232,228,219,.2);
   --tx:#E8E4DB; --tx2:#A8A399; --tx3:#736F67;
   --gold:#C9A227; --gold2:#E0C05A; --blue:#7FA8D8; --green:#6FA88A; --red:#C77A79;
-  --a:#B5854A; --b:#7FA8D8; --c:#6FA88A; --d:#7C7871;
+  /* צבעי הגושים. נבדקו מול הרקע הכהה: הפרדה תקינה גם בעיוורון צבעים (deutan/protan)
+     בכל הזוגות, מעל רצפת הכרומה ומעל יחס ניגודיות 3:1. הזהב שמור לסימון המשתמש בלבד. */
+  --a:#D95926; --b:#3987E5; --c:#199E70; --d:#7C7871;
   /* שמות נרדפים — קוד קיים באתר מפנה אליהם */
   --bl-a:var(--a); --bl-b:var(--b); --bl-c:var(--c); --bl-d:var(--d);
   --txt:var(--tx); --txt2:var(--tx2); --txt3:var(--tx3);
@@ -249,22 +251,53 @@ details.acc[open] summary::after{content:" ↑"}
 .res{position:sticky;top:76px;border:1px solid var(--rule2);background:var(--ink2);padding:26px}
 .res h3{font-size:22px;font-weight:800}
 .rhint{font-size:14.5px;color:var(--tx3);margin:6px 0 20px;font-weight:300}
-.rslip{margin-bottom:22px;padding:22px;background:var(--tx);color:var(--ink);text-align:center}
-.rslip .l{font-family:'Noto Serif Hebrew',serif;font-size:34px;font-weight:800;line-height:1}
-.rslip .nm{font-size:16px;font-weight:600;margin-top:10px;padding-top:10px;border-top:1px solid rgba(14,16,19,.22)}
-.rslip .p{font-size:14px;color:#4A4740;margin-top:4px;font-weight:500}
-.rrow{padding:13px 0;border-bottom:1px solid var(--rule)}
+/* הפתק — אותו אובייקט שמופיע בכרטיס השיתוף: נייר בהיר, אותיות גדולות, נטוי קלות */
+.rslip{position:relative;margin:6px 0 26px;padding:20px 18px 18px;background:#F2EEE6;color:var(--ink);
+  text-align:center;transform:rotate(-1.15deg);box-shadow:0 18px 40px rgba(0,0,0,.5)}
+.rslip::before{content:'פתק הצבעה · הכנסת ה-26';display:block;font-size:11px;font-weight:600;
+  color:rgba(14,16,19,.4);padding-bottom:11px;border-bottom:1px solid rgba(14,16,19,.13)}
+.rslip .l{font-family:'Noto Serif Hebrew',serif;font-size:62px;font-weight:800;line-height:1.15;
+  color:#101215;letter-spacing:.02em}
+.rslip .nm{font-family:'Noto Serif Hebrew',serif;font-size:19px;font-weight:700;margin-top:6px;
+  padding-top:12px;border-top:1px solid rgba(14,16,19,.13)}
+.rslip .p{font-size:14px;color:#55524B;margin-top:4px;font-weight:600}
+.rrow{padding:14px 0;border-bottom:1px solid var(--rule)}
 .rrow:last-of-type{border-bottom:0}
-.rtop{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:16px}
-.rtop b{font-weight:600}
-.rtop s{text-decoration:none;font-family:'Noto Serif Hebrew',serif;font-size:17px;font-weight:700;color:var(--gold)}
-.rsub{font-size:13px;color:var(--tx3);margin-top:1px;font-weight:300}
-.rbar{height:4px;background:rgba(232,228,219,.08);margin-top:8px}
+.rtop{display:flex;align-items:baseline;gap:11px;font-size:16.5px}
+.rtop .rnum{font-family:'Noto Serif Hebrew',serif;font-style:normal;font-size:14px;font-weight:800;
+  color:var(--gold);flex:none}
+.rtop b{font-weight:600;flex:1}
+.rtop s{text-decoration:none;font-family:'Noto Serif Hebrew',serif;font-size:21px;font-weight:700;
+  color:var(--tx);flex:none}
+.rsub{font-size:13px;color:var(--tx3);margin-top:2px;font-weight:300;padding-inline-start:25px}
+.rbar{height:4px;background:rgba(232,228,219,.08);margin-top:9px}
 .rbar i{display:block;height:100%;width:0;transition:width .6s var(--e)}
 .mini{display:flex;gap:7px;flex-wrap:wrap;margin-top:18px}
 .mini button{flex:1;min-width:110px;font-size:13.5px;padding:10px;cursor:pointer;border-radius:2px;
   font-weight:500;border:1px solid var(--rule2);background:transparent;color:var(--tx2);transition:all .2s}
 .mini button:hover{border-color:var(--gold);color:var(--gold2)}
+/* פעולת השיתוף היא הפעולה הראשית בכל אזור — היא מקבלת מלוא הרוחב והמשקל */
+button.pri{font-family:inherit;font-size:15px;font-weight:700;padding:13px;cursor:pointer;border-radius:2px;
+  background:var(--gold);border:1px solid var(--gold);color:#17140A;transition:all .2s var(--e)}
+button.pri:hover{background:var(--gold2);border-color:var(--gold2);color:#17140A}
+button.pri:disabled{opacity:.6;cursor:default}
+.mini button.pri{flex:1 0 100%}
+.mini button:disabled{opacity:.6;cursor:default}
+/* ההשוואה מול חבר */
+.vsbox{margin-top:22px;padding:20px;border:1px solid var(--rule2);background:var(--ink2)}
+.vsbox h4{font-family:'Noto Serif Hebrew',serif;font-size:18px;margin-bottom:8px}
+.vsbox p{font-size:14.5px;color:var(--tx2);font-weight:300;margin:0}
+.vsbig{display:flex;align-items:baseline;gap:12px;margin:4px 0 16px}
+.vsbig b{font-family:'Noto Serif Hebrew',serif;font-size:52px;line-height:1;color:var(--gold);font-weight:800}
+.vsbig span{font-size:13.5px;color:var(--tx3);font-weight:300}
+.vsplit{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:14px 0;
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.vsplit div{font-size:12.5px;color:var(--tx3)}
+.vsplit b{display:block;font-family:'Noto Serif Hebrew',serif;font-size:30px;color:var(--tx);font-weight:700}
+.vsplit div:first-child b{color:var(--c)}
+.vsplit div:last-child b{color:var(--a)}
+.vsq{margin-top:14px !important;font-size:13.5px !important;line-height:1.6}
+.vsbox .pri{margin-top:16px;width:100%}
 .note{border-inline-start:2px solid var(--gold);padding:14px 16px;font-size:14.5px;color:var(--tx2);
   margin-top:20px;font-weight:300;background:rgba(201,162,39,.05)}
 .brkrow{display:grid;grid-template-columns:1fr 48px;gap:10px;align-items:center;padding:5px 0;
@@ -545,11 +578,13 @@ footer strong{color:var(--tx2);font-weight:600}
           <div id="rslip"></div>
           <div id="rrows"></div>
           <div class="mini" id="rmini" style="display:none">
-            <button id="bcard" type="button">שמירת הפתק כתמונה</button>
-            <button id="bshare" type="button">העתקת קישור לתשובות</button>
+            <button id="bcard" type="button" class="pri">שיתוף הפתק שלי</button>
+            <button id="bvs" type="button">אתגרו חבר</button>
+            <button id="bshare" type="button">קישור לתשובות</button>
             <button id="bwhy" type="button">למה זה מה שיצא</button>
           </div>
           <div id="rwhy" style="display:none"></div>
+          <div class="vsbox" id="rvs" hidden></div>
           <div class="note">הדירוג נשען על עמדות מוצהרות שהמפלגות פרסמו או קידמו בכנסת, בפרשנות שלי — לא על מסמך רשמי. מפלגה שקרובה אליכם ב-90% מהשאלות עדיין יכולה להיות רחוקה בנושא שהכי יקר לכם.</div>
         </div>
       </div>
@@ -575,6 +610,7 @@ footer strong{color:var(--tx2);font-weight:600}
         <div class="mapside">
           <div class="mapyou" id="mapyou"></div>
           <div class="mapleg" id="mapleg"></div>
+          <div class="mini"><button id="bmap" type="button" class="pri">שיתוף המפה</button></div>
           <div class="note">המיקום מחושב מטבלת העמדות של האתר: לכל ציר נבחרו השאלות ששייכות לו, תשובת "בעד" מזיזה לצד אחד ו"נגד" לצד השני. שתי מפלגות שנופלות באותה נקודה יכולות עדיין להיות רחוקות מאוד בשאלות שלא נכללות בשני הצירים שבחרתם — המפה היא חתך, לא תמונה מלאה.</div>
         </div>
       </div>
@@ -609,6 +645,9 @@ footer strong{color:var(--tx2);font-weight:600}
         <div class="cmeter"><i id="cmeter"></i><u title="61 מנדטים"></u></div>
         <div class="cverdict" id="cverdict" style="color:var(--tx3)">בחרו מפלגות</div>
         <div class="cwarn" id="cwarn"></div>
+        <div class="mini" id="cshare" style="display:none">
+          <button id="bcoal" type="button" class="pri">שיתוף הממשלה שהרכבתי</button>
+        </div>
       </div>
     </div>
   </div>
@@ -802,6 +841,37 @@ const axUser = (ans, wt, ax) => {
 };
 /* הצירים שנבחרו כרגע — משותף למפה ולכרטיס השיתוף */
 const MAPSTATE = { x:'sec', y:'rel' };
+
+/* פריסת תוויות למפה: לכל נקודה נבחר ההיסט בעל החפיפה הנמוכה ביותר מול תוויות
+   שכבר הונחו, מול שאר הנקודות ומול אזורים שמורים. משותף למפה שבדף ולמפה שבכרטיס. */
+function placeLabels(pts, S, textW, reserved){
+  const CAND = [];
+  [[0,1],[0,-1],[1,0],[-1,0],[1,1],[-1,1],[1,-1],[-1,-1]].forEach(v =>
+    [1,1.9,2.8,3.7].forEach(m => CAND.push([v[0], v[1], m])));
+  const over = (a,b) => Math.max(0, Math.min(a.x2,b.x2) - Math.max(a.x1,b.x1))
+                      * Math.max(0, Math.min(a.y2,b.y2) - Math.max(a.y1,b.y1));
+  const placed = (reserved || []).slice();
+  const lh = S / 30;                                  // גובה שורה ביחס לגודל המפה
+  pts.slice().sort((a,b) => b.seats - a.seats).forEach(d => {
+    const w = textW(d.name) + S/76, h = lh;
+    let best = null, bestCost = Infinity;
+    for(const [dx,dy,m] of CAND){
+      const cx = d.x + dx * (d.r + w/2 + S/115) * m;
+      const cy = d.y + dy * (d.r + S/38) * m;
+      const b = { cx, cy, x1:cx - w/2, x2:cx + w/2, y1:cy - h, y2:cy + S/115 };
+      if(b.x1 < S/115 || b.x2 > S - S/115 || b.y1 < S/15 || b.y2 > S - S/15) continue;
+      let cost = placed.reduce((s,o) => s + over(b,o), 0) * 4;
+      pts.forEach(o => { if(o !== d) cost += over(b, { x1:o.x-o.r, x2:o.x+o.r, y1:o.y-o.r, y2:o.y+o.r }) * 6; });
+      cost += (m - 1) * (S/11) + (dy === 1 ? 0 : S/38);
+      if(cost < bestCost){ bestCost = cost; best = b; if(cost === 0) break; }
+    }
+    if(!best){
+      const cy = d.y + d.r + S/38;
+      best = { cx:d.x, cy, x1:d.x - w/2, x2:d.x + w/2, y1:cy - h, y2:cy + S/115 };
+    }
+    placed.push(best); d.lx = best.cx; d.ly = best.cy;
+  });
+}
 
 /* ---------- 3. מפלגות ---------- */
 /* pos: 29 ערכים לפי סדר Q.  1 = תומכת · 0 = ביניים/לא מובהק · -1 = מתנגדת
@@ -1335,6 +1405,373 @@ $('#tl').innerHTML = TIMELINE.map(t =>
    <span class="t">${t[1]}</span>${t[2] ? `<div class="x">${t[2]}</div>` : ''}</li>`).join('');
 
 /* ============================================================
+   שיתוף — משפחת כרטיסים מצוירים על קנבס, ומסירה למכשיר
+   כל הכרטיסים חולקים מסגרת אחת: כותרת עם הלוגו, קו זהב, וכותרת תחתונה.
+   ============================================================ */
+const SHARE = (() => {
+  const W = 1080, H = 1350, M = 80, R = W - M, CW = W - 2*M;
+  const INK = '#0E1013', PAPER = '#F2EEE6', TX = '#E8E4DB', TX2 = '#A8A399',
+        TX3 = '#736F67', GOLD = '#C9A227', GOLD2 = '#E0C05A', RULE = 'rgba(232,228,219,.14)';
+  const HEX = { a:'#D95926', b:'#3987E5', c:'#199E70', d:'#7C7871' };
+  const hexOf = p => HEX[p.bloc] || HEX.d;
+  const seatOf = k => (POLL.find(r => r.key === k) || {}).seats || 0;
+  const host = () => (location.host || 'petek').replace(/^www\./, '');
+
+  const f = (c, w, s, serif) =>
+    c.font = `${w} ${s}px ${serif ? "'Noto Serif Hebrew', serif" : "'Assistant', sans-serif"}`;
+
+  /* חיתוך טקסט ארוך לרוחב נתון */
+  function clip(c, t, max){
+    if(c.measureText(t).width <= max) return t;
+    let s = t;
+    while(s.length > 4 && c.measureText(s + '…').width > max) s = s.slice(0, -1);
+    return s + '…';
+  }
+
+  function canvas(){
+    const cv = document.createElement('canvas');
+    cv.width = W; cv.height = H;
+    const c = cv.getContext('2d');
+    c.direction = 'rtl'; c.textBaseline = 'alphabetic';
+    return { cv, c };
+  }
+
+  /* ---------- מסגרת משותפת ---------- */
+  function frame(c, kicker){
+    c.fillStyle = INK; c.fillRect(0, 0, W, H);
+    c.fillStyle = GOLD; c.fillRect(R - 22, 58, 22, 32);
+    c.textAlign = 'right'; f(c, 800, 30, 1); c.fillStyle = TX;
+    c.fillText('פתק', R - 34, 84);
+    c.textAlign = 'left'; f(c, 700, 20, 0); c.fillStyle = TX3;
+    c.fillText(kicker, M, 84);
+    c.fillStyle = RULE; c.fillRect(M, 110, CW, 1);
+    c.fillStyle = GOLD; c.fillRect(R - 130, 109, 130, 3);
+  }
+  function footer(c, note){
+    c.fillStyle = RULE; c.fillRect(M, H - 126, CW, 1);
+    c.textAlign = 'right'; f(c, 400, 21, 0); c.fillStyle = TX2;
+    c.fillText(note, R, H - 86);
+    c.textAlign = 'left'; f(c, 700, 21, 0); c.fillStyle = GOLD;
+    c.fillText(host(), M, H - 86);
+    c.textAlign = 'right'; f(c, 300, 17, 0); c.fillStyle = TX3;
+    c.fillText('מדריך הבוחר לבחירות 2026 · הנתונים הם פרשנות של עמדות מוצהרות, לא מסמך רשמי', R, H - 50);
+  }
+
+  /* ---------- פתק הצבעה ---------- */
+  function ballot(c, x, y, w, h, letter, name, sub){
+    c.save();
+    c.translate(x + w/2, y + h/2); c.rotate(-1.15 * Math.PI/180);
+    c.translate(-(x + w/2), -(y + h/2));
+    c.shadowColor = 'rgba(0,0,0,.6)'; c.shadowBlur = 52; c.shadowOffsetY = 20;
+    c.fillStyle = PAPER; c.fillRect(x, y, w, h);
+    c.shadowColor = 'transparent'; c.shadowBlur = 0; c.shadowOffsetY = 0;
+    c.textAlign = 'center';
+    c.fillStyle = 'rgba(14,16,19,.4)'; f(c, 600, 19, 0);
+    c.fillText('פתק הצבעה · הכנסת ה-26 · 27 באוקטובר 2026', x + w/2, y + 50);
+    c.fillStyle = 'rgba(14,16,19,.14)'; c.fillRect(x + 44, y + 70, w - 88, 1);
+    c.fillStyle = '#101215'; f(c, 800, 186, 1);
+    c.fillText(letter, x + w/2, y + h * .63);
+    c.fillStyle = 'rgba(14,16,19,.14)'; c.fillRect(x + 96, y + h - 116, w - 192, 1);
+    c.fillStyle = '#1A1C1F'; f(c, 700, 42, 1); c.fillText(name, x + w/2, y + h - 62);
+    c.fillStyle = '#55524B'; f(c, 600, 24, 0); c.fillText(sub, x + w/2, y + h - 24);
+    c.restore();
+  }
+
+  /* ---------- שורת דירוג ---------- */
+  function rankRow(c, i, y, name, pct, hex){
+    c.textAlign = 'right'; f(c, 800, 25, 1); c.fillStyle = GOLD;
+    c.fillText(String(i + 1).padStart(2, '0'), R, y);
+    f(c, 600, 31, 0); c.fillStyle = TX;
+    c.fillText(clip(c, name, CW - 190), R - 54, y);
+    c.textAlign = 'left'; f(c, 700, 34, 1); c.fillStyle = TX;
+    c.fillText(pct + '%', M, y);
+    c.fillStyle = 'rgba(232,228,219,.09)'; c.fillRect(M, y + 18, CW, 6);
+    const bw = CW * pct / 100;
+    c.fillStyle = hex; c.fillRect(R - bw, y + 18, bw, 6);
+  }
+
+  /* ---------- מפה מצוירת על קנבס, באותה גאומטריה של המפה שבדף ---------- */
+  function mapOn(c, ox, oy, S, ax, ay, U){
+    const k = S / 460, PAD = 58 * k, MID = S/2, HALF = MID - PAD;
+    const px = v => ox + MID + (v/100) * HALF;
+    const py = v => oy + MID - (v/100) * HALF;
+    const lab = 15 * k;
+
+    c.fillStyle = 'rgba(232,228,219,.022)';
+    c.fillRect(ox + MID, oy + PAD, HALF, HALF);
+    c.fillRect(ox + PAD, oy + MID, HALF, HALF);
+    c.strokeStyle = 'rgba(232,228,219,.07)'; c.lineWidth = 1;
+    [-50, 50].forEach(v => {
+      c.beginPath(); c.moveTo(px(v), oy + PAD); c.lineTo(px(v), oy + S - PAD);
+      c.moveTo(ox + PAD, py(v)); c.lineTo(ox + S - PAD, py(v)); c.stroke();
+    });
+    c.strokeStyle = 'rgba(232,228,219,.2)';
+    c.beginPath(); c.moveTo(ox + PAD, oy + MID); c.lineTo(ox + S - PAD, oy + MID);
+    c.moveTo(ox + MID, oy + PAD); c.lineTo(ox + MID, oy + S - PAD); c.stroke();
+
+    f(c, 600, lab, 0); c.fillStyle = TX3;
+    c.textAlign = 'right'; c.fillText(ax.hi, ox + S, oy + MID - 12 * k);
+    c.textAlign = 'left';  c.fillText(ax.lo, ox, oy + MID - 12 * k);
+    c.textAlign = 'center';
+    c.fillText(ay.hi, ox + MID, oy + 22 * k);
+    c.fillText(ay.lo, ox + MID, oy + S - 8 * k);
+
+    const pts = PARTIES.map(p => ({
+      p, name:p.name, seats:seatOf(p.key),
+      x: px(axParty(p, ax)) - ox, y: py(axParty(p, ay)) - oy,
+      r: (7 + seatOf(p.key) * .5) * k
+    }));
+    f(c, 600, 15 * k, 0);
+    placeLabels(pts, S, t => c.measureText(t).width, [
+      { x1:S - PAD - 60*k, x2:S, y1:MID - 26*k, y2:MID - 2*k },
+      { x1:0, x2:PAD + 60*k, y1:MID - 26*k, y2:MID - 2*k },
+      { x1:MID - 90*k, x2:MID + 90*k, y1:6*k, y2:26*k },
+      { x1:MID - 90*k, x2:MID + 90*k, y1:S - 28*k, y2:S - 4*k }
+    ]);
+
+    pts.forEach(d => {
+      c.beginPath(); c.arc(ox + d.x, oy + d.y, d.r, 0, 7);
+      c.fillStyle = hexOf(d.p); c.globalAlpha = d.seats ? .82 : .32; c.fill();
+      c.globalAlpha = 1; c.strokeStyle = INK; c.lineWidth = 2 * k; c.stroke();
+    });
+    c.textAlign = 'center'; f(c, 600, 15 * k, 0);
+    pts.forEach(d => {
+      c.strokeStyle = INK; c.lineWidth = 4 * k; c.lineJoin = 'round';
+      c.strokeText(d.name, ox + d.lx, oy + d.ly);
+      c.fillStyle = TX2; c.fillText(d.name, ox + d.lx, oy + d.ly);
+    });
+
+    if(U){
+      const X = px(U.x), Y = py(U.y);
+      c.strokeStyle = GOLD; c.lineWidth = 1.5 * k; c.setLineDash([4 * k, 5 * k]);
+      c.beginPath(); c.moveTo(ox + PAD, Y); c.lineTo(ox + S - PAD, Y);
+      c.moveTo(X, oy + PAD); c.lineTo(X, oy + S - PAD); c.stroke();
+      c.setLineDash([]);
+      c.fillStyle = GOLD; c.beginPath(); c.arc(X, Y, 11 * k, 0, 7); c.fill();
+      c.strokeStyle = INK; c.lineWidth = 3 * k; c.stroke();
+      c.fillStyle = GOLD2; f(c, 800, 17 * k, 0); c.textAlign = 'center';
+      const up = Y - 22 * k > oy + 26 * k;
+      c.fillText('אתם כאן', X, up ? Y - 22 * k : Y + 34 * k);
+    }
+  }
+
+  /* ---------- מקרא גושים ---------- */
+  function legend(c, y){
+    let x = R;
+    f(c, 400, 20, 0);
+    ['a','b','c'].forEach(b => {
+      const t = BLOC[b].n, w = c.measureText(t).width;
+      c.fillStyle = HEX[b]; c.beginPath(); c.arc(x - 6, y - 6, 6, 0, 7); c.fill();
+      c.fillStyle = TX2; c.textAlign = 'right'; c.fillText(t, x - 20, y);
+      x -= w + 46;
+    });
+  }
+
+  /* ============ הכרטיסים ============ */
+
+  /* 1. הפתק שלי */
+  function slipCard(res, answered){
+    const { cv, c } = canvas();
+    frame(c, 'הפתק שלי');
+    const top = res[0];
+    ballot(c, M, 176, CW, 470,
+      top.p.ltr === '—' ? '?' : top.p.ltr, top.p.name,
+      top.pct + '% התאמה' + (top.p.ltr === '—' ? ' · האותיות טרם נקבעו' : ''));
+
+    c.textAlign = 'right'; f(c, 700, 20, 0); c.fillStyle = TX3;
+    c.fillText('שלוש הקרובות אליי', R, 748);
+    c.fillStyle = RULE; c.fillRect(M, 764, CW, 1);
+    res.slice(0, 3).forEach((r, i) => rankRow(c, i, 828 + i * 96, r.p.name, r.pct, hexOf(r.p)));
+
+    c.textAlign = 'right'; f(c, 300, 21, 0); c.fillStyle = TX3;
+    c.fillText(`מבוסס על ${answered} מתוך ${Q.length} השאלות שבשאלון`, R, 1136);
+    footer(c, 'מה יוצא לכם? השאלון בקישור');
+    return cv;
+  }
+
+  /* 2. המפה שלי */
+  function mapCard(U){
+    const { cv, c } = canvas();
+    const ax = axById[MAPSTATE.x], ay = axById[MAPSTATE.y];
+    frame(c, U ? 'המפה שלי' : 'מפת העמדות');
+    c.textAlign = 'right'; f(c, 800, 46, 1); c.fillStyle = TX;
+    c.fillText(ax.name, R, 190);
+    f(c, 400, 40, 1); c.fillStyle = TX3;
+    c.fillText('מול ' + ay.name, R, 244);
+    const S = 884;
+    mapOn(c, M + (CW - S)/2, 278, S, ax, ay, U);
+    legend(c, 1196);
+    footer(c, U ? 'הנקודה שלי על המפה' : 'שלוש־עשרה רשימות, שני צירים');
+    return cv;
+  }
+
+  /* 3. הממשלה שהרכבתי */
+  function coalitionCard(keys, warns){
+    const { cv, c } = canvas();
+    frame(c, 'הממשלה שהרכבתי');
+    const list = keys.map(k => byKey[k]).sort((a,b) => seatOf(b.key) - seatOf(a.key));
+    const tot = list.reduce((s,p) => s + seatOf(p.key), 0);
+    const ok = tot >= 61;
+
+    c.textAlign = 'right'; f(c, 800, 150, 1); c.fillStyle = ok ? GOLD : TX;
+    c.fillText(String(tot), R, 316);
+    const nw = c.measureText(String(tot)).width;
+    f(c, 400, 30, 0); c.fillStyle = TX2;
+    c.fillText('מנדטים בקואליציה', R - nw - 24, 316);
+
+    /* פס מנדטים: כל מפלגה מקטע, עם רווח של 2 פיקסלים בין המקטעים */
+    const by = 388, bh = 54, unit = CW / 120;
+    c.fillStyle = 'rgba(232,228,219,.07)'; c.fillRect(M, by, CW, bh);
+    let x = R;
+    list.forEach(p => {
+      const w = seatOf(p.key) * unit;
+      c.fillStyle = hexOf(p); c.fillRect(x - w + 1, by, Math.max(1, w - 2), bh);
+      if(w > 32){
+        c.fillStyle = '#0E1013'; f(c, 700, 24, 0); c.textAlign = 'center';
+        c.fillText(String(seatOf(p.key)), x - w/2, by + 35);
+      }
+      x -= w;
+    });
+    c.fillStyle = TX; c.fillRect(R - 61 * unit - 1, by - 12, 2, bh + 24);
+    c.textAlign = 'center'; f(c, 700, 19, 0); c.fillStyle = TX2;
+    c.fillText('61', R - 61 * unit, by - 20);
+
+    c.textAlign = 'right'; f(c, 700, 32, 0); c.fillStyle = ok ? GOLD2 : '#E8A29E';
+    c.fillText(ok ? 'רוב — אפשר להרכיב ממשלה' : `חסרים ${61 - tot} מנדטים לרוב`, R, 520);
+
+    /* רשימת השותפות בשתי עמודות */
+    let y = 596;
+    c.textAlign = 'right'; f(c, 700, 20, 0); c.fillStyle = TX3;
+    c.fillText('השותפות', R, y); c.fillStyle = RULE; c.fillRect(M, y + 16, CW, 1);
+    y += 66;
+    const colW = CW / 2 - 20;
+    list.forEach((p, i) => {
+      const cx = i % 2 === 0 ? R : R - colW - 40;
+      const ly = y + Math.floor(i / 2) * 60;
+      c.fillStyle = hexOf(p); c.beginPath(); c.arc(cx - 6, ly - 8, 6, 0, 7); c.fill();
+      c.textAlign = 'right'; f(c, 600, 27, 0); c.fillStyle = TX;
+      c.fillText(clip(c, p.name, colW - 90), cx - 22, ly);
+      c.textAlign = 'left'; f(c, 700, 27, 1); c.fillStyle = TX2;
+      c.fillText(String(seatOf(p.key)), cx - colW, ly);
+    });
+    /* גוש ההצהרות מעוגן לתחתית הכרטיס, כדי שלא יישאר חלל בין הרשימה לכותרת התחתונה */
+    const shown = warns.slice(0, 3);
+    const blockH = shown.length ? 52 + shown.length * 46 : 40;
+    y = Math.max(y + Math.ceil(list.length / 2) * 60 + 40, 1146 - blockH);
+    c.fillStyle = RULE; c.fillRect(M, y - 34, CW, 1);
+    if(shown.length){
+      c.textAlign = 'right'; f(c, 700, 20, 0); c.fillStyle = '#E8A29E';
+      c.fillText('מה שהמפלגות האלה הצהירו בפומבי', R, y); y += 48;
+      shown.forEach(t => {
+        c.fillStyle = '#E8A29E'; c.fillRect(R - 5, y - 13, 5, 5);
+        f(c, 300, 23, 0); c.fillStyle = TX2; c.textAlign = 'right';
+        c.fillText(clip(c, t, CW - 26), R - 18, y); y += 46;
+      });
+    } else if(list.length){
+      c.textAlign = 'right'; f(c, 300, 24, 0); c.fillStyle = TX2;
+      c.fillText('אין סתירה מוצהרת ידועה בין השותפות שבחרתי.', R, y);
+    }
+    footer(c, 'תרכיבו ממשלה משלכם');
+    return cv;
+  }
+
+  /* 4. כמה אנחנו דומים */
+  function vsCard(pct, same, clash, examples, n){
+    const { cv, c } = canvas();
+    frame(c, 'ההשוואה בינינו');
+    c.textAlign = 'center'; f(c, 800, 210, 1); c.fillStyle = GOLD;
+    c.fillText(pct + '%', W/2, 400);
+    f(c, 400, 34, 0); c.fillStyle = TX2;
+    c.fillText('הסכמה בין התשובות שלנו', W/2, 456);
+    f(c, 300, 23, 0); c.fillStyle = TX3;
+    c.fillText(`מתוך ${n} שאלות שענינו שנינו`, W/2, 496);
+
+    c.fillStyle = RULE; c.fillRect(M, 566, CW, 1);
+    const cell = (x, big, small, col) => {
+      c.textAlign = 'center'; f(c, 800, 78, 1); c.fillStyle = col;
+      c.fillText(String(big), x, 676);
+      f(c, 400, 24, 0); c.fillStyle = TX3; c.fillText(small, x, 722);
+    };
+    cell(R - CW/4, same, 'תשובות זהות', '#199E70');
+    cell(M + CW/4, clash, 'ניגוד חזיתי', '#D95926');
+    c.fillStyle = RULE; c.fillRect(W/2, 594, 1, 152);
+    c.fillRect(M, 770, CW, 1);
+
+    /* גוש הדוגמאות מעוגן לתחתית — שורות נשברות לרוחב הכרטיס */
+    f(c, 300, 25, 0);
+    const blocks = examples.slice(0, 3).map(t => {
+      const lines = []; let line = '';
+      t.split(' ').forEach(wd => {
+        if(c.measureText(line + ' ' + wd).width > CW - 34){ lines.push(line); line = wd; }
+        else line = line ? line + ' ' + wd : wd;
+      });
+      lines.push(line);
+      return lines.slice(0, 2);
+    });
+    const need = 62 + blocks.reduce((s,b) => s + b.length * 36 + 26, 0);
+    let y = Math.max(842, 1150 - need);
+    c.textAlign = 'right'; f(c, 700, 20, 0); c.fillStyle = TX3;
+    c.fillText(examples.length ? 'איפה אנחנו הכי רחוקים' : 'אין בינינו אף ניגוד חזיתי', R, y);
+    y += 62;
+    blocks.forEach(lines => {
+      c.fillStyle = GOLD; c.fillRect(R - 4, y - 15, 4, lines.length * 36 - 8);
+      f(c, 300, 25, 0); c.fillStyle = TX; c.textAlign = 'right';
+      lines.forEach((ln, i) => c.fillText(ln, R - 20, y + i * 36));
+      y += lines.length * 36 + 26;
+    });
+    footer(c, 'כמה אתם דומים לי?');
+    return cv;
+  }
+
+  /* ---------- מסירה ---------- */
+  async function deliver(cv, file, text){
+    const blob = await new Promise(r => cv.toBlob(r, 'image/png'));
+    const fl = new File([blob], file, { type:'image/png' });
+    if(navigator.canShare && navigator.canShare({ files:[fl] })){
+      await navigator.share({ files:[fl], text });
+      return 'shared';
+    }
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = file; a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 5000);
+    return 'saved';
+  }
+
+  /* מריץ כפתור שיתוף: מצב טעינה, שגיאות, וחזרה לטקסט המקורי */
+  async function run(btn, build, file, text){
+    const was = btn.dataset.lab || btn.textContent;
+    btn.dataset.lab = was; btn.disabled = true; btn.textContent = 'מכינים…';
+    try {
+      if(document.fonts && document.fonts.ready) await document.fonts.ready;
+      const how = await deliver(build(), file, text);
+      btn.textContent = how === 'shared' ? 'נשלח ✓' : 'נשמר במכשיר ✓';
+    } catch(e){
+      btn.textContent = (e && e.name === 'AbortError') ? was : 'לא הצלחנו לייצר תמונה';
+    }
+    btn.disabled = false;
+    setTimeout(() => { btn.textContent = btn.dataset.lab; }, 2800);
+  }
+
+  /* שיתוף קישור: שיתוף מובנה במכשיר, ואם אין — העתקה ללוח */
+  async function link(btn, url, text){
+    const was = btn.dataset.lab || btn.textContent;
+    btn.dataset.lab = was;
+    try {
+      if(navigator.share){ await navigator.share({ title:'פתק', text, url }); btn.textContent = 'נשלח ✓'; }
+      else { await navigator.clipboard.writeText(url); btn.textContent = 'הקישור הועתק ✓'; }
+    } catch(e){
+      if(e && e.name === 'AbortError'){ return; }
+      try { await navigator.clipboard.writeText(url); btn.textContent = 'הקישור הועתק ✓'; }
+      catch(e2){ location.hash = url.split('#')[1] || ''; btn.textContent = 'הקישור בשורת הכתובת'; }
+    }
+    setTimeout(() => { btn.textContent = btn.dataset.lab; }, 2800);
+  }
+
+  return { slipCard, mapCard, coalitionCard, vsCard, run, link };
+})();
+
+/* ============================================================
    שאלון ההתאמה
    ============================================================ */
 const MATCH = (() => {
@@ -1415,6 +1852,7 @@ const MATCH = (() => {
     window.__res = res;
     window.__ansState = { ans, wt, res, answered };
     document.dispatchEvent(new CustomEvent('petek:ans', { detail: window.__ansState }));
+    paintVS();
 
     if(answered < 5){
       $('#rhint').textContent = `ענו על לפחות חמש שאלות כדי לראות דירוג. (${answered}/${N})`;
@@ -1431,10 +1869,12 @@ const MATCH = (() => {
       <div class="nm">${top.p.name}</div>
       <div class="p">${top.pct}% התאמה${top.p.ltr === '—' ? ' · אותיות טרם נקבעו' : ''}</div></div>`;
 
-    $('#rrows').innerHTML = res.slice(0,8).map(r => {
-      const thr = r.seats === 0 ? `<em>מתחת לחסימה בסקרים</em>` : `<em>${r.seats} מנדטים בסקר</em>`;
-      return `<div class="rrow"><div class="rtop"><b>${r.p.name}</b><s>${r.pct}%</s></div>
-        <div class="rtop" style="margin-top:2px">${thr}</div>
+    $('#rrows').innerHTML = res.slice(0,8).map((r,i) => {
+      const thr = r.seats === 0 ? 'מתחת לחסימה בסקרים' : `<span class="n">${r.seats}</span> מנדטים בסקר`;
+      return `<div class="rrow">
+        <div class="rtop"><i class="rnum n">${String(i+1).padStart(2,'0')}</i>
+          <b>${r.p.name}</b><s class="n">${r.pct}%</s></div>
+        <div class="rsub">${thr}</div>
         <div class="rbar"><i style="width:${r.pct}%;background:${BLOC[r.p.bloc].c}"></i></div></div>`;
     }).join('');
 
@@ -1484,130 +1924,66 @@ const MATCH = (() => {
   }
   function save(){ try { localStorage.setItem('petek26', enc()); } catch(e){} }
 
-  $('#bshare').addEventListener('click', async () => {
-    const url = location.origin + location.pathname + '#t=' + enc();
-    try { await navigator.clipboard.writeText(url); $('#bshare').textContent = 'הקישור הועתק ✓'; }
-    catch(e){ location.hash = 't=' + enc(); $('#bshare').textContent = 'הקישור בשורת הכתובת'; }
-    setTimeout(() => $('#bshare').textContent = 'העתקת קישור לתשובות', 2600);
-  });
+  /* ---------- אתגר חבר: השוואה מול תשובות שהגיעו בקישור ---------- */
+  let VS = null;
+  (() => {
+    const raw = (location.hash.match(/vs=([aAnNdD_]+)/) || [])[1];
+    if(!raw || raw.length !== N) return;
+    const map = { a:[1,1], A:[1,3], n:[0,1], N:[0,3], d:[-1,1], D:[-1,3] };
+    VS = [...raw].map(ch => (map[ch] || [null])[0]);
+  })();
 
-  /* ---------- כרטיס שיתוף: ציור הפתק על קנבס ---------- */
-  const C = { ink:'#0E1013', surf:'#181B1F', tx:'#E8E4DB', tx2:'#A8A399', tx3:'#736F67',
-              gold:'#C9A227', gold2:'#E0C05A', rule:'rgba(232,228,219,.13)' };
-  const BLOCHEX = { a:'#B5854A', b:'#7FA8D8', c:'#6FA88A', d:'#7C7871' };
-
-  function drawCard(){
-    const W = 1080, H = 1350, cv = document.createElement('canvas');
-    cv.width = W; cv.height = H;
-    const c = cv.getContext('2d');
-    c.direction = 'rtl'; c.textBaseline = 'alphabetic';
-    const R = W - 80;                                   // שוליים ימניים — נקודת האפס בעברית
-    const font = (w,s,serif) => c.font = `${w} ${s}px ${serif ? "'Noto Serif Hebrew', serif" : "'Assistant', sans-serif"}`;
-    const right = (t,y) => { c.textAlign = 'right'; c.fillText(t, R, y); };
-
-    c.fillStyle = C.ink;  c.fillRect(0, 0, W, H);
-    c.fillStyle = C.gold; c.fillRect(R - 26, 74, 26, 36);
-    c.fillStyle = C.tx;   font(800, 34, 1); c.textAlign = 'right'; c.fillText('פתק', R - 42, 104);
-    c.fillStyle = C.tx3;  font(400, 21, 0); right('מדריך הבוחר לבחירות 2026', 152);
-
-    const { res, answered } = (() => { const s = score(); return { res:s.res, answered:s.answered }; })();
-    const top = res[0];
-
-    /* הפתק הגדול */
-    const sy = 186, sh = 300;
-    c.fillStyle = C.tx; c.fillRect(80, sy, W - 160, sh);
-    c.fillStyle = C.ink; font(800, 124, 1);
-    c.textAlign = 'center'; c.fillText(top.p.ltr === '—' ? '?' : top.p.ltr, W/2, sy + 160);
-    c.strokeStyle = 'rgba(14,16,19,.22)'; c.lineWidth = 1;
-    c.beginPath(); c.moveTo(150, sy + 196); c.lineTo(W - 150, sy + 196); c.stroke();
-    font(700, 42, 1); c.fillText(top.p.name, W/2, sy + 246);
-    c.fillStyle = '#4A4740'; font(600, 26, 0);
-    c.fillText(`${top.pct}% התאמה` + (top.p.ltr === '—' ? ' · אותיות טרם נקבעו' : ''), W/2, sy + 284);
-
-    /* חמש המובילות */
-    let y = 580;
-    c.fillStyle = C.tx3; font(700, 20, 0); right('ההתאמות המובילות', 536);
-    res.slice(0,5).forEach(r => {
-      c.fillStyle = C.tx; font(600, 26, 0); c.textAlign = 'right'; c.fillText(r.p.name, R, y);
-      c.fillStyle = C.tx2; font(600, 24, 0); c.textAlign = 'left'; c.fillText(r.pct + '%', 80, y);
-      c.fillStyle = 'rgba(232,228,219,.08)'; c.fillRect(80, y + 13, R - 80, 6);
-      c.fillStyle = BLOCHEX[r.p.bloc] || C.tx3;
-      const bw = (R - 80) * r.pct / 100; c.fillRect(R - bw, y + 13, bw, 6);
-      y += 64;
+  function vsCompare(){
+    let s = 0, n = 0, same = 0, clash = 0;
+    const ex = [];
+    ans.forEach((a, i) => {
+      if(a === null || VS[i] === null) return;
+      n++; s += 1 - Math.abs(a - VS[i]) / 2;
+      if(a === VS[i]) same++;
+      if(Math.abs(a - VS[i]) === 2){ clash++; ex.push(Q[i].t); }
     });
-
-    /* מפה מוקטנת בשני הצירים שנבחרו במפה שבאתר */
-    const ax = axById[MAPSTATE.x], ay = axById[MAPSTATE.y];
-    c.fillStyle = C.tx3; font(700, 20, 0);
-    right(`${ax.name} (אופקי) מול ${ay.name} (אנכי)`, 906);
-    const mx = 80, my = 926, ms = W - 160, mh = 270;
-    const ccx = mx + ms/2, ccy = my + mh/2;
-    c.strokeStyle = C.rule; c.lineWidth = 1; c.strokeRect(mx, my, ms, mh);
-    c.beginPath(); c.moveTo(mx, ccy); c.lineTo(mx + ms, ccy);
-    c.moveTo(ccx, my); c.lineTo(ccx, my + mh);
-    c.strokeStyle = 'rgba(232,228,219,.16)'; c.stroke();
-    const px = v => ccx + (v/100) * (ms/2 - 46);
-    const py = v => ccy - (v/100) * (mh/2 - 34);
-    PARTIES.forEach(p => {
-      const seats = (POLL.find(r => r.key === p.key) || {}).seats || 0;
-      c.beginPath(); c.arc(px(axParty(p,ax)), py(axParty(p,ay)), 5 + seats * .28, 0, 7);
-      c.fillStyle = BLOCHEX[p.bloc] || C.tx3; c.globalAlpha = seats ? .85 : .4; c.fill(); c.globalAlpha = 1;
-    });
-    const ux = axUser(ans, wt, ax), uy = axUser(ans, wt, ay);
-    if(ux && uy){
-      const X = px(ux.v), Y = py(uy.v);
-      c.fillStyle = C.gold; c.beginPath(); c.arc(X, Y, 11, 0, 7); c.fill();
-      c.strokeStyle = C.ink; c.lineWidth = 3; c.stroke();
-      c.fillStyle = C.gold2; font(800, 20, 0); c.textAlign = 'center';
-      c.fillText('אני', X, Y - 22 < my + 26 ? Y + 34 : Y - 22);
-    }
-    /* תוויות הקטבים על רקע אטום, כדי שיישארו קריאות גם מעל נקודה */
-    const chip = (t, x, cy, align) => {
-      font(600, 19, 0); c.textAlign = align;
-      const w = c.measureText(t).width, x0 = align === 'right' ? x - w : align === 'left' ? x : x - w/2;
-      c.fillStyle = C.ink; c.fillRect(x0 - 6, cy - 16, w + 12, 24);
-      c.fillStyle = C.tx3; c.fillText(t, x, cy);
-    };
-    chip(ax.sh, mx + ms - 12, ccy - 10, 'right');
-    chip(ax.sl, mx + 12, ccy - 10, 'left');
-    chip(ay.sh, ccx, my + 24, 'center');
-    chip(ay.sl, ccx, my + mh - 10, 'center');
-
-    /* כותרת תחתונה */
-    c.fillStyle = C.rule; c.fillRect(80, H - 128, W - 160, 1);
-    c.fillStyle = C.tx3; font(400, 21, 0);
-    c.textAlign = 'right'; c.fillText(`מבוסס על ${answered} מתוך ${Q.length} שאלות`, R, H - 82);
-    c.fillStyle = C.gold; c.textAlign = 'left'; c.fillText(location.host || 'petek', 80, H - 82);
-    c.fillStyle = C.tx3; font(300, 18, 0);
-    c.textAlign = 'right'; c.fillText('הדירוג הוא פרשנות של עמדות מוצהרות, לא נתון רשמי.', R, H - 46);
-    return cv;
+    return { n, pct: n ? Math.round(s / n * 100) : 0, same, clash, ex };
   }
 
-  $('#bcard').addEventListener('click', async () => {
-    const btn = $('#bcard'), was = btn.textContent;
-    btn.disabled = true; btn.textContent = 'מכינים תמונה…';
-    try {
-      if(document.fonts && document.fonts.ready) await document.fonts.ready;
-      const cv = drawCard();
-      const blob = await new Promise(r => cv.toBlob(r, 'image/png'));
-      const file = new File([blob], 'petek-2026.png', { type:'image/png' });
-      if(navigator.canShare && navigator.canShare({ files:[file] })){
-        await navigator.share({ files:[file], title:'הפתק שלי', text:'הפתק שלי לבחירות 2026' });
-        btn.textContent = 'נשלח ✓';
-      } else {
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url; a.download = 'petek-2026.png'; a.click();
-        setTimeout(() => URL.revokeObjectURL(url), 5000);
-        btn.textContent = 'התמונה הורדה ✓';
-      }
-    } catch(e){
-      if(e && e.name === 'AbortError'){ btn.textContent = was; btn.disabled = false; return; }
-      btn.textContent = 'לא הצלחנו לייצר תמונה';
+  function paintVS(){
+    const box = $('#rvs');
+    if(!VS){ box.hidden = true; return; }
+    const v = vsCompare();
+    box.hidden = false;
+    if(v.n < 5){
+      box.innerHTML = `<h4>חבר שיתף אתכם את התשובות שלו</h4>
+        <p>ענו על חמש שאלות משותפות לפחות ותראו כמה אתם דומים. עד כה: <span class="n">${v.n}</span>.</p>`;
+      return;
     }
-    btn.disabled = false;
-    setTimeout(() => btn.textContent = was, 2600);
+    box.innerHTML = `<h4>כמה אתם דומים</h4>
+      <div class="vsbig"><b class="n">${v.pct}%</b><span>מהתשובות המשותפות נפגשות · <span class="n">${v.n}</span> שאלות</span></div>
+      <div class="vsplit">
+        <div><b class="n">${v.same}</b>תשובות זהות</div>
+        <div><b class="n">${v.clash}</b>ניגוד חזיתי</div>
+      </div>
+      ${v.ex.length ? `<p class="vsq">הכי רחוקים ב: ${v.ex.slice(0,2).join(' · ')}</p>` : ''}
+      <button id="bvscard" type="button" class="pri">שיתוף ההשוואה</button>`;
+    $('#bvscard').addEventListener('click', e =>
+      SHARE.run(e.currentTarget, () => SHARE.vsCard(v.pct, v.same, v.clash, v.ex, v.n),
+        'petek-hashvaa.png', `אנחנו נפגשים ב-${v.pct}% מהתשובות. ${location.href}`));
+  }
+
+  /* ---------- שיתוף ---------- */
+  const myURL = () => location.origin + location.pathname + '#t=' + enc();
+
+  $('#bshare').addEventListener('click', e =>
+    SHARE.link(e.currentTarget, myURL(), 'ענו על אותן 29 שאלות ותראו מה יוצא לכם'));
+
+  $('#bcard').addEventListener('click', e => {
+    const { res, answered } = score();
+    SHARE.run(e.currentTarget, () => SHARE.slipCard(res, answered), 'petek-hapetek.png',
+      `הפתק שלי: ${res[0].p.name} · ${res[0].pct}% התאמה. מה יוצא לכם? ${myURL()}`);
   });
+
+  /* אתגר: הקישור נושא את התשובות שלי, והנמען רואה כמה הוא דומה לי */
+  $('#bvs').addEventListener('click', e =>
+    SHARE.link(e.currentTarget, location.origin + location.pathname + '#vs=' + enc(),
+      'עניתי על 29 שאלות לקראת הבחירות. כמה אנחנו דומים?'));
 
   $('#mreset').addEventListener('click', () => {
     ans = Array(N).fill(null); wt = Array(N).fill(1);
@@ -1655,45 +2031,17 @@ const MATCH = (() => {
 
     const pts = PARTIES.map(p => {
       const seats = seatOf(p.key);
-      return { p, seats, vx: axParty(p, ax), vy: axParty(p, ay),
+      return { p, name:p.name, seats, vx: axParty(p, ax), vy: axParty(p, ay),
                x: px(axParty(p, ax)), y: py(axParty(p, ay)), r: 7 + seats * .5 };
     });
 
-    /* מיקום תוויות: לכל נקודה מנסים כמה היסטים ובוחרים את הראשון שלא מתנגש.
-       תוויות הקטבים נכנסות לרשימה מראש כדי שאף שם מפלגה לא ייפול עליהן. */
-    const placed = [
+    /* תוויות הקטבים שמורות מראש, כדי שאף שם מפלגה לא ייפול עליהן */
+    placeLabels(pts, S, textW, [
       { x1:S-PAD-60, x2:S, y1:MID-26, y2:MID-2 },      // קוטב ימני
       { x1:0, x2:PAD+60, y1:MID-26, y2:MID-2 },        // קוטב שמאלי
       { x1:MID-90, x2:MID+90, y1:6, y2:26 },           // קוטב עליון
       { x1:MID-90, x2:MID+90, y1:S-28, y2:S-4 }        // קוטב תחתון
-    ];
-    const CAND = [];
-    [[0,1],[0,-1],[1,0],[-1,0],[1,1],[-1,1],[1,-1],[-1,-1]].forEach(v =>
-      [1,1.9,2.8,3.7].forEach(m => CAND.push([v[0], v[1], m])));
-
-    const over = (a,b) => Math.max(0, Math.min(a.x2,b.x2) - Math.max(a.x1,b.x1))
-                        * Math.max(0, Math.min(a.y2,b.y2) - Math.max(a.y1,b.y1));
-
-    pts.slice().sort((a,b) => b.seats - a.seats).forEach(d => {
-      const w = textW(d.p.name) + 6, h = 15;
-      let best = null, bestCost = Infinity;
-      for(const [dx,dy,m] of CAND){
-        const cx = d.x + dx * (d.r + w/2 + 4) * m;
-        const cy = d.y + dy * (d.r + 12) * m;
-        const b = { cx, cy, x1:cx - w/2, x2:cx + w/2, y1:cy - h, y2:cy + 4 };
-        if(b.x1 < 4 || b.x2 > S - 4 || b.y1 < 30 || b.y2 > S - 30) continue;
-        /* עלות = חפיפה עם תוויות שכבר הונחו ועם נקודות, ועוד קנס על ריחוק מהנקודה */
-        let cost = placed.reduce((s,o) => s + over(b,o), 0) * 4;
-        pts.forEach(o => { if(o !== d) cost += over(b, { x1:o.x-o.r, x2:o.x+o.r, y1:o.y-o.r, y2:o.y+o.r }) * 6; });
-        cost += (m - 1) * 40 + (dy === 1 ? 0 : 12);
-        if(cost < bestCost){ bestCost = cost; best = b; if(cost === 0) break; }
-      }
-      if(!best){
-        const cy = d.y + d.r + 12;
-        best = { cx:d.x, cy, x1:d.x - w/2, x2:d.x + w/2, y1:cy - h, y2:cy + 4 };
-      }
-      placed.push(best); d.lx = best.cx; d.ly = best.cy;
-    });
+    ]);
 
     const gridline = v => `<line class="grid" x1="${px(v)}" y1="${PAD}" x2="${px(v)}" y2="${S-PAD}"/>
       <line class="grid" x1="${PAD}" y1="${py(v)}" x2="${S-PAD}" y2="${py(v)}"/>`;
@@ -1832,6 +2180,13 @@ const MATCH = (() => {
     rz = setTimeout(() => { if(small() !== wasSmall){ wasSmall = small(); tip.hidden = true; draw(); } }, 200);
   }, { passive:true });
 
+  $('#bmap').addEventListener('click', e => {
+    const ax = axById[MAPSTATE.x], ay = axById[MAPSTATE.y];
+    SHARE.run(e.currentTarget, () => SHARE.mapCard(U), 'petek-mapa.png',
+      U ? `אני כאן על מפת העמדות — ${ax.name} מול ${ay.name}. ואתם? ${location.origin + location.pathname}`
+        : `מפת העמדות של הבחירות: ${ax.name} מול ${ay.name}. ${location.origin + location.pathname}`);
+  });
+
   setUser(window.__ansState);            // השאלון כבר רץ — יכול להיות שיש תשובות שמורות
   draw();
 })();
@@ -1884,7 +2239,19 @@ const MATCH = (() => {
     $('#cwarn').innerHTML = !keys.length ? ''
       : warn.length ? warn.map(w => `<div>${w}</div>`).join('')
       : `<div class="ok">אין סתירה מוצהרת ידועה בין השותפות שבחרתם.</div>`;
+
+    $('#cshare').style.display = keys.length ? 'flex' : 'none';
+    lastWarn = warn;
   }
+  let lastWarn = [];
+
+  $('#bcoal').addEventListener('click', e => {
+    const keys = [...sel];
+    const tot = keys.reduce((a,k) => a + seatOf(k), 0);
+    SHARE.run(e.currentTarget, () => SHARE.coalitionCard(keys, lastWarn), 'petek-koalitzia.png',
+      tot >= 61 ? `הרכבתי ממשלה של ${tot} מנדטים. תרכיבו אחת משלכם: ${location.origin + location.pathname}`
+                : `הצירוף שלי מגיע ל-${tot} מנדטים בלבד. תנסו אתם: ${location.origin + location.pathname}`);
+  });
 
   $('#picks').addEventListener('click', e => {
     const b = e.target.closest('.pick'); if(!b) return;
