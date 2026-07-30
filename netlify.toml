@@ -7,7 +7,20 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
+# הכללים האלה מוכרחים לכסות גם את "/" ולא רק את "/index.html":
+# Netlify משווה את הכלל לנתיב הבקשה, וגולש שמגיע לכתובת הראשית מבקש "/".
+# בלי זה, העמוד הראשי לא מקבל את הוראת האימות־מחדש והדפדפן עלול להגיש גרסה ישנה.
+[[headers]]
+  for = "/"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
 [[headers]]
   for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
