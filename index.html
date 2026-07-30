@@ -82,13 +82,24 @@ header.bar.stuck .brand{font-size:19px}
 @media(max-width:700px){.brand span{display:none}.navin a{font-size:14.5px;padding:4px 11px}}
 
 /* ============ פתיח ============ */
-.hero{padding:calc(var(--hdr) + 64px) 0 64px}
+/* הפתיחה קצרה בכוונה — השאלון מתחיל בתוך המסך הראשון */
+.hero{padding:calc(var(--hdr) + 32px) 0 38px}
 .hgrid{display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:end}
-@media(max-width:900px){.hgrid{grid-template-columns:1fr;gap:40px;align-items:start}}
-.kicker{font-size:14px;color:var(--gold);margin-bottom:18px;font-weight:600}
-h1.big{font-size:clamp(38px,6.6vw,68px);font-weight:800;line-height:1.12}
-h1.big span{display:block;color:var(--tx3);font-weight:400;font-size:.42em;margin-top:14px;line-height:1.4}
+@media(max-width:900px){.hgrid{grid-template-columns:1fr;gap:32px;align-items:start}}
+.kicker{font-size:14px;color:var(--gold);margin-bottom:16px;font-weight:600}
+h1.big{font-size:clamp(36px,5.4vw,56px);font-weight:800;line-height:1.14}
+/* רק הבן הישיר — אחרת גם ספן מספר מקונן בתוכו הופך לבלוק בשורה נפרדת */
+h1.big > span{display:block;color:var(--tx2);font-weight:300;font-size:.38em;margin-top:16px;
+  line-height:1.6;max-width:46ch}
 .lede{font-size:19px;color:var(--tx2);max-width:52ch;margin-top:22px;font-weight:300;line-height:1.75}
+.hcta{display:flex;align-items:center;gap:10px 22px;flex-wrap:wrap;margin-top:28px}
+.hcta a{border-bottom:0}
+.hcta .go{background:var(--gold);color:#17140A;font-weight:700;font-size:16.5px;padding:14px 30px;
+  border-radius:2px;transition:background .2s var(--e)}
+.hcta .go:hover{background:var(--gold2)}
+.hcta .alt{color:var(--tx3);font-size:15px;font-weight:400;border-bottom:1px solid var(--rule2);
+  padding-bottom:2px;transition:color .2s}
+.hcta .alt:hover{color:var(--tx2);border-bottom-color:var(--tx3)}
 .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);
   border:1px solid var(--rule);margin-top:8px}
 .stat{background:var(--ink);padding:18px 20px}
@@ -97,6 +108,9 @@ h1.big span{display:block;color:var(--tx3);font-weight:400;font-size:.42em;margi
 
 /* ============ מבנה כללי ============ */
 section{padding:78px 0;border-top:1px solid var(--rule)}
+/* השאלון הוא הסעיף הראשון וממשיך ישר מהפתיחה — בלי קו הפרדה ובלי ריווח מלא */
+#hatama{border-top:0;padding-top:26px}
+#hatama .shead{margin-bottom:26px}
 .shead{margin-bottom:40px}
 .snum{display:block;font-size:13px;color:var(--gold);font-weight:600;margin-bottom:10px}
 .shead h2{font-size:clamp(27px,3.8vw,38px);font-weight:800}
@@ -232,6 +246,8 @@ details.acc[open] summary::after{content:" ↑"}
 .mbar button{background:transparent;border:1px solid var(--rule2);color:var(--tx2);font-size:13.5px;
   padding:6px 13px;cursor:pointer;border-radius:2px;white-space:nowrap;font-weight:500}
 .mbar button:hover{color:var(--tx);border-color:var(--red)}
+.mhint{font-size:13.5px;color:var(--tx3);font-weight:300;line-height:1.7;margin:0;max-width:none}
+.mhint b{color:var(--tx2);font-weight:600}
 .domh{font-family:'Noto Serif Hebrew',serif;font-size:21px;font-weight:700;padding:30px 0 12px;
   border-bottom:1px solid var(--rule2);display:flex;justify-content:space-between;align-items:baseline;gap:12px}
 .domh s{text-decoration:none;font-family:'Assistant';font-size:13.5px;color:var(--tx3);font-weight:400}
@@ -245,9 +261,19 @@ details.acc[open] summary::after{content:" ↑"}
 .opt[aria-pressed="true"][data-v="1"]{background:rgba(111,168,138,.16);border-color:var(--green);color:#A8D4BC}
 .opt[aria-pressed="true"][data-v="0"]{background:rgba(232,228,219,.1);border-color:var(--tx3);color:var(--tx)}
 .opt[aria-pressed="true"][data-v="-1"]{background:rgba(199,122,121,.16);border-color:var(--red);color:#E5AEAD}
-.wt{flex:none;font-size:13.5px;padding:10px 13px;cursor:pointer;border-radius:2px;font-weight:500;
-  border:1px solid var(--rule2);background:transparent;color:var(--tx3);transition:all .2s}
+.qmeta{display:flex;gap:7px;flex-wrap:wrap;margin-top:7px}
+.wt,.sk{flex:none;font-size:13px;padding:8px 13px;cursor:pointer;border-radius:2px;font-weight:500;
+  border:1px solid var(--rule);background:transparent;color:var(--tx3);transition:all .2s}
+.wt:hover,.sk:hover{border-color:var(--tx3);color:var(--tx2)}
 .wt[aria-pressed="true"]{background:rgba(201,162,39,.15);border-color:var(--gold);color:var(--gold2)}
+.sk[aria-pressed="true"]{background:rgba(232,228,219,.07);border-color:var(--tx3);color:var(--tx2)}
+.wt:disabled{opacity:.35;cursor:default}
+.wt:disabled:hover{border-color:var(--rule);color:var(--tx3)}
+/* שאלה שהוצאה מהחישוב — מושתקת חזותית, אבל עדיין אפשר לענות עליה
+   וזה מבטל את הדילוג, כדי שלא צריך לזכור לבטל אותו קודם */
+.qq.skipped > p{opacity:.5}
+.qq.skipped .qrow{opacity:.35;transition:opacity .2s var(--e)}
+.qq.skipped .qrow:hover,.qq.skipped .qrow:focus-within{opacity:.85}
 .res{position:sticky;top:76px;border:1px solid var(--rule2);background:var(--ink2);padding:26px}
 .res h3{font-size:22px;font-weight:800}
 .rhint{font-size:14.5px;color:var(--tx3);margin:6px 0 20px;font-weight:300}
@@ -444,12 +470,12 @@ footer strong{color:var(--tx2);font-weight:600}
     <nav class="navscroll" aria-label="ניווט ראשי">
       <div class="navin" id="navin">
         <div id="pill"></div>
+        <a href="#hatama">השאלון</a>
+        <a href="#mapa">מפת עמדות</a>
         <a href="#mazav">המצב</a>
         <a href="#skarim">סקרים</a>
         <a href="#misparim">מספרים</a>
         <a href="#miflagot">המפלגות</a>
-        <a href="#hatama">מי מייצג אותי</a>
-        <a href="#mapa">מפת עמדות</a>
         <a href="#hashvaa">השוואה</a>
         <a href="#koalitzia">קואליציה</a>
         <a href="#luz">לוח זמנים</a>
@@ -462,10 +488,13 @@ footer strong{color:var(--tx2);font-weight:600}
 <div class="hero">
   <div class="wrap hgrid">
     <div>
-      <div class="kicker">הבחירות לכנסת ה-<span class="n">26</span> · ט״ז בחשוון התשפ״ז</div>
-      <h1 class="big"><span class="n">27</span> באוקטובר <span class="n">2026</span>
-        <span>מדריך אחד לכל מי שרוצה להיכנס לקלפי ולדעת בדיוק מה הוא שם במעטפה.</span></h1>
-      <p class="lede">שלוש־עשרה רשימות: מה כל אחת מבטיחה, מי האנשים מאחורי השם ומה הרקע שלהם — ושאלון של <span class="n">29</span> שאלות שבודק לאן העמדות שלכם באמת מתאימות.</p>
+      <div class="kicker">הבחירות לכנסת ה-<span class="n">26</span> · <span class="n">27</span> באוקטובר <span class="n">2026</span></div>
+      <h1 class="big">מי באמת מייצג אותך?
+        <span><span class="n">29</span> שאלות בשמונה תחומים, ובסוף פתק אחד ומקום משלכם על מפת העמדות. על כל שאלה שאין לכם בה דעה אפשר לדלג — היא לא תיכלל בחישוב.</span></h1>
+      <div class="hcta">
+        <a class="go" href="#hatama">להתחיל בשאלון</a>
+        <a class="alt" href="#miflagot">או קודם המדריך: מפלגות, סקרים ומצע</a>
+      </div>
     </div>
     <div class="stats">
       <div class="stat"><b class="n" id="cdays">—</b><span>ימים לבחירות</span></div>
@@ -476,9 +505,71 @@ footer strong{color:var(--tx2);font-weight:600}
   </div>
 </div>
 
+<section id="hatama">
+  <div class="wrap">
+    <div class="shead reveal"><span class="snum">01</span><h2>מי מייצג אותי</h2>
+      <p class="ssub">שמונה תחומים, והדירוג מתעדכן תוך כדי. אין צורך לענות על הכול.</p></div>
+    <div class="mgrid">
+      <div>
+        <div class="mbar">
+          <span class="cnt"><span class="n" id="mcount">0 / 29</span></span>
+          <div class="track"><i id="mtrack"></i></div>
+          <button id="mreset" type="button">איפוס</button>
+        </div>
+        <p class="mhint"><b>★ חשוב לי</b> — השאלה נספרת פי שלושה.
+          <b>אין לי דעה בנושא</b> — השאלה יוצאת מהחישוב לגמרי, ולא נחשבת כעמדת ביניים.</p>
+        <div id="qbox"></div>
+      </div>
+      <div>
+        <div class="res">
+          <h3>הפתק שלך</h3>
+          <p class="rhint" id="rhint">ענו על לפחות חמש שאלות כדי לראות דירוג.</p>
+          <div id="rslip"></div>
+          <div id="rrows"></div>
+          <div class="mini" id="rmini" style="display:none">
+            <button id="bcard" type="button" class="pri">שיתוף הפתק שלי</button>
+            <button id="bvs" type="button">אתגרו חבר</button>
+            <button id="bshare" type="button">קישור לתשובות</button>
+            <button id="bwhy" type="button">למה זה מה שיצא</button>
+          </div>
+          <div id="rwhy" style="display:none"></div>
+          <div class="vsbox" id="rvs" hidden></div>
+          <div class="note">הדירוג נשען על עמדות מוצהרות שהמפלגות פרסמו או קידמו בכנסת, בפרשנות שלי — לא על מסמך רשמי. מפלגה שקרובה אליכם ב-90% מהשאלות עדיין יכולה להיות רחוקה בנושא שהכי יקר לכם.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mapa">
+  <div class="wrap">
+    <div class="shead reveal"><span class="snum">02</span><h2>מפת העמדות</h2>
+      <p class="ssub">אותן 29 שאלות, מזווית אחרת: כל מפלגה היא נקודה, וגודל הנקודה הוא המנדטים בסקר. בחרו אילו שני צירים להעמיד זה מול זה — ותראו מיד שהמפה הפוליטית לא נמתחת על קו אחד. מי שעונה על השאלון מקבל גם את הנקודה של עצמו.</p></div>
+    <div class="reveal">
+      <div class="axsel">
+        <label>ציר אופקי<select id="axX" aria-label="ציר אופקי"></select></label>
+        <label>ציר אנכי<select id="axY" aria-label="ציר אנכי"></select></label>
+        <button id="axswap" type="button" title="החלפה בין הצירים">⇄ החלפה</button>
+      </div>
+      <div class="mapgrid">
+        <div class="mapbox">
+          <div id="mapwrap"></div>
+          <div class="maptip" id="maptip" hidden></div>
+        </div>
+        <div class="mapside">
+          <div class="mapyou" id="mapyou"></div>
+          <div class="mapleg" id="mapleg"></div>
+          <div class="mini"><button id="bmap" type="button" class="pri">שיתוף המפה</button></div>
+          <div class="note">המיקום מחושב מטבלת העמדות של האתר: לכל ציר נבחרו השאלות ששייכות לו, תשובת "בעד" מזיזה לצד אחד ו"נגד" לצד השני. שתי מפלגות שנופלות באותה נקודה יכולות עדיין להיות רחוקות מאוד בשאלות שלא נכללות בשני הצירים שבחרתם — המפה היא חתך, לא תמונה מלאה.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="mazav">
   <div class="wrap">
-    <div class="shead reveal"><span class="snum">01</span><h2>המצב בקצרה</h2>
+    <div class="shead reveal"><span class="snum">03</span><h2>המצב בקצרה</h2>
       <p class="ssub">שישה דברים שכדאי להחזיק בראש כשקוראים כל סקר וכל הצהרה בקמפיין הזה. כולם קרו בתוך הקדנציה הנוכחית, וכולם מגדירים את הוויכוח.</p></div>
     <div class="ctx reveal">
       <article><span class="w">12 ביולי 2026</span><h4>בחירות במועד — לראשונה מאז 1988</h4>
@@ -499,7 +590,7 @@ footer strong{color:var(--tx2);font-weight:600}
 
 <section id="skarim">
   <div class="wrap">
-    <div class="shead reveal"><span class="snum">02</span><h2>איפה עומדים הסקרים</h2>
+    <div class="shead reveal"><span class="snum">04</span><h2>איפה עומדים הסקרים</h2>
       <p class="ssub">צילום רגע אחד, לא תחזית. הקו האפור על כל עמודה מסמן את התוצאה בפועל ב-2022, והמספר הקטן הוא הטווח שהמפלגה קיבלה בכלל הסקרים בין 8 ל-23 ביולי 2026.</p></div>
     <div class="pmeta reveal" id="pmeta"></div>
     <div class="reveal">
@@ -513,7 +604,7 @@ footer strong{color:var(--tx2);font-weight:600}
 
 <section id="misparim">
   <div class="wrap">
-    <div class="shead reveal"><span class="snum">03</span><h2>מספרים שכדאי להכיר</h2>
+    <div class="shead reveal"><span class="snum">05</span><h2>מספרים שכדאי להכיר</h2>
       <p class="ssub">כמה נתונים מהבחירות הקודמות שמסבירים למה כל קול נחשב, ולמה המערכת הפוליטית נראית כמו שהיא נראית.</p></div>
 
     <div class="facts reveal" id="facts"></div>
@@ -547,7 +638,7 @@ footer strong{color:var(--tx2);font-weight:600}
 
 <section id="miflagot">
   <div class="wrap">
-    <div class="shead reveal"><span class="snum">04</span><h2>המפלגות</h2>
+    <div class="shead reveal"><span class="snum">06</span><h2>המפלגות</h2>
       <p class="ssub">שלוש־עשרה רשימות שיש להן ייצוג בכנסת היוצאת או סיכוי ממשי בסקרים. לכל אחת: אותיות הפתק, מצע, סטטוס פריימריז והאנשים המרכזיים עם הרקע שלהם. הרשימות הסופיות מוגשות לוועדת הבחירות רק בספטמבר 2026.</p></div>
     <div class="toolbar reveal">
       <div class="search"><input id="psearch" type="search" placeholder="חיפוש מפלגה, מועמד או נושא…" aria-label="חיפוש מפלגה"></div>
@@ -555,66 +646,6 @@ footer strong{color:var(--tx2);font-weight:600}
     </div>
     <div class="pgrid" id="pgrid"></div>
     <p id="pempty" style="display:none;color:var(--tx3);text-align:center;padding:44px">לא נמצאה התאמה. נסו מונח אחר.</p>
-  </div>
-</section>
-
-<section id="hatama">
-  <div class="wrap">
-    <div class="shead reveal"><span class="snum">05</span><h2>מי מייצג אותי</h2>
-      <p class="ssub">29 שאלות בשמונה תחומים. אפשר לדלג על כל שאלה שלא מעניינת אתכם, ואפשר לסמן שאלה כחשובה — ואז היא נספרת פי שלושה. הדירוג מתעדכן תוך כדי, ובסוף אפשר לראות בדיוק על מה אתם מסכימים וחולקים.</p></div>
-    <div class="mgrid">
-      <div>
-        <div class="mbar">
-          <span class="cnt"><span class="n" id="mcount">0 / 29</span></span>
-          <div class="track"><i id="mtrack"></i></div>
-          <button id="mreset" type="button">איפוס</button>
-        </div>
-        <div id="qbox"></div>
-      </div>
-      <div>
-        <div class="res">
-          <h3>הפתק שלך</h3>
-          <p class="rhint" id="rhint">ענו על לפחות חמש שאלות כדי לראות דירוג.</p>
-          <div id="rslip"></div>
-          <div id="rrows"></div>
-          <div class="mini" id="rmini" style="display:none">
-            <button id="bcard" type="button" class="pri">שיתוף הפתק שלי</button>
-            <button id="bvs" type="button">אתגרו חבר</button>
-            <button id="bshare" type="button">קישור לתשובות</button>
-            <button id="bwhy" type="button">למה זה מה שיצא</button>
-          </div>
-          <div id="rwhy" style="display:none"></div>
-          <div class="vsbox" id="rvs" hidden></div>
-          <div class="note">הדירוג נשען על עמדות מוצהרות שהמפלגות פרסמו או קידמו בכנסת, בפרשנות שלי — לא על מסמך רשמי. מפלגה שקרובה אליכם ב-90% מהשאלות עדיין יכולה להיות רחוקה בנושא שהכי יקר לכם.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="mapa">
-  <div class="wrap">
-    <div class="shead reveal"><span class="snum">06</span><h2>מפת העמדות</h2>
-      <p class="ssub">אותן 29 שאלות, מזווית אחרת: כל מפלגה היא נקודה, וגודל הנקודה הוא המנדטים בסקר. בחרו אילו שני צירים להעמיד זה מול זה — ותראו מיד שהמפה הפוליטית לא נמתחת על קו אחד. מי שעונה על השאלון מקבל גם את הנקודה של עצמו.</p></div>
-    <div class="reveal">
-      <div class="axsel">
-        <label>ציר אופקי<select id="axX" aria-label="ציר אופקי"></select></label>
-        <label>ציר אנכי<select id="axY" aria-label="ציר אנכי"></select></label>
-        <button id="axswap" type="button" title="החלפה בין הצירים">⇄ החלפה</button>
-      </div>
-      <div class="mapgrid">
-        <div class="mapbox">
-          <div id="mapwrap"></div>
-          <div class="maptip" id="maptip" hidden></div>
-        </div>
-        <div class="mapside">
-          <div class="mapyou" id="mapyou"></div>
-          <div class="mapleg" id="mapleg"></div>
-          <div class="mini"><button id="bmap" type="button" class="pri">שיתוף המפה</button></div>
-          <div class="note">המיקום מחושב מטבלת העמדות של האתר: לכל ציר נבחרו השאלות ששייכות לו, תשובת "בעד" מזיזה לצד אחד ו"נגד" לצד השני. שתי מפלגות שנופלות באותה נקודה יכולות עדיין להיות רחוקות מאוד בשאלות שלא נכללות בשני הצירים שבחרתם — המפה היא חתך, לא תמונה מלאה.</div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1570,7 +1601,7 @@ const SHARE = (() => {
   /* ============ הכרטיסים ============ */
 
   /* 1. הפתק שלי */
-  function slipCard(res, answered){
+  function slipCard(res, answered, skipped){
     const { cv, c } = canvas();
     frame(c, 'הפתק שלי');
     const top = res[0];
@@ -1584,7 +1615,8 @@ const SHARE = (() => {
     res.slice(0, 3).forEach((r, i) => rankRow(c, i, 828 + i * 96, r.p.name, r.pct, hexOf(r.p)));
 
     c.textAlign = 'right'; f(c, 300, 21, 0); c.fillStyle = TX3;
-    c.fillText(`מבוסס על ${answered} מתוך ${Q.length} השאלות שבשאלון`, R, 1136);
+    c.fillText(`מבוסס על ${answered} מתוך ${Q.length} השאלות שבשאלון`
+      + (skipped ? ` · ${skipped} סומנו "אין לי דעה" והוצאו מהחישוב` : ''), R, 1136);
     footer(c, 'מה יוצא לכם? השאלון בקישור');
     return cv;
   }
@@ -1776,8 +1808,11 @@ const SHARE = (() => {
    ============================================================ */
 const MATCH = (() => {
   const N = Q.length;
-  let ans = Array(N).fill(null);     // 1 / 0 / -1 / null = דילוג
-  let wt  = Array(N).fill(1);        // 1 רגיל · 3 חשוב לי
+  let ans  = Array(N).fill(null);    // 1 / 0 / -1 · null = טרם נענתה
+  let wt   = Array(N).fill(1);       // 1 רגיל · 3 חשוב לי
+  /* דילוג מוצהר: "אין לי דעה בנושא". השאלה יוצאת מהחישוב לגמרי — היא לא נספרת
+     כעמדת ביניים ולא מדללת את הציון, בשונה מ"באמצע" שהיא עמדה לכל דבר. */
+  let skip = Array(N).fill(false);
 
   const qbox = $('#qbox');
   const domName = {}; DOMAINS.forEach(d => domName[d.id] = d.name);
@@ -1794,7 +1829,12 @@ const MATCH = (() => {
           <button class="opt" type="button" data-v="1"  aria-pressed="false">מסכים</button>
           <button class="opt" type="button" data-v="0"  aria-pressed="false">באמצע</button>
           <button class="opt" type="button" data-v="-1" aria-pressed="false">לא מסכים</button>
-          <button class="wt"  type="button" aria-pressed="false" title="השאלה הזאת נספרת פי 3">★ חשוב לי</button>
+        </div>
+        <div class="qmeta">
+          <button class="wt" type="button" aria-pressed="false"
+            title="השאלה הזאת נספרת פי 3 בחישוב">★ חשוב לי</button>
+          <button class="sk" type="button" aria-pressed="false"
+            title="השאלה תוצא מהחישוב ולא תיחשב כעמדת ביניים">אין לי דעה בנושא</button>
         </div></div>`;
     });
     html += `</div>`;
@@ -1806,19 +1846,31 @@ const MATCH = (() => {
     const i = +q.dataset.i;
     const opt = e.target.closest('.opt');
     const w   = e.target.closest('.wt');
+    const sk  = e.target.closest('.sk');
     if(opt){
       const v = +opt.dataset.v;
       const same = ans[i] === v;
       ans[i] = same ? null : v;                        // לחיצה חוזרת = ביטול
-      q.querySelectorAll('.opt').forEach(b =>
-        b.setAttribute('aria-pressed', (!same && b === opt) ? 'true' : 'false'));
+      if(ans[i] !== null) skip[i] = false;             // בחירת עמדה מבטלת דילוג
     }
-    if(w){
-      wt[i] = wt[i] === 1 ? 3 : 1;
-      w.setAttribute('aria-pressed', wt[i] === 3 ? 'true' : 'false');
+    if(w && !skip[i]) wt[i] = wt[i] === 1 ? 3 : 1;
+    if(sk){
+      skip[i] = !skip[i];
+      if(skip[i]){ ans[i] = null; wt[i] = 1; }         // דילוג מנקה עמדה ומשקל
     }
-    calc(); save();
+    paintQ(i); calc(); save();
   });
+
+  /* ציור מצב שאלה אחת */
+  function paintQ(i){
+    const q = qbox.querySelector(`.qq[data-i="${i}"]`); if(!q) return;
+    q.classList.toggle('skipped', skip[i]);
+    q.querySelectorAll('.opt').forEach(b =>
+      b.setAttribute('aria-pressed', (!skip[i] && ans[i] !== null && +b.dataset.v === ans[i]) ? 'true' : 'false'));
+    q.querySelector('.wt').setAttribute('aria-pressed', wt[i] === 3 ? 'true' : 'false');
+    q.querySelector('.wt').disabled = skip[i];
+    q.querySelector('.sk').setAttribute('aria-pressed', skip[i] ? 'true' : 'false');
+  }
 
   /* ---------- ניקוד ---------- */
   function score(){
@@ -1847,21 +1899,26 @@ const MATCH = (() => {
 
   function calc(){
     const { answered, res } = score();
-    $('#mcount').textContent = `${answered} / ${N}`;
-    $('#mtrack').style.width = (answered / N * 100) + '%';
+    const skipped = skip.filter(Boolean).length;
+    const done = answered + skipped;                   // שאלות שטופלו, כולל דילוגים
+    $('#mcount').textContent = `${done} / ${N}`;
+    $('#mtrack').style.width = (done / N * 100) + '%';
     window.__res = res;
     window.__ansState = { ans, wt, res, answered };
     document.dispatchEvent(new CustomEvent('petek:ans', { detail: window.__ansState }));
     paintVS();
 
     if(answered < 5){
-      $('#rhint').textContent = `ענו על לפחות חמש שאלות כדי לראות דירוג. (${answered}/${N})`;
+      $('#rhint').textContent = `ענו על לפחות חמש שאלות כדי לראות דירוג. נענו ${answered}`
+        + (skipped ? ` · ${skipped} סומנו "אין לי דעה"` : '') + '.';
       $('#rslip').innerHTML = ''; $('#rrows').innerHTML = '';
       $('#rmini').style.display = 'none'; $('#rwhy').style.display = 'none';
       return;
     }
     const heavy = wt.filter((w,i) => w === 3 && ans[i] !== null).length;
-    $('#rhint').textContent = `מבוסס על ${answered} מתוך ${N} שאלות` + (heavy ? ` · ${heavy} מסומנות כחשובות` : '');
+    $('#rhint').textContent = `מבוסס על ${answered} מתוך ${N} שאלות`
+      + (heavy ? ` · ${heavy} מסומנות כחשובות` : '')
+      + (skipped ? ` · ${skipped} הוצאו מהחישוב לבקשתכם` : '');
 
     const top = res[0];
     $('#rslip').innerHTML = `<div class="rslip">
@@ -1904,33 +1961,29 @@ const MATCH = (() => {
   });
 
   /* ---------- שמירה ושיתוף ---------- */
-  const enc = () => ans.map((a,i) => a === null ? '_' : (a === 1 ? (wt[i] === 3 ? 'A' : 'a')
-    : a === 0 ? (wt[i] === 3 ? 'N' : 'n') : (wt[i] === 3 ? 'D' : 'd'))).join('');
+  /* קידוד: ‎_ טרם נענתה · s דילוג מוצהר · אות קטנה משקל רגיל · אות גדולה "חשוב לי" */
+  const enc = () => ans.map((a,i) => skip[i] ? 's' : a === null ? '_'
+    : a === 1 ? (wt[i] === 3 ? 'A' : 'a')
+    : a === 0 ? (wt[i] === 3 ? 'N' : 'n') : (wt[i] === 3 ? 'D' : 'd')).join('');
+  const DEC = { a:[1,1], A:[1,3], n:[0,1], N:[0,3], d:[-1,1], D:[-1,3] };
   function dec(str){
     if(!str || str.length !== N) return false;
     [...str].forEach((c,i) => {
-      const m = { a:[1,1], A:[1,3], n:[0,1], N:[0,3], d:[-1,1], D:[-1,3] }[c];
-      ans[i] = m ? m[0] : null; wt[i] = m ? m[1] : 1;
+      const m = DEC[c];
+      ans[i] = m ? m[0] : null; wt[i] = m ? m[1] : 1; skip[i] = c === 's';
     });
     return true;
   }
-  function paint(){
-    $$('.qq').forEach(q => {
-      const i = +q.dataset.i;
-      q.querySelectorAll('.opt').forEach(b =>
-        b.setAttribute('aria-pressed', (ans[i] !== null && +b.dataset.v === ans[i]) ? 'true' : 'false'));
-      q.querySelector('.wt').setAttribute('aria-pressed', wt[i] === 3 ? 'true' : 'false');
-    });
-  }
+  function paint(){ for(let i = 0; i < N; i++) paintQ(i); }
   function save(){ try { localStorage.setItem('petek26', enc()); } catch(e){} }
 
   /* ---------- אתגר חבר: השוואה מול תשובות שהגיעו בקישור ---------- */
   let VS = null;
   (() => {
-    const raw = (location.hash.match(/vs=([aAnNdD_]+)/) || [])[1];
+    const raw = (location.hash.match(/vs=([aAnNdDs_]+)/) || [])[1];
     if(!raw || raw.length !== N) return;
-    const map = { a:[1,1], A:[1,3], n:[0,1], N:[0,3], d:[-1,1], D:[-1,3] };
-    VS = [...raw].map(ch => (map[ch] || [null])[0]);
+    /* שאלה שהשולח דילג עליה (s) או לא ענה (_) יוצאת מההשוואה */
+    VS = [...raw].map(ch => (DEC[ch] || [null])[0]);
   })();
 
   function vsCompare(){
@@ -1976,7 +2029,8 @@ const MATCH = (() => {
 
   $('#bcard').addEventListener('click', e => {
     const { res, answered } = score();
-    SHARE.run(e.currentTarget, () => SHARE.slipCard(res, answered), 'petek-hapetek.png',
+    const skipped = skip.filter(Boolean).length;
+    SHARE.run(e.currentTarget, () => SHARE.slipCard(res, answered, skipped), 'petek-hapetek.png',
       `הפתק שלי: ${res[0].p.name} · ${res[0].pct}% התאמה. מה יוצא לכם? ${myURL()}`);
   });
 
@@ -1986,13 +2040,13 @@ const MATCH = (() => {
       'עניתי על 29 שאלות לקראת הבחירות. כמה אנחנו דומים?'));
 
   $('#mreset').addEventListener('click', () => {
-    ans = Array(N).fill(null); wt = Array(N).fill(1);
+    ans = Array(N).fill(null); wt = Array(N).fill(1); skip = Array(N).fill(false);
     paint(); calc(); save();
     try { history.replaceState(null,'',location.pathname); } catch(e){}
   });
 
   /* טעינה: קודם מהקישור, אחרת מהדפדפן */
-  const fromHash = (location.hash.match(/t=([aAnNdD_]+)/) || [])[1];
+  const fromHash = (location.hash.match(/t=([aAnNdDs_]+)/) || [])[1];
   let loaded = fromHash && dec(fromHash);
   if(!loaded){ try { loaded = dec(localStorage.getItem('petek26')); } catch(e){} }
   paint(); calc();
