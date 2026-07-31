@@ -109,7 +109,7 @@ header.bar.stuck{border-bottom-color:var(--color-bone)}
   padding:3px 14px;line-height:22px;border:0;transition:color .25s}
 .navin a:hover{color:var(--color-ink-black)}
 .navin a.on{color:var(--color-ink-black);font-weight:500}
-@media(max-width:700px){.brand span{display:none}.navin a{font-size:14px;padding:3px 12px}}
+@media(max-width:700px){.navin a{font-size:14px;padding:3px 12px}}
 
 /* ============ פתיח ============ */
 /* הפתיחה קצרה בכוונה — השאלון מתחיל בתוך המסך הראשון */
@@ -210,9 +210,8 @@ section{padding:var(--spacing-80) 0;border-top:1px solid var(--color-bone)}
 .turn{display:flex;gap:12px;align-items:flex-end;height:200px;padding-bottom:8px;
   border-bottom:1px solid var(--color-bone);margin-bottom:12px}
 .turn div{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%}
-.turn i{display:block;width:100%;background:var(--color-pure-white);
-  border:1px solid var(--color-bone);border-bottom:0;border-top:2px solid var(--color-ink-black);
-  height:0;transition:height 1s var(--e)}
+.turn i{display:block;width:100%;background:rgba(24,16,17,.10);
+  border-top:2px solid var(--color-ink-black);height:0;transition:height 1s var(--e)}
 .turn b{font-size:15px;font-weight:700;margin-bottom:6px}
 .turnx{display:flex;gap:12px}
 .turnx div{flex:1;text-align:center;font-size:12px;color:var(--tx3);line-height:1.4}
@@ -434,7 +433,7 @@ button.pri.big{width:100%;font-size:16px;padding:14px 20px}
 .cmprow s.y{background:var(--color-pure-white);color:var(--green);box-shadow:inset 0 0 0 1px var(--green)}
 .cmprow s.n{background:var(--color-pure-white);color:var(--red);box-shadow:inset 0 0 0 1px var(--red)}
 .cmprow s.m{background:var(--color-pure-white);color:var(--tx2);box-shadow:inset 0 0 0 1px var(--color-bone)}
-.cmprow.diff{background:var(--color-pure-white)}
+.cmprow.diff{background:var(--color-pure-white);box-shadow:inset -2px 0 0 var(--color-ink-black)}
 .cmpdom{padding:var(--spacing-24) 0 6px;font-size:17px;font-weight:700;color:var(--tx)}
 @media(max-width:620px){.cmphead,.cmprow{grid-template-columns:1fr 66px 66px;gap:8px;font-size:14px}}
 
@@ -2574,7 +2573,7 @@ watch();
   const maxV = Math.max(...VOTES22.map(v => v.v));
   $('#votes22').innerHTML = VOTES22.map(v => `
     <div class="prow"><div class="nm">${v.n}</div>
-      <div class="track"><i data-w="${v.v / maxV * 100}" style="background:var(--tx3)"></i></div>
+      <div class="track"><i data-w="${v.v / maxV * 100}" style="background:var(--color-ink-black)"></i></div>
       <div class="v"><b class="n">${v.v.toLocaleString('en-US')}</b><span class="n">${v.s} מנדטים</span></div>
     </div>`).join('');
 
