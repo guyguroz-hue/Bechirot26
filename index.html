@@ -11,18 +11,18 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;700&family=Noto+Serif+Hebrew:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   שפת העיצוב — Pravah, בהתאמה לעברית
-   • הטוקנים למטה הם המקור היחיד: קנבס קלף, טקסט שחור־דיו, ללא צבעי הדגשה.
-   • הפרש טונלי במקום צבע: מלבן לבן מעל הקלף, ופס כהה מלא־רוחב אחד בעמוד.
-   • ללא צללים. עומק נוצר מגוון משטח ומקו של פיקסל אחד בלבד.
-   • טיפוגרפיה: Heebo בלבד. במקור ABCfavorit, שאין לו עברית.
-   • התאמות עברית שחורגות מהמקור באופן מודע:
-     – אין UPPERCASE בעברית, ולכן תגית הסעיף היא תו בורג לבן ולא טקסט גדול.
-     – ריווח אותיות חיובי שובר את צורת המילה בעברית: הריווח נשאר אפס,
-       גם בתוויות הקטנות וגם בכותרות הגדולות.
+   שפת העיצוב
+   • הפלטה כהה: קנבס 0E1013, טקסט קרם, זהב לפעולה ולסימון המשתמש.
+   • שכבת המבנה מ-Pravah: סקאלת 8, סקאלת טיפוגרפיה, רדיוס 4, כפתור גלולה,
+     תגיות כבורג מתוחם, מעוין כסימן, ופס בגוון שונה פעם אחת בעמוד.
+   • טיפוגרפיה: שתי משפחות — סריף עברי לכותרות ולמספרים, אסיסטנט לגוף ולממשק.
+   • התאמות עברית:
+     – אין UPPERCASE בעברית, ולכן תגית הסעיף היא בורג מתוחם ולא טקסט גדול.
+     – ריווח אותיות אפס בכל האתר: בעברית ריווח חיובי שובר את צורת המילה,
+       וריווח שלילי בכותרות גדולות מקרב אותיות עד כדי התנגשות.
      – מספרים ותאריכים מבודדים דו־כיוונית כדי שלא יתהפכו.
    ============================================================ */
 :root{
@@ -59,22 +59,25 @@
   --bl-a:var(--a); --bl-b:var(--b); --bl-c:var(--c); --bl-d:var(--d);
   --txt:var(--fg); --txt2:var(--fg2); --txt3:var(--fg3);
   --teal:var(--green); --rose:var(--red);
+  /* שתי משפחות: סריף עברי לכותרות ולמספרים, אסיסטנט לגוף ולממשק.
+     שלושת המשקלים 400/500/700 נטענים בשתיהן. */
+  --sans:'Assistant',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --serif:'Noto Serif Hebrew','Assistant',Georgia,serif;
   --max:var(--page-max-width); --hdr:64px;
   --e:cubic-bezier(.24,.7,.3,1);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
-/* Heebo היא המשפחה היחידה, בשלושה משקלים:
-   400 טקסט רץ · 500 כפתורים, ניווט ותגיות · 700 כותרות והדגשות. */
+/* שלושה משקלים בשתי המשפחות: 400 טקסט רץ · 500 ממשק · 700 כותרות והדגשות. */
 body{
   margin:0;background:var(--ink);color:var(--tx);
-  font-family:'Heebo',sans-serif;
+  font-family:var(--sans);
   font-size:17px;line-height:1.6;font-weight:400;letter-spacing:0;
   direction:rtl;text-align:right;
   -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
   font-feature-settings:"kern" 1;overflow-x:hidden;
 }
-h1,h2,h3,h4,h5{font-family:'Heebo',sans-serif;font-weight:700;line-height:1.3;letter-spacing:0;margin:0}
+h1,h2,h3,h4,h5{font-family:var(--serif);font-weight:700;line-height:1.3;letter-spacing:0;margin:0}
 button,select,input,.chip,.pick,.opt,.wt,.sk,.navin a{font-weight:500}
 p{margin:0 0 1em;max-width:70ch}
 a{color:var(--tx);text-decoration:none;border-bottom:1px solid var(--rule2)}
@@ -95,7 +98,7 @@ header.bar{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--bg);
   border-bottom:1px solid transparent;transition:border-color .3s var(--e)}
 header.bar.stuck{border-bottom-color:var(--hair)}
 .barin{display:flex;align-items:center;gap:16px;height:var(--hdr)}
-.brand{flex:none;display:flex;align-items:center;gap:10px;font-size:15px;
+.brand{font-family:var(--serif);flex:none;display:flex;align-items:center;gap:10px;font-size:15px;
   font-weight:500;color:var(--tx)}
 /* הלוגו: מעוין קטן, כמו במערכת המקורית */
 .brand i{width:9px;height:9px;background:var(--fg);display:block;transform:rotate(45deg)}
@@ -140,7 +143,7 @@ h1.big > span{display:block;color:var(--fg2);font-weight:400;font-size:.4em;
 .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--hair);
   border:1px solid var(--hair);border-radius:var(--radius-md);overflow:hidden;margin-top:var(--spacing-8)}
 .stat{background:var(--bg2);padding:var(--spacing-16) var(--spacing-24)}
-.stat b{display:block;font-size:32px;line-height:1.1;color:var(--fg);font-weight:400}
+.stat b{font-family:var(--serif);display:block;font-size:32px;line-height:1.1;color:var(--fg);font-weight:400}
 .stat span{font-size:12px;color:var(--tx2);font-weight:400}
 
 /* ============ מבנה כללי ============ */
@@ -193,7 +196,7 @@ section{padding:var(--spacing-80) 0;border-top:1px solid var(--hair)}
 .prow .track i{display:block;height:100%;width:0;transition:width 1.1s var(--e)}
 .prow .track u{position:absolute;top:-5px;height:18px;width:1px;background:var(--tx3);text-decoration:none}
 .prow .v{text-align:left}
-.prow .v b{font-size:17px;font-weight:700}
+.prow .v b{font-family:var(--serif);font-size:17px;font-weight:700}
 .prow .v span{display:block;font-size:12px;color:var(--tx3);font-weight:400}
 @media(max-width:620px){.prow{grid-template-columns:118px 1fr 74px;font-size:14px;gap:10px}}
 
@@ -202,18 +205,18 @@ section{padding:var(--spacing-80) 0;border-top:1px solid var(--hair)}
   border:1px solid var(--hair);border-radius:var(--radius-md);
   overflow:hidden;margin-bottom:var(--spacing-48)}
 .fact{background:var(--bg2);padding:var(--spacing-24);outline:1px solid var(--hair)}
-.fact b{display:block;font-size:40px;line-height:1.2;color:var(--fg);
+.fact b{font-family:var(--serif);display:block;font-size:40px;line-height:1.2;color:var(--fg);
   font-weight:400;margin-bottom:var(--spacing-8)}
 .fact strong{display:block;font-size:15px;font-weight:700;margin-bottom:4px}
 .fact span{font-size:14px;color:var(--tx2);font-weight:400;line-height:1.5}
-.sub2{font-size:20px;font-weight:700;margin:0 0 4px}
+.sub2{font-family:var(--serif);font-size:20px;font-weight:700;margin:0 0 4px}
 .sub2note{font-size:15px;color:var(--tx2);font-weight:400;margin-bottom:var(--spacing-24);max-width:68ch}
 .turn{display:flex;gap:12px;align-items:flex-end;height:200px;padding-bottom:8px;
   border-bottom:1px solid var(--hair);margin-bottom:12px}
 .turn div{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%}
 .turn i{display:block;width:100%;background:rgba(232,228,219,.10);
   border-top:2px solid var(--fg);height:0;transition:height 1s var(--e)}
-.turn b{font-size:15px;font-weight:700;margin-bottom:6px}
+.turn b{font-family:var(--serif);font-size:15px;font-weight:700;margin-bottom:6px}
 .turnx{display:flex;gap:12px}
 .turnx div{flex:1;text-align:center;font-size:12px;color:var(--tx3);line-height:1.4}
 .turnx div s{display:block;text-decoration:none;color:var(--tx2);font-weight:500;font-size:12px}
@@ -223,13 +226,13 @@ section{padding:var(--spacing-80) 0;border-top:1px solid var(--hair)}
   display:grid;grid-template-columns:130px 76px 1fr;gap:var(--spacing-16);align-items:baseline}
 .wast > div:last-child{border-bottom:0}
 .wast b{font-weight:500;font-size:16px}
-.wast s{text-decoration:none;font-size:17px;color:var(--red);font-weight:700}
+.wast s{font-family:var(--serif);text-decoration:none;font-size:17px;color:var(--red);font-weight:700}
 .wast span{font-size:14px;color:var(--tx2);font-weight:400}
 @media(max-width:640px){.wast > div{grid-template-columns:1fr auto;gap:6px}.wast span{grid-column:1/-1}}
 .kv2{border-top:1px solid var(--hair)}
 .kv2 > div{padding:var(--spacing-24) 0;border-bottom:1px solid var(--hair)}
 .kv2 .h{display:flex;justify-content:space-between;gap:14px;align-items:baseline;flex-wrap:wrap}
-.kv2 .h b{font-size:20px;font-weight:700}
+.kv2 .h b{font-family:var(--serif);font-size:20px;font-weight:700}
 .kv2 .h s{text-decoration:none;font-size:14px;color:var(--tx2);font-weight:400}
 .kv2 .r{font-size:14px;color:var(--tx3);margin:3px 0 8px;font-weight:500}
 .kv2 p{margin:0;font-size:15px;color:var(--tx2);font-weight:400;line-height:1.5}
@@ -256,7 +259,7 @@ section{padding:var(--spacing-80) 0;border-top:1px solid var(--hair)}
 .ptop{padding:var(--spacing-24) var(--spacing-24) var(--spacing-16);
   border-bottom:1px solid var(--hair);position:relative}
 .ptab{position:absolute;top:0;right:0;width:44px;height:3px}
-.plet{display:inline-block;font-size:23px;font-weight:700;line-height:1;padding:9px 12px;
+.plet{font-family:var(--serif);display:inline-block;font-size:23px;font-weight:700;line-height:1;padding:9px 12px;
   background:var(--fg);color:var(--bg);border-radius:var(--radius-md)}
 .plet.none{background:transparent;border:1px dashed var(--hair);color:var(--tx3);
   font-size:12px;font-weight:400;padding:10px 12px}
@@ -264,7 +267,7 @@ section{padding:var(--spacing-80) 0;border-top:1px solid var(--hair)}
 .plead{font-size:15px;color:var(--tx2);margin-top:4px;font-weight:400}
 .pnums{display:flex;gap:var(--spacing-24);margin-top:var(--spacing-16)}
 .pnums div{font-size:12px;color:var(--tx3);font-weight:400}
-.pnums b{display:block;font-size:17px;color:var(--tx);font-weight:700}
+.pnums b{font-family:var(--serif);display:block;font-size:17px;color:var(--tx);font-weight:700}
 .pbloc{margin-top:14px;font-size:13px;color:var(--tx3);display:flex;align-items:center;gap:8px}
 .pbloc s{width:7px;height:7px;text-decoration:none;flex:none;border-radius:1px}
 .pbody{padding:var(--spacing-24);flex:1}
@@ -293,7 +296,7 @@ details.acc[open] summary::after{content:" ↑"}
 .mbar{display:flex;align-items:center;gap:var(--spacing-16);padding:12px var(--spacing-16);
   border:1px solid var(--hair);border-radius:var(--radius-md);background:var(--bg);
   position:sticky;top:68px;z-index:20;margin-bottom:12px}
-.mbar .cnt{font-size:15px;font-weight:700;white-space:nowrap}
+.mbar .cnt{font-family:var(--serif);font-size:15px;font-weight:700;white-space:nowrap}
 .mbar .track{flex:1;height:3px;background:var(--line)}
 .mbar .track i{display:block;height:100%;background:var(--fg);width:0;transition:width .4s var(--e)}
 .mbar button{background:transparent;border:1px solid var(--hair2);color:var(--tx2);font-size:14px;
@@ -301,7 +304,7 @@ details.acc[open] summary::after{content:" ↑"}
 .mbar button:hover{background:var(--bg2)}
 .mhint{font-size:13px;color:var(--tx2);font-weight:400;line-height:1.5;margin:0;max-width:none}
 .mhint b{color:var(--tx);font-weight:500}
-.domh{font-size:20px;font-weight:700;padding:var(--spacing-32) 0 12px;
+.domh{font-family:var(--serif);font-size:20px;font-weight:700;padding:var(--spacing-32) 0 12px;
   border-bottom:1px solid var(--hair);display:flex;justify-content:space-between;
   align-items:baseline;gap:12px}
 .domh s{text-decoration:none;font-size:12px;color:var(--tx3);font-weight:400}
@@ -343,7 +346,7 @@ details.acc[open] summary::after{content:" ↑"}
 .lockslip{position:relative;margin:6px 0 var(--spacing-16);padding:var(--spacing-32) var(--spacing-16);
   background:var(--paper);border-radius:var(--radius-md);
   box-shadow:0 16px 36px rgba(0,0,0,.5);transform:rotate(-1.15deg);overflow:hidden}
-.lockslip span{display:block;font-size:56px;font-weight:700;line-height:1.1;color:var(--paper-fg);
+.lockslip span{font-family:var(--serif);display:block;font-size:56px;font-weight:700;line-height:1.1;color:var(--paper-fg);
   opacity:.16;filter:blur(2px)}
 .lockslip::after{content:'';position:absolute;inset:0;
   background:repeating-linear-gradient(-45deg,transparent 0 12px,rgba(14,16,19,.045) 12px 24px)}
@@ -366,16 +369,16 @@ details.acc[open] summary::after{content:" ↑"}
   transform:rotate(-1.15deg);box-shadow:0 16px 36px rgba(0,0,0,.5)}
 .rslip::before{content:'פתק הצבעה · הכנסת ה-26';display:block;font-size:11px;font-weight:400;
   color:var(--paper-fg2);padding-bottom:10px;border-bottom:1px solid var(--paper-hair)}
-.rslip .l{font-size:56px;font-weight:700;line-height:1.1;color:var(--paper-fg);margin-top:6px}
-.rslip .nm{font-size:20px;font-weight:700;margin-top:6px;padding-top:12px;
+.rslip .l{font-family:var(--serif);font-size:56px;font-weight:700;line-height:1.1;color:var(--paper-fg);margin-top:6px}
+.rslip .nm{font-family:var(--serif);font-size:20px;font-weight:700;margin-top:6px;padding-top:12px;
   border-top:1px solid var(--paper-hair)}
 .rslip .p{font-size:14px;color:var(--paper-fg2);margin-top:2px;font-weight:400}
 .rrow{padding:14px 0;border-bottom:1px solid var(--hair)}
 .rrow:last-of-type{border-bottom:0}
 .rtop{display:flex;align-items:baseline;gap:11px;font-size:17px}
-.rtop .rnum{font-style:normal;font-size:12px;font-weight:400;color:var(--tx3);flex:none}
+.rtop .rnum{font-family:var(--serif);font-style:normal;font-size:12px;font-weight:400;color:var(--tx3);flex:none}
 .rtop b{font-weight:500;flex:1}
-.rtop s{text-decoration:none;font-size:20px;font-weight:700;color:var(--tx);flex:none}
+.rtop s{font-family:var(--serif);text-decoration:none;font-size:20px;font-weight:700;color:var(--tx);flex:none}
 .rsub{font-size:12px;color:var(--tx3);margin-top:2px;font-weight:400;padding-inline-start:25px}
 .rbar{height:4px;background:var(--line2);margin-top:9px}
 .rbar i{display:block;height:100%;width:0;transition:width .6s var(--e)}
@@ -397,15 +400,15 @@ button.pri.big{width:100%;font-size:16px;padding:14px 20px}
 /* ההשוואה מול חבר */
 .vsbox{margin-top:var(--spacing-24);padding:var(--spacing-24);border:1px solid var(--hair);
   border-radius:var(--radius-md);background:var(--bg)}
-.vsbox h4{font-size:20px;margin-bottom:6px;font-weight:700}
+.vsbox h4{font-family:var(--serif);font-size:20px;margin-bottom:6px;font-weight:700}
 .vsbox p{font-size:14px;color:var(--tx2);font-weight:400;margin:0;line-height:1.5}
 .vsbig{display:flex;align-items:baseline;gap:12px;margin:4px 0 var(--spacing-16)}
-.vsbig b{font-size:48px;line-height:1.1;color:var(--fg);font-weight:400}
+.vsbig b{font-family:var(--serif);font-size:48px;line-height:1.1;color:var(--fg);font-weight:400}
 .vsbig span{font-size:12px;color:var(--tx3);font-weight:400}
 .vsplit{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:14px 0;
   border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
 .vsplit div{font-size:12px;color:var(--tx3)}
-.vsplit b{display:block;font-size:28px;color:var(--tx);font-weight:400}
+.vsplit b{font-family:var(--serif);display:block;font-size:28px;color:var(--tx);font-weight:400}
 .vsplit div:first-child b{color:var(--green)}
 .vsplit div:last-child b{color:var(--red)}
 .vsq{margin-top:12px !important;font-size:13px !important;line-height:1.5}
@@ -435,7 +438,7 @@ button.pri.big{width:100%;font-size:16px;padding:14px 20px}
 .cmprow s.n{background:var(--bg2);color:var(--red);box-shadow:inset 0 0 0 1px var(--red)}
 .cmprow s.m{background:var(--bg2);color:var(--tx2);box-shadow:inset 0 0 0 1px var(--hair)}
 .cmprow.diff{background:var(--bg2);box-shadow:inset -2px 0 0 var(--fg)}
-.cmpdom{padding:var(--spacing-24) 0 6px;font-size:17px;font-weight:700;color:var(--tx)}
+.cmpdom{font-family:var(--serif);padding:var(--spacing-24) 0 6px;font-size:17px;font-weight:700;color:var(--tx)}
 @media(max-width:620px){.cmphead,.cmprow{grid-template-columns:1fr 66px 66px;gap:8px;font-size:14px}}
 
 /* ============ קואליציה ============ */
@@ -447,13 +450,13 @@ button.pri.big{width:100%;font-size:16px;padding:14px 20px}
   color:var(--tx2);transition:all .22s var(--e);font-weight:400}
 .pick:hover{border-color:var(--fg);color:var(--tx)}
 .pick s{text-decoration:none;width:7px;height:7px;flex:none;border-radius:1px}
-.pick b{font-size:15px;color:var(--tx3);font-weight:700}
+.pick b{font-family:var(--serif);font-size:15px;color:var(--tx3);font-weight:700}
 .pick[aria-pressed="true"]{background:var(--fg);border-color:var(--fg);
   color:var(--bg)}
 .pick[aria-pressed="true"] b{color:var(--bg)}
 .cpanel{position:sticky;top:80px;border:1px solid var(--hair);border-radius:var(--radius-md);
   background:var(--bg2);padding:var(--spacing-24)}
-.ctotal{font-size:48px;line-height:1.1;color:var(--fg);text-align:center;font-weight:400}
+.ctotal{font-family:var(--serif);font-size:48px;line-height:1.1;color:var(--fg);text-align:center;font-weight:400}
 .ctotal small{display:block;font-size:12px;color:var(--tx3);font-weight:400;margin-top:6px}
 .cmeter{height:6px;background:var(--line);margin:var(--spacing-16) 0 10px;position:relative}
 .cmeter i{display:block;height:100%;width:0;background:var(--fg);transition:width .5s var(--e)}
@@ -472,7 +475,7 @@ button.pri.big{width:100%;font-size:16px;padding:14px 20px}
 .tl li.done::before{background:var(--fg);border-color:var(--fg)}
 .tl .d{display:block;font-size:14px;color:var(--tx);font-weight:500}
 .tl li:not(.done) .d{color:var(--tx3)}
-.tl .t{font-size:17px;font-weight:700}
+.tl .t{font-family:var(--serif);font-size:17px;font-weight:700}
 .tl .x{color:var(--tx2);font-size:15px;font-weight:400;margin-top:2px;line-height:1.5}
 
 /* ============ שונות ============ */
@@ -484,7 +487,7 @@ dl.kv > div{display:grid;grid-template-columns:140px 1fr;gap:var(--spacing-16);p
 dl.kv dt{font-weight:700;font-size:15px}
 dl.kv dd{margin:0;color:var(--tx2);font-size:15px;font-weight:400;line-height:1.5}
 .trap{padding:var(--spacing-16) 0;border-bottom:1px solid var(--hair)}
-.trap b{display:block;font-size:17px;margin-bottom:4px;font-weight:700}
+.trap b{font-family:var(--serif);display:block;font-size:17px;margin-bottom:4px;font-weight:700}
 .trap p{margin:0;color:var(--tx2);font-size:15px;font-weight:400;line-height:1.5}
 .srcs{columns:2;column-gap:var(--spacing-48);font-size:14px;color:var(--tx2);font-weight:400;
   list-style:none;padding:0;margin:0}
@@ -507,11 +510,11 @@ dl.kv dd{margin:0;color:var(--tx2);font-size:15px;font-weight:400;line-height:1.
 .mapbox svg{display:block;width:100%;height:auto;overflow:visible;touch-action:manipulation}
 .mapbox .grid{stroke:var(--line);stroke-width:1}
 .mapbox .axis{stroke:var(--rule2);stroke-width:1}
-.mapbox .axlab{fill:var(--tx2);font-family:'Heebo',sans-serif;font-size:11.5px;font-weight:400}
+.mapbox .axlab{fill:var(--tx2);font-family:'Assistant',sans-serif;font-size:11.5px;font-weight:400}
 .mapbox .quad{fill:rgba(232,228,219,.028)}
 .mapbox .dot{cursor:pointer;transition:opacity .25s var(--e)}
 .mapbox .dot circle{transition:r .5s var(--e),opacity .25s var(--e)}
-.mapbox .dot text{fill:var(--tx);font-family:'Heebo',sans-serif;font-size:11.5px;font-weight:400;
+.mapbox .dot text{fill:var(--tx);font-family:'Assistant',sans-serif;font-size:11.5px;font-weight:400;
   paint-order:stroke;stroke:var(--bg);stroke-width:3.5px;stroke-linejoin:round}
 .mapbox .dot:hover text{font-weight:700}
 /* סימון המשתמש: שחור־דיו וטבעת קלף — נבדל משלושת צבעי הגושים גם בבהירות וגם בצורה */
@@ -522,7 +525,7 @@ dl.kv dd{margin:0;color:var(--tx2);font-size:15px;font-weight:400;line-height:1.
 .maptip{position:absolute;z-index:8;width:max-content;max-width:250px;padding:var(--spacing-16);
   background:var(--bg2);border:1px solid var(--hair);border-radius:var(--radius-md);
   font-size:13px;line-height:1.5;transform:translate(-50%,-100%)}
-.maptip b{display:block;font-size:15px;margin-bottom:2px;font-weight:700}
+.maptip b{font-family:var(--serif);display:block;font-size:15px;margin-bottom:2px;font-weight:700}
 .maptip i{display:block;font-style:normal;color:var(--tx3);font-size:12px;margin-bottom:8px}
 .maptip s{display:flex;justify-content:space-between;gap:14px;text-decoration:none;color:var(--tx2);font-size:13px}
 .maptip s u{text-decoration:none;color:var(--tx);font-weight:500}
@@ -533,14 +536,14 @@ dl.kv dd{margin:0;color:var(--tx2);font-size:15px;font-weight:400;line-height:1.
 .maptip[hidden]{display:none}
 .mapyou{padding:var(--spacing-24);background:var(--bg2);border:1px solid var(--hair);
   border-radius:var(--radius-md);margin-bottom:var(--spacing-16)}
-.mapyou h4{font-size:20px;margin-bottom:6px;font-weight:700}
+.mapyou h4{font-family:var(--serif);font-size:20px;margin-bottom:6px;font-weight:700}
 .mapyou p{font-size:14px;color:var(--tx2);font-weight:400;margin:0;line-height:1.5}
 .mapyou p+p{margin-top:8px}
 .mapyou strong{color:var(--tx);font-weight:700}
 .mapyou .co{display:flex;gap:var(--spacing-24);margin-top:12px;padding-top:12px;
   border-top:1px solid var(--hair)}
 .mapyou .co div{font-size:12px;color:var(--tx3)}
-.mapyou .co b{display:block;font-size:20px;color:var(--tx);font-weight:400}
+.mapyou .co b{font-family:var(--serif);display:block;font-size:20px;color:var(--tx);font-weight:400}
 .mapleg{display:flex;flex-wrap:wrap;gap:8px var(--spacing-16);margin-bottom:var(--spacing-16)}
 .mapleg span{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--tx2)}
 .mapleg b{width:9px;height:9px;border-radius:50%;display:block}
@@ -1624,7 +1627,8 @@ const SHARE = (() => {
 
   /* אותה משפחה ואותם שלושה משקלים כמו בדף — כדי שהתמונה תיראה כמו האתר */
   const WT = { 300:400, 400:400, 500:500, 600:500, 700:700, 800:700 };
-  const f = (c, w, s) => c.font = `${WT[w] || 400} ${s}px 'Heebo', sans-serif`;
+  const SANS = "'Assistant', sans-serif", SERIF = "'Noto Serif Hebrew', serif";
+  const f = (c, w, s, serif) => c.font = `${WT[w] || 400} ${s}px ${serif ? SERIF : SANS}`;
 
   /* חיתוך טקסט ארוך לרוחב נתון */
   function clip(c, t, max){
@@ -1648,7 +1652,7 @@ const SHARE = (() => {
     /* הלוגו: מעוין שחור, כמו בסרגל העליון */
     c.save(); c.translate(R - 9, 74); c.rotate(Math.PI/4);
     c.fillStyle = GOLD; c.fillRect(-7, -7, 14, 14); c.restore();
-    c.textAlign = 'right'; f(c, 500, 24, 0); c.fillStyle = TX;
+    c.textAlign = 'right'; f(c, 700, 26, 1); c.fillStyle = TX;
     c.fillText('פתק', R - 28, 82);
     /* תגית הסעיף: בורג לבן במסגרת עצם, במקום ה-UPPERCASE של המקור */
     c.textAlign = 'left'; f(c, 400, 19, 0);
@@ -1681,21 +1685,21 @@ const SHARE = (() => {
     c.fillStyle = 'rgba(14,16,19,.42)'; f(c, 400, 19, 0);
     c.fillText('פתק הצבעה · הכנסת ה-26 · 27 באוקטובר 2026', x + w/2, y + 50);
     c.fillStyle = 'rgba(14,16,19,.14)'; c.fillRect(x + 44, y + 70, w - 88, 1);
-    c.fillStyle = PINK; f(c, 700, 186, 0);
+    c.fillStyle = PINK; f(c, 700, 186, 1);
     c.fillText(letter, x + w/2, y + h * .63);
     c.fillStyle = 'rgba(14,16,19,.14)'; c.fillRect(x + 96, y + h - 116, w - 192, 1);
-    c.fillStyle = PINK; f(c, 700, 42, 0); c.fillText(name, x + w/2, y + h - 62);
+    c.fillStyle = PINK; f(c, 700, 42, 1); c.fillText(name, x + w/2, y + h - 62);
     c.fillStyle = PINK2; f(c, 400, 24, 0); c.fillText(sub, x + w/2, y + h - 24);
     c.restore();
   }
 
   /* ---------- שורת דירוג ---------- */
   function rankRow(c, i, y, name, pct, hex){
-    c.textAlign = 'right'; f(c, 400, 22, 0); c.fillStyle = TX3;
+    c.textAlign = 'right'; f(c, 700, 22, 1); c.fillStyle = TX3;
     c.fillText(String(i + 1).padStart(2, '0'), R, y);
     f(c, 600, 31, 0); c.fillStyle = TX;
     c.fillText(clip(c, name, CW - 190), R - 54, y);
-    c.textAlign = 'left'; f(c, 700, 34); c.fillStyle = TX;
+    c.textAlign = 'left'; f(c, 700, 34, 1); c.fillStyle = TX;
     c.fillText(pct + '%', M, y);
     c.fillStyle = 'rgba(232,228,219,.09)'; c.fillRect(M, y + 18, CW, 6);
     const bw = CW * pct / 100;
@@ -1808,9 +1812,9 @@ const SHARE = (() => {
     const { cv, c } = canvas();
     const ax = axById[MAPSTATE.x], ay = axById[MAPSTATE.y];
     frame(c, U ? 'המפה שלי' : 'מפת העמדות');
-    c.textAlign = 'right'; f(c, 400, 44); c.fillStyle = TX;
+    c.textAlign = 'right'; f(c, 700, 44, 1); c.fillStyle = TX;
     c.fillText(ax.name, R, 190);
-    f(c, 400, 40); c.fillStyle = TX3;
+    f(c, 400, 40, 1); c.fillStyle = TX3;
     c.fillText('מול ' + ay.name, R, 244);
     const S = 884;
     mapOn(c, M + (CW - S)/2, 278, S, ax, ay, U);
@@ -1827,7 +1831,7 @@ const SHARE = (() => {
     const tot = list.reduce((s,p) => s + seatOf(p.key), 0);
     const ok = tot >= 61;
 
-    c.textAlign = 'right'; f(c, 400, 150, 0); c.fillStyle = ok ? GOLD : TX;
+    c.textAlign = 'right'; f(c, 700, 150, 1); c.fillStyle = ok ? GOLD : TX;
     c.fillText(String(tot), R, 316);
     const nw = c.measureText(String(tot)).width;
     f(c, 400, 30, 0); c.fillStyle = TX2;
@@ -1865,7 +1869,7 @@ const SHARE = (() => {
       c.fillStyle = hexOf(p); c.beginPath(); c.arc(cx - 6, ly - 8, 6, 0, 7); c.fill();
       c.textAlign = 'right'; f(c, 600, 27, 0); c.fillStyle = TX;
       c.fillText(clip(c, p.name, colW - 90), cx - 22, ly);
-      c.textAlign = 'left'; f(c, 700, 27); c.fillStyle = TX2;
+      c.textAlign = 'left'; f(c, 700, 27, 1); c.fillStyle = TX2;
       c.fillText(String(seatOf(p.key)), cx - colW, ly);
     });
     /* גוש ההצהרות מעוגן לתחתית הכרטיס, כדי שלא יישאר חלל בין הרשימה לכותרת התחתונה */
@@ -1893,7 +1897,7 @@ const SHARE = (() => {
   function vsCard(pct, same, clash, examples, n){
     const { cv, c } = canvas();
     frame(c, 'ההשוואה בינינו');
-    c.textAlign = 'center'; f(c, 400, 210, 0); c.fillStyle = GOLD;
+    c.textAlign = 'center'; f(c, 700, 210, 1); c.fillStyle = GOLD;
     c.fillText(pct + '%', W/2, 400);
     f(c, 400, 34, 0); c.fillStyle = TX2;
     c.fillText('הסכמה בין התשובות שלנו', W/2, 456);
@@ -1902,7 +1906,7 @@ const SHARE = (() => {
 
     c.fillStyle = RULE; c.fillRect(M, 566, CW, 1);
     const cell = (x, big, small, col) => {
-      c.textAlign = 'center'; f(c, 400, 78, 0); c.fillStyle = col;
+      c.textAlign = 'center'; f(c, 700, 78, 1); c.fillStyle = col;
       c.fillText(String(big), x, 676);
       f(c, 400, 24, 0); c.fillStyle = TX3; c.fillText(small, x, 722);
     };
@@ -2309,7 +2313,7 @@ const MATCH = (() => {
      גודל הגופן משתנה בשבירה ל-900 פיקסלים, ולכן נמדד לפי אותו כלל */
   const mc = document.createElement('canvas').getContext('2d');
   const small = () => innerWidth <= 900;
-  const textW = t => { mc.font = `500 ${small() ? 13.5 : 11.5}px 'Heebo', sans-serif`; return mc.measureText(t).width; };
+  const textW = t => { mc.font = `500 ${small() ? 13.5 : 11.5}px 'Assistant', sans-serif`; return mc.measureText(t).width; };
 
   function draw(){
     const ax = axById[MAPSTATE.x], ay = axById[MAPSTATE.y];
